@@ -24,7 +24,7 @@ Se aparecerem as versões, você já está pronto para começar!
 1. **Clone este repositório**
 
 ```bash
-git clone https://github.com/seu-usuario/seu-repositorio.git
+git clone https://github.com/projetosTherion/TraineeWeb.git
 ```
 
 2. **Acesse a pasta do projeto**
