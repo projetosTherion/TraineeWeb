@@ -1,11 +1,49 @@
+import React, {useState} from 'react'; // Importa o React
+import styles from './container.module.css'; // Importa o arquivo CSS
+import Form from '../components/Form/Form';
+
 function Sobre() {
+    const [showForm, setShowForm] = useState(false); // Adicione esta linha
+
     return (
-      <section>
+      <section className={styles.container}>
         <h1>Sobre Nós</h1>
-        <p>Conte aqui a história da empresa, missão, visão e valores.</p>
+        <section>
+          <h2>Nossa História</h2>
+          <p>Conte aqui a história da empresa, como ela começou e os marcos importantes.</p>
+        </section>
+        <section>
+          <h2>Missão, Visão e Valores</h2>
+          <p><strong>Missão:</strong> [Descreva a missão].</p>
+          <p><strong>Visão:</strong> [Descreva a visão].</p>
+          <p><strong>Valores:</strong> [Liste os valores].</p>
+        </section>
+      
+        <p>Adicione imagens para ilustrar a história ou a foto do time .</p>
+        <section>
+          <h2>O que dizem sobre nós</h2>
+          <blockquote>
+            <p>"[Depoimento de um cliente satisfeito]."</p>
+            <footer>- Nome do Cliente</footer>
+        
+ </blockquote>
+      
+  </section>
+
+        <section>
+          <h2>Entre em Contato</h2>
+          <p>Gostaríamos de ouvir de você! Entre em contato conosco para mais informações.</p>
+          
+            {showForm && (
+            <div>
+              <h3>Preencha o Formulário</h3>
+              <Form /> {/* Exibe o componente Form */}
+              <button onClick={() => setShowForm(false)}>Fechar</button>
+            </div>
+          )}
+        </section>
       </section>
     );
   }
   
   export default Sobre;
-  
