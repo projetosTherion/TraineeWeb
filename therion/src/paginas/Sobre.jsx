@@ -1,6 +1,7 @@
 import React, {useState} from 'react'; // Importa o React
 import styles from './container.module.css'; // Importa o arquivo CSS
-import Form from '../components/Form/Form';
+import Slide from '../components/componentsSobre/SliderSobre/Slider'; // Importa o componente de slide
+import Form from '../components/componentsSobre/FormSobre/Form';
 
 function Sobre() {
     const [showForm, setShowForm] = useState(false); // Adicione esta linha
@@ -10,6 +11,7 @@ function Sobre() {
         <h1>Sobre Nós</h1>
         <section>
           <h2>Nossa História</h2>
+          <Slide/> {/* Adiciona o slide de img ao componente Sobre, foto da equipe por ex */}
           <p>Conte aqui a história da empresa, como ela começou e os marcos importantes.</p>
         </section>
         <section>
@@ -34,10 +36,14 @@ function Sobre() {
           <h2>Entre em Contato</h2>
           <p>Gostaríamos de ouvir de você! Entre em contato conosco para mais informações.</p>
           
-            {showForm && (
+          {!showForm && (
+            <button onClick={() => setShowForm(true)}>Abrir Formulário</button> // Botão para abrir o formulário
+          )}
+
+          {showForm && (
             <div>
               <h3>Preencha o Formulário</h3>
-              <Form /> {/* Exibe o componente Form */}
+              <Form /> {/* Exibe o componente Form, atualizar o conteudo em components, form */}
               <button onClick={() => setShowForm(false)}>Fechar</button>
             </div>
           )}
