@@ -15,6 +15,7 @@ function Header() {
         </ul>
       </nav>
       <nav>
+        e
         <ul style={{listStyle: 'none', display: 'flex', gap: '15px' }}>
           <li>
             <Link to="/" style={{ color: '#fff' }}> Cadastro </Link> 
