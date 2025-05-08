@@ -1,35 +1,36 @@
 /* CSS da pagina projetos*/
 
 main {
-          display: flex;
-          flex-direction: column;
-        }
-        
-        .card {
-          background-color: #f9f9f9; /* Cor de fundo do cartão */
-          border: 2px solid #FF5991; /* Borda do cartão */
-          border-radius: 8px; /* Cantos arredondados */
-          padding: 20px; /* Espaçamento interno */
-          margin: 10px; /* Espaçamento externo */
-          width: 300px; /* Largura do cartão */
-        }
+  display: flex;
+  flex-direction: column;
+}
 
-        .paragrafo{
-          font-family: 'League Spartan';
-          font-size: 16px;
-          margin-bottom: 1px;
-        }
-        
-        .titulo1{
-          font-family: 'League Spartan';
-          font-size: 24px;
-          margin-bottom: 10px;
-          color: #FF5991;
-        }
-        
-        .titulo2{
-          font-family: 'League Spartan';
-          font-size: 20px;
-          margin-bottom: 5px;
-          color: #FF5991;
-        }
+.card {
+  background-color: #f9f9f9; /* Cor de fundo do 
+  cartão */
+  border: 2px solid #FF5991; /* Borda do cartão */
+  border-radius: 8px; /* Cantos arredondados */
+  padding: 20px; /* Espaçamento interno */
+  margin: 10px; /* Espaçamento externo */
+  width: 300px; /* Largura do cartão */
+}
+
+.paragrafo{
+  font-family: 'League Spartan';
+  font-size: 16px;
+  margin-bottom: 1px;
+}
+
+.titulo1{
+  font-family: 'League Spartan';
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #FF5991;
+}
+
+.titulo2{
+  font-family: 'League Spartan';
+  font-size: 20px;
+  margin-bottom: 5px;
+  color: #FF5991;
+}

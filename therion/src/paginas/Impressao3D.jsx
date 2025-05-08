@@ -1,13 +1,81 @@
+//import styles from './container.module.css';
+import styles from '../components/componentsImpressão/containerImpressao.module.css';
+import chaveiroImg from '../assets/chaveiro.jpg';
+import suporteImg from '../assets/suporte.jpg';
+import trofeuImg from '../assets/trofeu.jpeg';
+import impressaoVideo from '../assets/impressao.mp4';
+
+
 function Impressao3D() {
   return (
-    <section style={{ textAlign: 'center' }}>
-      <h1 style={{ color: '#FF5991', fontFamily: 'League Spartan', fontSize: '2.0rem', marginTop: '0.5rem', fontWeight: 'bold' }}>
-        DÊ VIDA ÀS SUAS IDEIAS COM IMPRESSÃO 3D SOB MEDIDA
-      </h1>
-      <p style={{ textAlign: 'justify', color: '#000000', fontFamily: 'League Spartan', maxWidth: '400px', fontSize: '1.25rem', marginTop: '0.25rem', marginLeft: 'auto', marginRight: 'auto' }}>
-        Transforme conceitos em realidade com agilidade, precisão e alto nível de detalhamento. Oferecemos serviços de impressão 3D e prototipagem personalizados, ideais para projetos de engenharia, design, educação e inovação tecnológica.
-      </p>
-    </section>
+    <>
+      {/* SEÇÃO 1 : TÍTULO E SUBTITULO */}
+      <section style={{ textAlign: 'center' }}>
+        <h1 style={{
+          color: '#FF5991', fontFamily: 'League Spartan', fontSize: '2.0rem',
+          marginTop: '0.5rem', fontWeight: 'bold'
+        }}>
+          DÊ VIDA ÀS SUAS IDEIAS COM IMPRESSÃO 3D SOB MEDIDA
+        </h1>
+        <p style={{
+          textAlign: 'justify', color: '#000000', fontFamily: 'League Spartan',
+          maxWidth: '400px', fontSize: '1.25rem', marginTop: '0.25rem',
+          marginLeft: 'auto', marginRight: 'auto'
+        }}>
+          Transforme conceitos em realidade com agilidade, precisão e alto nível de detalhamento. Oferecemos serviços de impressão 3D e prototipagem personalizados, ideais para projetos de engenharia, design, educação e inovação tecnológica.
+        </p>
+      </section>
+
+      {/* SEÇÃO 2 : PORTFÓLIO */}
+      <section className={styles.container}>
+        <h2 className={styles.titulo}>Nossos Projetos</h2>
+        <p className={styles.subtitulo}>
+          Confira nosso portfólio e conheça as peças que já desenvolvemos com impressão 3D!
+        </p>
+
+        <div className={styles.cards}>
+          <div className={styles.card2}>
+            <img src={chaveiroImg} alt="Chaveiro" className={styles.imagem} />
+            <h3 className={styles.nome}>Chaveiro</h3>
+            <p className={styles.descricao}>
+              Modelos personalizados com nomes, logotipos ou formatos criativos, perfeitos para brindes e lembranças.
+            </p>
+          </div>
+
+          <div className={styles.card2}>
+            <img src={trofeuImg} alt="Troféu" className={styles.imagem} />
+            <h3 className={styles.nome}>Troféu</h3>
+            <p className={styles.descricao}>
+              Design único para premiações e eventos, com acabamento profissional e possibilidade de personalização.
+            </p>
+          </div>
+
+          <div className={styles.card2}>
+            <img src={suporteImg} alt="Suporte" className={styles.imagem} />
+            <h3 className={styles.nome}>Suporte</h3>
+            <p className={styles.descricao}>
+              Um suporte para Alexa é um acessório projetado para acomodar seu dispositivo oferecendo estabilidade e um visual mais personalizado
+            </p>
+          </div>
+        </div>
+
+        <div className={styles.videoSection}>
+          <p className={styles.subtitulo}>
+            Projetos que unem precisão técnica e experiência prática para garantir o melhor da impressão 3D.
+          </p>
+          <div className={styles.videoWrapper}>
+            <video controls className={styles.video}>
+                <source src={impressaoVideo} type="video/mp4" />
+                Seu navegador não suporta o vídeo.
+              </video>
+          </div>
+        </div>
+      </section>
+
+      {/* SEÇÃO 3 : METODOLOGIA */}
+
+      {/* SEÇÃO 4 : VANTAGENS */}
+    </>
   );
 }
 
