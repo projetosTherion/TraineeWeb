@@ -3,6 +3,8 @@ import styles from '../components/componentsImpressão/containerImpressao.module
 import chaveiroImg from '../assets/chaveiro.jpg';
 import suporteImg from '../assets/suporte.jpg';
 import trofeuImg from '../assets/trofeu.jpeg';
+import roboImg from '../assets/robo.png';
+import celularImg from '../assets/celular.png';
 import impressaoVideo from '../assets/impressao.mp4';
 import bambulabImage from '../assets/bambulab.png';
 import panterionFilamento from '../assets/panteraFilamento.png';
@@ -13,6 +15,12 @@ import cuboImg from '../assets/cubo-3d.jpg';
 import modelagemImg from '../assets/modelagem-3d.jpg';
 import aprovadoImg from '../assets/aprovado.jpg';
 import entregaImg from '../assets/entrega-rapida.jpg';
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/autoplay'; // esta linha é opcional, mas boa prática
+import { Autoplay } from 'swiper/modules';
+
 
 
 function Impressao3D() {
@@ -37,38 +45,62 @@ function Impressao3D() {
         </div>
       </section>
 
-      {/* SEÇÃO 2 : PORTFÓLIO */}
+    {/* SEÇÃO 2 : PORTFÓLIO */}
       <section className={styles.container}>
         <h2 className={styles.titulo}>Nossos Projetos</h2>
         <p className={styles.subtitulo}>
           Confira nosso portfólio e conheça as peças que já desenvolvemos com impressão 3D!
         </p>
 
-        <div className={styles.cards}>
-          <div className={styles.card}>
-            <img src={chaveiroImg} alt="Chaveiro" className={styles.imagem} />
-            <h3 className={styles.nome}>Chaveiro</h3>
-            <p className={styles.descricao}>
-              Modelos personalizados com nomes, logotipos ou formatos criativos, perfeitos para brindes e lembranças.
-            </p>
-          </div>
-
-          <div className={styles.card}>
-            <img src={trofeuImg} alt="Troféu" className={styles.imagem} />
-            <h3 className={styles.nome}>Troféu</h3>
-            <p className={styles.descricao}>
-              Design único para premiações e eventos, com acabamento profissional e possibilidade de personalização.
-            </p>
-          </div>
-
-          <div className={styles.card}>
-            <img src={suporteImg} alt="Suporte" className={styles.imagem} />
-            <h3 className={styles.nome}>Suporte</h3>
-            <p className={styles.descricao}>
-              Um suporte para Alexa é um acessório projetado para acomodar seu dispositivo oferecendo estabilidade e um visual mais personalizado.
-            </p>
-          </div>
-        </div>
+       
+      <Swiper
+        style={{ maxWidth: '1200px', height: '500px', margin: '0 auto' }}
+        modules={[Autoplay]}
+        spaceBetween={30}
+        slidesPerView={3}
+        navigation
+        autoplay={{
+          delay: 3000,
+          disableOnInteraction: false,
+        }}
+        loop={true} // importante para autoplay contínuo
+      >
+        {[ // array de cards
+          {
+            img: chaveiroImg,
+            titulo: "Chaveiro",
+            desc: "Modelos personalizados com nomes, logotipos ou formatos criativos."
+          },
+          {
+            img: trofeuImg,
+            titulo: "Troféu",
+            desc: "Design único para premiações e eventos, com personalização."
+          },
+          {
+            img: suporteImg,
+            titulo: "Suporte",
+            desc: "Acessório projetado para estabilidade e visual personalizado."
+          },
+           {
+            img: roboImg,
+            titulo: "Robô",
+            desc: "Protótipo funcional impresso em 3D, unindo eletrônica e automação."
+          },
+           {
+            img: celularImg,
+            titulo: "Suporte de Celular",
+            desc: "Design ergonômico e divertido impresso em 3D, ideal para mesas de trabalho ou estudo."
+          },
+        ].map((item, idx) => (
+          <SwiperSlide key={idx}>
+            <div className={styles.card}>
+              <img src={item.img} alt={item.titulo} className={styles.imagem} />
+              <h3 className={styles.nome}>{item.titulo}</h3>
+              <p className={styles.descricao}>{item.desc}</p>
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>   
 
         <div className={styles.pinkSection}>
           <p className={styles.subtitulo}>
