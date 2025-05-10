@@ -59,9 +59,9 @@ function Impressao3D() {
           </div>
         </div>
 
-        <div className={styles.videoSection}>
+        <div className={styles.pinkSection}>
           <p className={styles.subtitulo}>
-            Projetos que unem precisão técnica e experiência prática para garantir o melhor da impressão 3D.
+            Projetos que unem precisão, técnica e experiência prática para garantir o melhor da impressão 3D.
           </p>
           <div className={styles.videoWrapper}>
             <video controls className={styles.video}>
