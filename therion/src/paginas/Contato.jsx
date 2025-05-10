@@ -65,7 +65,7 @@ function Contato() {
       setErrors({});
     } catch (err) {
       alert('Erro ao enviar formulário.');
-      console.error('Erro ao gravar no Firestore:', err); // Veja o log do erro
+      console.error('Erro ao gravar no Firestore:', err); 
     }
 
     setEnviando(false);
