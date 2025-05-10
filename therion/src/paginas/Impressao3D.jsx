@@ -4,6 +4,8 @@ import chaveiroImg from '../assets/chaveiro.jpg';
 import suporteImg from '../assets/suporte.jpg';
 import trofeuImg from '../assets/trofeu.jpeg';
 import impressaoVideo from '../assets/impressao.mp4';
+import panterionFilamento from '../assets/panteraFilamento.png';
+
 
 
 function Impressao3D() {
@@ -75,6 +77,31 @@ function Impressao3D() {
       {/* SEÇÃO 3 : METODOLOGIA */}
 
       {/* SEÇÃO 4 : VANTAGENS */}
+      <section className={styles.containerVantagens}>
+
+        <p className={styles.tituloVantagens}>
+          Vantagens da Impressão 3D
+        </p>
+        
+        <div className={styles.caixa}>
+
+          <div className={styles.colunaVantagens}>
+            <p>Redução de Custos</p>
+            <p>Personalização Total</p>
+            <p>Integração com Projetos de Engenharia e Eletrônica</p>
+          </div>
+
+          <img src={panterionFilamento} alt="Pantherion segurando filamentos" className={styles.imagemPanterion} />
+
+          <div className={styles.colunaVantagens}>
+            <p>Agilidade no Desenvolvimento </p>
+            <p>Liberdade de Design</p>
+            <p>Validação Rápida de Ideias</p>
+          </div>
+
+        </div>
+
+      </section>
     </>
   );
 }
