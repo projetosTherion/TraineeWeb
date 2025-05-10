@@ -61,9 +61,9 @@ function Impressao3D() {
           </div>
         </div>
 
-        <div className={styles.videoSection}>
+        <div className={styles.pinkSection}>
           <p className={styles.subtitulo}>
-            Projetos que unem precisão técnica e experiência prática para garantir o melhor da impressão 3D.
+            Projetos que unem precisão, técnica e experiência prática para garantir o melhor da impressão 3D.
           </p>
           <div className={styles.videoWrapper}>
             <video controls className={styles.video}>
@@ -75,7 +75,44 @@ function Impressao3D() {
       </section>
 
       {/* SEÇÃO 3 : METODOLOGIA */}
+<section className={styles.metodologiaSection}>
+  <h2 className={styles.titulo}>Metodologia</h2>
+  <p className={styles.subtitulo}>
+    Confira nosso portfólio e conheça as peças que já desenvolvemos com impressão 3D!
+  </p>
 
+  <div className={styles.metodologiaGrid}>
+    <div className={styles.metodologiaCard}>
+      <img src={ideiaImg} alt="Ícone ideia" className={styles.metodologiaIcon} />
+      <p>O primeiro passo é ouvir você. Coletamos todas as informações sobre o que deseja criar. Seja um objeto funcional, decorativo ou protótipo — projeto 100% personalizado.</p>
+    </div>
+
+    <div className={styles.metodologiaCard}>
+      <img src={cuboImg} alt="Ícone engrenagem" className={styles.metodologiaIcon} />
+      <p>Avaliamos se o projeto é viável tecnicamente. Consideramos fatores como tipo de material, escala de impressão, nível de detalhe e limitações da tecnologia.</p>
+    </div>
+
+    <div className={styles.metodologiaCard}>
+      <img src={modelagemImg} alt="Ícone modelagem" className={styles.metodologiaIcon} />
+      <p>Nossa equipe irá desenvolver ou modelar o arquivo 3D. Criamos ou adaptamos o arquivo otimizado para garantir compatibilidade e qualidade.</p>
+    </div>
+
+    <div className={styles.metodologiaCard}>
+      <img src={orcamentoImg} alt="Ícone orçamento" className={styles.metodologiaIcon} />
+      <p>Enviamos uma proposta com orçamento. Tipo de material, tempo de impressão, acabamento e envio. Números combinados e acordados previamente.</p>
+    </div>
+
+    <div className={styles.metodologiaCard}>
+      <img src={aprovadoImg} alt="Ícone aprovação" className={styles.metodologiaIcon} />
+      <p>Após sua aprovação, iniciamos o processo. Monitoramos o processo de impressão e mantemos você informado sobre cada etapa.</p>
+    </div>
+
+    <div className={styles.metodologiaCard}>
+      <img src={entregaImg} alt="Ícone entrega" className={styles.metodologiaIcon} />
+      <p>Enviamos a peça com toda proteção necessária. Garantimos qualidade no transporte e incluímos instruções para melhor uso e cuidado futuro.</p>
+    </div>
+  </div>
+</section>
       {/* SEÇÃO 4 : VANTAGENS */}
       <section className={styles.containerVantagens}>
 
