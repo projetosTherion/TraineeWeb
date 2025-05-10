@@ -4,6 +4,7 @@ import chaveiroImg from '../assets/chaveiro.jpg';
 import suporteImg from '../assets/suporte.jpg';
 import trofeuImg from '../assets/trofeu.jpeg';
 import impressaoVideo from '../assets/impressao.mp4';
+import bambulabImage from '../assets/bambulab.png';
 import panterionFilamento from '../assets/panteraFilamento.png';
 
 import ideiaImg from '../assets/ideia.jpg';
@@ -17,21 +18,23 @@ import entregaImg from '../assets/entrega-rapida.jpg';
 function Impressao3D() {
   return (
     <>
-      {/* SEÇÃO 1 : TÍTULO E SUBTITULO */}
-      <section style={{ textAlign: 'center' }}>
-        <h1 style={{
-          color: '#FF5991', fontFamily: 'League Spartan', fontSize: '2.0rem',
-          marginTop: '0.5rem', fontWeight: 'bold'
-        }}>
-          DÊ VIDA ÀS SUAS IDEIAS COM IMPRESSÃO 3D SOB MEDIDA
-        </h1>
-        <p style={{
-          textAlign: 'justify', color: '#000000', fontFamily: 'League Spartan',
-          maxWidth: '400px', fontSize: '1.25rem', marginTop: '0.25rem',
-          marginLeft: 'auto', marginRight: 'auto'
-        }}>
-          Transforme conceitos em realidade com agilidade, precisão e alto nível de detalhamento. Oferecemos serviços de impressão 3D e prototipagem personalizados, ideais para projetos de engenharia, design, educação e inovação tecnológica.
-        </p>
+      <section className={styles.pinkSection}>
+        <div className={styles.contentWrapper}>
+          <div className={styles.textContainer}>
+            <h1 className={styles.titulotopo}>Impressão 3D</h1>
+            <p className={styles.subtitulotopo}>
+              Transforme conceitos em realidade <br />
+              com agilidade, precisão e alto nível <br />
+              de detalhamento.
+            </p>
+          </div>
+
+          <img
+            src={bambulabImage}
+            alt="Bambulab"
+            className={styles.bambulabImage}
+          />
+        </div>
       </section>
 
       {/* SEÇÃO 2 : PORTFÓLIO */}
