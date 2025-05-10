@@ -5,6 +5,13 @@ import suporteImg from '../assets/suporte.jpg';
 import trofeuImg from '../assets/trofeu.jpeg';
 import impressaoVideo from '../assets/impressao.mp4';
 
+import ideiaImg from '../assets/ideia.jpg';
+import orcamentoImg from '../assets/orcamento.jpg';
+import cuboImg from '../assets/cubo-3d.jpg';
+import modelagemImg from '../assets/modelagem-3d.jpg';
+import aprovadoImg from '../assets/aprovado.jpg';
+import entregaImg from '../assets/entrega-rapida.jpg';
+
 
 function Impressao3D() {
   return (
