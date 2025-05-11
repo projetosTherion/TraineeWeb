@@ -26,7 +26,7 @@ import { Autoplay } from 'swiper/modules';
 function Impressao3D() {
   return (
     <>
-      <section className={styles.pinkSection}>
+      <section className={styles.pinkSectionTopo}>
         <div className={styles.contentWrapper}>
           <div className={styles.textContainer}>
             <h1 className={styles.titulotopo}>Impressão 3D</h1>
@@ -54,10 +54,16 @@ function Impressao3D() {
 
        
       <Swiper
-        style={{ maxWidth: '1200px', height: '500px', margin: '0 auto' }}
+        style={{ 
+          maxWidth: '1200px', 
+          height: '500px',
+          margin: '50px auto 0',
+          padding: '15px 0 0'
+        }}
         modules={[Autoplay]}
         spaceBetween={30}
         slidesPerView={3}
+        centeredSlides={true}
         navigation
         autoplay={{
           delay: 3000,
@@ -92,7 +98,7 @@ function Impressao3D() {
             desc: "Design ergonômico e divertido impresso em 3D, ideal para mesas de trabalho ou estudo."
           },
         ].map((item, idx) => (
-          <SwiperSlide key={idx}>
+          <SwiperSlide key={idx} className={styles.swiperSlide} >
             <div className={styles.card}>
               <img src={item.img} alt={item.titulo} className={styles.imagem} />
               <h3 className={styles.nome}>{item.titulo}</h3>
