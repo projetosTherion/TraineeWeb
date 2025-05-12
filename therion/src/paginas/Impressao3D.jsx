@@ -26,6 +26,7 @@ import { Autoplay } from 'swiper/modules';
 function Impressao3D() {
   return (
     <>
+    {/* SEÇÃO 1 : TÍTULO E SUBTITULO */}
       <section className={styles.pinkSectionTopo}>
         <div className={styles.contentWrapper}>
           <div className={styles.textContainer}>
