@@ -1,5 +1,7 @@
 /* CSS da pagina projetos*/
 
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap');
+
 main {
           display: flex;
           flex-direction: column;
@@ -15,21 +17,53 @@ main {
         }
 
         .paragrafo{
-          font-family: 'League Spartan';
+          font-family: 'League Spartan', sans-serif;
           font-size: 16px;
           margin-bottom: 1px;
         }
+
+        .container {
+          font-family: 'League Spartan', sans-serif;
+          padding: 2rem;
+          color: #333;
+        }
         
-        .titulo1{
-          font-family: 'League Spartan';
-          font-size: 24px;
-          margin-bottom: 10px;
+        .titulo1 {
+          font-family: 'League Spartan', sans-serif;
+          font-size: 40px;        
+          margin-bottom: 20px;
           color: #FF5991;
+          text-align: center;     
         }
         
         .titulo2{
-          font-family: 'League Spartan';
+          font-family: 'League Spartan', sans-serif;
           font-size: 20px;
           margin-bottom: 5px;
           color: #FF5991;
+        }
+
+        .image {
+          display: block;
+          margin: 20px auto;
+          width: 300px;
+          border: 3px solid #FF5991;
+          border-radius: 10px;
+        }
+        
+        .button {
+          background-color: #FF5991;
+          color: white;
+          border: none;
+          padding: 10px 20px;
+          margin-top: 1rem;
+          font-size: 16px;
+          border-radius: 5px;
+          cursor: pointer;
+          font-family: 'League Spartan', sans-serif;
+          transition: background-color 0.3s ease;
+        }
+        
+        .button:hover {
+          background-color: #e0487a;
         }

@@ -4,18 +4,17 @@ import './Form.css';
 function Form() {
   return (
     <form className="form-container">
-      <h2>Contact Us</h2>
       <div className="form-group">
-        <label htmlFor="name">Name</label>
-        <input type="text" id="name" name="name" placeholder="Enter your name" required />
+        <label htmlFor="name">Nome: </label>
+        <input type="text" id="name" name="name" placeholder="Seu nome completo" required />
       </div>
       <div className="form-group">
-        <label htmlFor="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="Enter your email" required />
+        <label htmlFor="email">Email: </label>
+        <input type="email" id="email" name="email" placeholder="Seu email" required />
       </div>
       <div className="form-group">
-        <label htmlFor="message">Message</label>
-        <textarea id="message" name="message" placeholder="Enter your message" rows="5" required></textarea>
+        <label htmlFor="message">Mensagem: </label>
+        <textarea id="message" name="message" placeholder="Sua mensagem" rows="5" required></textarea>
       </div>
       <button type="submit" className="form-button">Submit</button>
     </form>
