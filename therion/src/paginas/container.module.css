@@ -3,19 +3,9 @@
 @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap');
 
 main {
-          display: flex;
-          flex-direction: column;
-        }
-        
-        .card {
-          background-color: #f9f9f9; /* Cor de fundo do cartão */
-          border: 2px solid #FF5991; /* Borda do cartão */
-          border-radius: 8px; /* Cantos arredondados */
-          padding: 20px; /* Espaçamento interno */
-          margin: 10px; /* Espaçamento externo */
-          width: 300px; /* Largura do cartão */
-        }
-
+  display: flex;
+  flex-direction: column;
+}
         .paragrafo{
           font-family: 'League Spartan', sans-serif;
           font-size: 16px;
@@ -67,3 +57,14 @@ main {
         .button:hover {
           background-color: #e0487a;
         }
+        .card {
+        background-color: #f9f9f9; /* Cor de fundo do 
+        cartão */
+        border: 2px solid #FF5991; /* Borda do cartão */
+        border-radius: 8px; /* Cantos arredondados */
+        padding: 20px; /* Espaçamento interno */
+        margin: 10px; /* Espaçamento externo */
+        width: 300px; /* Largura do cartão */
+      }
+
+

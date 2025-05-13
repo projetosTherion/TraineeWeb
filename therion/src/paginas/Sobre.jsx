@@ -1,10 +1,7 @@
-import React, { useState } from 'react';
-import styles from './container.module.css';
-import Form from '../components/Form/Form';
 
+import styles from './container.module.css';
 
 function Sobre() {
-  const [showForm, setShowForm] = useState(false);
 
   return (
     <section className={styles.container}>
@@ -38,24 +35,9 @@ function Sobre() {
         </blockquote>
       </section>
 
-      <section>
-      <h2 className={styles.titulo2}>Entre em Contato</h2>
-      <p className={styles.paragrafo}>Gostaríamos de ouvir de você! Entre em contato conosco para mais informações.</p>
-
-
-        <button onClick={() => setShowForm(!showForm)}>
-          {showForm ? 'Fechar Formulário' : 'Abrir Formulário'}
-        </button>
-
-        {showForm && (
-          <div>
-            <h3 className={styles.titulo2}>Preencha com seus dados!!</h3>
-            <Form />
-          </div>
-        )}
-      </section>
+      
     </section>
   );
 }
 
-export default Sobre;
+export default Sobre;

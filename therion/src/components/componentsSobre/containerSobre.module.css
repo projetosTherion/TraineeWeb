@@ -1,0 +1,50 @@
+.container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .cardsContainer {
+    display: flex;
+    justify-content: center; /* Centraliza os cartões horizontalmente */
+    align-items: flex-start; /* Alinha os cartões no topo */
+    gap: 20px; /* Espaçamento entre os cartões */
+    flex-wrap: wrap; /* Permite que os cartões quebrem linha em telas menores */
+    margin-top: 20px;
+  }
+  
+  @media (max-width: 768px) {
+    .cardsContainer {
+      flex-direction: column; /* Empilha os cartões em telas menores */
+      align-items: center; /* Centraliza os cartões verticalmente */
+    }
+  }
+  
+  .card {
+    background-color: #f9f9f9; /* Cor de fundo do cartão */
+    border: 2px solid #FF5991; /* Borda do cartão */
+    border-radius: 8px; /* Cantos arredondados */
+    padding: 20px; /* Espaçamento interno */
+    margin: 10px; /* Espaçamento externo */
+    width: 300px; /* Largura fixa do cartão */
+    text-align: center; /* Centraliza o texto */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para destacar */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px); /* Eleva o cartão ao passar o mouse */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Aumenta a sombra */
+  }
+  
+  .card h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .card p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.5;
+  }
