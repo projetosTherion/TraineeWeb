@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styles from '../components/componentsContato/containerContato.module.css';
 import { db } from '../firebase';
 import { serverTimestamp } from 'firebase/firestore';
+import { collection, addDoc } from 'firebase/firestore';
 
 function Contato() {
   const [formData, setFormData] = useState({
@@ -72,6 +73,9 @@ function Contato() {
   };
 
   return (
+  <> 
+  {/* SEÇÃO 1 : TÍTULO E SUBTITULO */}
+  {/* SEÇÃO 2 : FORMULARIO */}
     <div className={styles.container}>
       <form className={styles.formulario} onSubmit={handleSubmit}>
         <label>Nome:</label>
@@ -119,6 +123,11 @@ function Contato() {
         </button>
       </form>
     </div>
+
+    {/* SEÇÃO 3 : REDES SOCIAIS E INFOS */}
+    {/* SEÇÃO 4 : LOCALIZAÇÃO */}
+    </>  
+   
   );
 }
 

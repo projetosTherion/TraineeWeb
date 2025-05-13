@@ -1,4 +1,3 @@
-//import styles from './container.module.css';
 import styles from '../components/componentsImpressão/containerImpressao.module.css';
 import chaveiroImg from '../assets/chaveiro.jpg';
 import suporteImg from '../assets/suporte.jpg';
@@ -30,7 +29,9 @@ function Impressao3D() {
       <section className={styles.pinkSectionTopo}>
         <div className={styles.contentWrapper}>
           <div className={styles.textContainer}>
-            <h1 className={styles.titulotopo}>Impressão 3D</h1>
+            <h1 className={styles.titulotopo}>
+              Impressão 3D
+              </h1>
             <p className={styles.subtitulotopo}>
               Transforme conceitos em realidade <br />
               com agilidade, precisão e alto nível <br />
@@ -101,9 +102,9 @@ function Impressao3D() {
         ].map((item, idx) => (
           <SwiperSlide key={idx} className={styles.swiperSlide} >
             <div className={styles.card}>
-              <img src={item.img} alt={item.titulo} className={styles.imagem} />
-              <h3 className={styles.nome}>{item.titulo}</h3>
-              <p className={styles.descricao}>{item.desc}</p>
+              <img src={item.img} alt={item.titulo} className={styles.imagemSlide} />
+              <h3 className={styles.subtitulo} style={{ marginTop: '15px', marginBottom: '1px', marginLeft: '10px' }}>{item.titulo}</h3>
+              <p className={styles.subtitulo} style={{ fontSize: '20px',marginTop: '10px', marginBottom: '1px', marginLeft: '15px', marginRight: '15px' }}>{item.desc}</p>
             </div>
           </SwiperSlide>
         ))}
@@ -123,9 +124,9 @@ function Impressao3D() {
       </section>
 
       {/* SEÇÃO 3 : METODOLOGIA */}
-      <section className={styles.metodologiaSection}>
+      <section className={styles.container}>
         <h2 className={styles.titulo}>Metodologia</h2>
-        <p className={styles.subtitulo}>
+        <p className={styles.subtitulo} style={{ marginBottom: '20px' }}>
           Confira nosso portfólio e conheça as peças que já desenvolvemos com impressão 3D!
         </p>
 
@@ -163,9 +164,9 @@ function Impressao3D() {
       </section>
 
       {/* SEÇÃO 4 : VANTAGENS */}
-      <section className={styles.containerVantagens}>
+      <section className={styles.container}>
        <div className={styles.pinkSection}>
-        <p className={styles.tituloVantagens}>
+        <p className={styles.titulo} style={{ marginBottom: '40px' }}>
           Vantagens da Impressão 3D
         </p>
         
