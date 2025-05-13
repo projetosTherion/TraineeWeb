@@ -3,6 +3,7 @@ import styles from '../components/componentsContato/containerContato.module.css'
 import { db } from '../firebase';
 import { serverTimestamp } from 'firebase/firestore';
 import { collection, addDoc } from 'firebase/firestore';
+import panteraInicial from '../assets/panteraInicial.png';
 
 function Contato() {
   const [formData, setFormData] = useState({
@@ -75,6 +76,29 @@ function Contato() {
   return (
   <> 
   {/* SEÇÃO 1 : TÍTULO E SUBTITULO */}
+      <section className={styles.pinkSectionInicial}>
+        <div className={styles.contentWrapper}>
+          <div className={styles.textContainer}>
+            <h1 className={styles.tituloInicial}>
+              Vamos 
+              conversar?
+              </h1>
+            <p className={styles.subtituloInicial}>
+              Para perguntas sobre produtos, suporte <br />
+              técnico e outras dúvidas, você pode entrar <br />
+              em contato com a Therion por qualquer uma <br /> 
+              das seguintes maneiras.
+            </p>
+          </div>
+
+          <img
+            src={panteraInicial}
+            alt="Pantera"
+            className={styles.panteraInicial}
+          />
+        </div>
+      </section>
+
   {/* SEÇÃO 2 : FORMULARIO */}
     <div className={styles.container}>
       <form className={styles.formulario} onSubmit={handleSubmit}>
