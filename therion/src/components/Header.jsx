@@ -26,13 +26,6 @@ function Header() {
           </ul>
         </nav>
 
-        {/* Navegação no canto direito */}
-        <nav style={{ flex: '1', textAlign: 'right' }}>
-          <ul style={{ listStyle: 'none', display: 'flex', gap: '10px', justifyContent: 'flex-end', margin: 0, padding: 0 }}>
-            <li>Cadastro</li>
-            <li>Entrar</li>
-          </ul>
-        </nav>
 
       </div>
     </header>
