@@ -12,7 +12,6 @@ SEÇÃO 1: TITULO E SUBTITULO
   background-color: #ffc0cb;
   padding: -2rem 1rem;
   text-align: center;
-
   width: 100vw;
   position: relative;
   left: 50%;
@@ -51,18 +50,18 @@ SEÇÃO 1: TITULO E SUBTITULO
 }
 
 /*
+CONTAINER E FORMULÁRIO
 */
 
 .container {
   display: flex;
-  justify-content: flex-start; /* Alinha à esquerda */
+  justify-content: flex-start;
   align-items: flex-start;
   padding: 2rem;
   background-color: #fff;
-  gap: 3rem; /* Espaço entre o form e o conteúdo à direita */
+  gap: 3rem;
   flex-wrap: wrap;
 }
-
 
 .formulario {
   background-color: #f7f7f7;
@@ -117,4 +116,62 @@ button {
 
 button:hover {
   background-color: #d23669;
+}
+
+/* ========== RESPONSIVIDADE ========== */
+@media (max-width: 1024px) {
+  .tituloInicial {
+    font-size: 45px;
+    margin-left: 5rem;
+    text-align: center;
+  }
+
+  .subtituloInicial {
+    font-size: 25px;
+    margin-left: 5rem;
+    text-align: center;
+  }
+
+  .panteraInicial {
+    margin-left: 0;
+    margin-top: -10rem;
+    height: 300px;
+    width: 100%;
+  }
+
+  .container {
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .tituloInicial {
+    font-size: 35px;
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .subtituloInicial {
+    font-size: 20px;
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .panteraInicial {
+    margin-left: 0;
+    margin-top: -8rem;
+    height: 250px;
+  }
+
+  .formulario {
+    width: 100%;
+    max-width: 350px;
+    padding: 1.5rem;
+  }
+
+  .container {
+    padding: 1rem;
+  }
 }

@@ -1,157 +1,106 @@
-import React, { useState } from 'react';
-import styles from '../components/componentsContato/containerContato.module.css';
+import React from 'react';
+import { useForm } from 'react-hook-form';
+import { z } from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
 import { db } from '../firebase';
-import { serverTimestamp } from 'firebase/firestore';
-import { collection, addDoc } from 'firebase/firestore';
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import styles from '../components/componentsContato/containerContato.module.css';
 import panteraInicial from '../assets/panteraInicial.png';
 
-function Contato() {
-  const [formData, setFormData] = useState({
-    nome: '',
-    email: '',
-    telefone: '',
-    mensagem: '',
-  });
+const schema = z.object({
+  nome: z.string().nonempty('Nome é obrigatório'),
+  email: z.string().email('Email inválido'),
+  telefone: z
+    .string()
+    .min(14, 'Telefone incompleto')
+    .regex(/\(\d{2}\) \d{4,5}-\d{4}/, 'Formato de telefone inválido'),
+  mensagem: z.string().nonempty('Mensagem é obrigatória'),
+});
 
-  const [errors, setErrors] = useState({});
-  const [enviando, setEnviando] = useState(false);
+function Contato() {
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    formState: { errors, isSubmitting },
+    reset,
+  } = useForm({ resolver: zodResolver(schema) });
 
   const formatarTelefone = (valor) => {
     const numero = valor.replace(/\D/g, '').slice(0, 11);
     const parte1 = numero.slice(0, 2);
-    const parte2 = numero.slice(2, 7);
-    const parte3 = numero.slice(7, 11);
+    const parte2 = numero.length > 6 ? numero.slice(2, 7) : numero.slice(2, 6);
+    const parte3 = numero.length > 6 ? numero.slice(7, 11) : numero.slice(6, 10);
 
     if (numero.length <= 2) return `(${parte1}`;
-    if (numero.length <= 7) return `(${parte1}) ${parte2}`;
+    if (numero.length <= 6) return `(${parte1}) ${parte2}`;
     return `(${parte1}) ${parte2}-${parte3}`;
   };
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-
-    if (name === 'telefone') {
-      setFormData({ ...formData, [name]: formatarTelefone(value) });
-    } else {
-      setFormData({ ...formData, [name]: value });
-    }
+  const handleTelefoneChange = (e) => {
+    const valorFormatado = formatarTelefone(e.target.value);
+    setValue('telefone', valorFormatado);
   };
 
-  const validar = () => {
-    const novosErros = {};
-    if (!formData.nome.trim()) novosErros.nome = 'Nome é obrigatório';
-    if (!formData.email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) novosErros.email = 'Email inválido';
-    if (formData.telefone.replace(/\D/g, '').length < 10) novosErros.telefone = 'Telefone incompleto';
-    if (!formData.mensagem.trim()) novosErros.mensagem = 'Mensagem é obrigatória';
-    setErrors(novosErros);
-    return Object.keys(novosErros).length === 0;
-  };
-
-   const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!validar()) return;
-
-    setEnviando(true);
+  const onSubmit = async (data) => {
+    console.log('Dados enviados:', data);
 
     try {
       await addDoc(collection(db, 'contatos'), {
-        nome: formData.nome,
-        email: formData.email,
-        telefone: formData.telefone,
-        mensagem: formData.mensagem,
-        timestamp: serverTimestamp()
+        ...data,
+        timestamp: serverTimestamp(),
       });
-
       alert('Formulário enviado com sucesso!');
-      setFormData({ nome: '', email: '', telefone: '', mensagem: '' });
-      setErrors({});
+      reset();
     } catch (err) {
       alert('Erro ao enviar formulário.');
-      console.error('Erro ao gravar no Firestore:', err); 
+      console.error('Erro ao gravar no Firestore:', err);
     }
-
-    setEnviando(false);
   };
 
   return (
-  <> 
-  {/* SEÇÃO 1 : TÍTULO E SUBTITULO */}
+    <>
+      {/* SEÇÃO 1 : TÍTULO E SUBTÍTULO */}
       <section className={styles.pinkSectionInicial}>
         <div className={styles.contentWrapper}>
           <div className={styles.textContainer}>
-            <h1 className={styles.tituloInicial}>
-              Vamos 
-              conversar?
-              </h1>
+            <h1 className={styles.tituloInicial}>Vamos conversar?</h1>
             <p className={styles.subtituloInicial}>
               Para perguntas sobre produtos, suporte <br />
               técnico e outras dúvidas, você pode entrar <br />
-              em contato com a Therion por qualquer uma <br /> 
+              em contato com a Therion por qualquer uma <br />
               das seguintes maneiras.
             </p>
           </div>
-
-          <img
-            src={panteraInicial}
-            alt="Pantera"
-            className={styles.panteraInicial}
-          />
+          <img src={panteraInicial} alt="Pantera" className={styles.panteraInicial} />
         </div>
       </section>
 
-  {/* SEÇÃO 2 : FORMULARIO */}
-    <div className={styles.container}>
-      <form className={styles.formulario} onSubmit={handleSubmit}>
-        <label>Nome:</label>
-        <input
-          type="text"
-          name="nome"
-          value={formData.nome}
-          onChange={handleChange}
-          required
-        />
-        {errors.nome && <small style={{ color: 'red' }}>{errors.nome}</small>}
+      {/* SEÇÃO 2 : FORMULÁRIO */}
+      <div className={styles.container}>
+        <form className={styles.formulario} onSubmit={handleSubmit(onSubmit)}>
+          <label>Nome:</label>
+          <input type="text" {...register('nome')} />
+          {errors.nome && <small style={{ color: 'red' }}>{errors.nome.message}</small>}
 
-        <label>E-mail:</label>
-        <input
-          type="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          required
-        />
-        {errors.email && <small style={{ color: 'red' }}>{errors.email}</small>}
+          <label>E-mail:</label>
+          <input type="email" {...register('email')} />
+          {errors.email && <small style={{ color: 'red' }}>{errors.email.message}</small>}
 
-        <label>Telefone:</label>
-        <input
-          type="text"
-          name="telefone"
-          value={formData.telefone}
-          onChange={handleChange}
-          required
-        />
-        {errors.telefone && <small style={{ color: 'red' }}>{errors.telefone}</small>}
+          <label>Telefone:</label>
+          <input type="text" {...register('telefone')} onChange={handleTelefoneChange} />
+          {errors.telefone && <small style={{ color: 'red' }}>{errors.telefone.message}</small>}
 
-        <label>Mensagem:</label>
-        <textarea
-          name="mensagem"
-          rows="4"
-          value={formData.mensagem}
-          onChange={handleChange}
-          required
-        />
-        {errors.mensagem && <small style={{ color: 'red' }}>{errors.mensagem}</small>}
+          <label>Mensagem:</label>
+          <textarea rows="4" {...register('mensagem')} />
+          {errors.mensagem && <small style={{ color: 'red' }}>{errors.mensagem.message}</small>}
 
-        <button type="submit" disabled={enviando}>
-          {enviando ? 'Enviando...' : 'ENVIAR'}
-        </button>
-      </form>
-    </div>
-
-    {/* SEÇÃO 3 : REDES SOCIAIS E INFOS */}
-    {/* SEÇÃO 4 : LOCALIZAÇÃO */}
-    </>  
-   
+          <button type="submit" disabled={isSubmitting}>
+            {isSubmitting ? 'Enviando...' : 'ENVIAR'}
+          </button>
+        </form>
+      </div>
+    </>
   );
 }
 

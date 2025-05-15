@@ -21,8 +21,8 @@ Componentes GERAIS
   margin-bottom: 0px;
   margin-left: 0px;
   margin-right: 0px;
-  
 }
+
 .cards {
   display: flex;
   justify-content: center;
@@ -66,6 +66,7 @@ Componentes GERAIS
   right: 50%;
   transform: translateX(-50%);
 }
+
 /*
 SEÇÃO 1: TITULO E SUBTITULO
 */
@@ -99,20 +100,6 @@ SEÇÃO 1: TITULO E SUBTITULO
   color: #000000;
   text-align: left;
   margin-left: 35rem;
-}
-
-.pinkSectionTopo {
-  margin-top: -1.3rem;
-  margin-bottom: 0rem;
-  background-color: #ffc0cb;
-  padding: -2rem 1rem;
-  text-align: center;
-
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  transform: translateX(-50%); 
 }
 
 .bambulabImage {
@@ -187,13 +174,6 @@ SEÇÃO 3: METODOLOGIA
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
 }
 
-/*.metodologiaCard h3 {  talvez depois inclua
-  font-size: 1.25rem;
-  font-weight: bold;
-  color: #ff5991;
-  margin-bottom: 0.5rem;
-} */
-
 .metodologiaCard p {
   font-size: 1.35rem;
   color: #333;
@@ -210,17 +190,6 @@ SEÇÃO 3: METODOLOGIA
   background-color: #ff5991;
 }
 
-@media (max-width: 1024px) {
-  .metodologiaGrid {
-    grid-template-columns: repeat(2, 1fr); 
-  }
-}
-
-@media (max-width: 768px) {
-  .metodologiaGrid {
-    grid-template-columns: 1fr; 
-  }
-}
 /*
 SEÇÃO 4: VANTAGENS
 */ 
@@ -284,4 +253,104 @@ SEÇÃO 4: VANTAGENS
 .colunaVantagens p:hover {
   transform: scale(1.05);
   background: rgba(255, 255, 255, 0.8);
+}
+
+/* ===================== RESPONSIVIDADE ===================== */
+@media (max-width: 1024px) {
+  .titulo {
+    font-size: 35px;
+  }
+
+  .subtitulo {
+    font-size: 20px;
+  }
+
+  .card {
+    width: 260px;
+    height: 400px;
+  }
+
+  .titulotopo {
+    font-size: 45px;
+    margin-left: 5rem;
+    text-align: center;
+  }
+
+  .subtitulotopo {
+    font-size: 25px;
+    margin-left: 5rem;
+    text-align: center;
+  }
+
+  .bambulabImage {
+    margin-left: 0;
+    margin-top: -10rem;
+    width: 100%;
+    height: auto;
+  }
+
+  .metodologiaGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .caixa {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .colunaVantagens {
+    font-size: 2.5vw;
+  }
+}
+
+@media (max-width: 768px) {
+  .titulo {
+    font-size: 30px;
+  }
+
+  .subtitulo {
+    font-size: 18px;
+  }
+
+  .card {
+    width: 100%;
+    height: auto;
+  }
+
+  .titulotopo {
+    font-size: 35px;
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .subtitulotopo {
+    font-size: 20px;
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .bambulabImage {
+    margin-left: 0;
+    margin-top: -8rem;
+    height: 250px;
+  }
+
+  .metodologiaGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .caixa {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .colunaVantagens {
+    width: 100%;
+    font-size: 4vw;
+  }
+
+  .colunaVantagens p {
+    max-width: 100%;
+  }
 }
