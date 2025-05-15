@@ -1,50 +1,125 @@
+.fadeIn {
+  opacity: 0;
+}
+
+.fadeInVisible {
+  animation: fadeIn 0.6s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.pinkSectionTop {
+  margin-top: -1.3rem;
+  background-color: #ffc0cb;
+  padding: 2rem 1rem;
+  text-align: center;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 3rem;
+}
+
+.pinkSectionBottom {
+  margin-top: 3rem;
+  background-color: #ffc0cb;
+  padding: 2rem 1rem;
+  text-align: center;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  transform: translateX(-50%);
+  margin-bottom: -1.3rem;
+}
+
+.titulo {
+  font-family: 'League Spartan';
+  font-size: 50px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #000000;
+  text-align: center;
+}
+
+.tituloComFundo {
+  background-color: #ffc0cb; /* Rosa claro */
+  padding: 1rem 0.5rem;
+  text-align: center;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.subtitulo {
+  font-family: 'League Spartan';
+  font-size: 30px;
+  margin-bottom: 30px;
+  color: #000000;
+  text-align: center;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.historia {
+  font-family: 'League Spartan';
+  font-size: 25px;
+  color: #414141;
+  text-align: center;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.missao {
+  font-family: 'League Spartan';
+  font-size: 25px;
+  color: #414141;
+  text-align: left;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+  transition: transform 0.5s ease;
+}
+
+.equipe {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 1rem auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+
 .container {
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  
-  .cardsContainer {
-    display: flex;
-    justify-content: center; /* Centraliza os cartões horizontalmente */
-    align-items: flex-start; /* Alinha os cartões no topo */
-    gap: 20px; /* Espaçamento entre os cartões */
-    flex-wrap: wrap; /* Permite que os cartões quebrem linha em telas menores */
-    margin-top: 20px;
-  }
-  
-  @media (max-width: 768px) {
-    .cardsContainer {
-      flex-direction: column; /* Empilha os cartões em telas menores */
-      align-items: center; /* Centraliza os cartões verticalmente */
-    }
-  }
-  
-  .card {
-    background-color: #f9f9f9; /* Cor de fundo do cartão */
-    border: 2px solid #FF5991; /* Borda do cartão */
-    border-radius: 8px; /* Cantos arredondados */
-    padding: 20px; /* Espaçamento interno */
-    margin: 10px; /* Espaçamento externo */
-    width: 300px; /* Largura fixa do cartão */
-    text-align: center; /* Centraliza o texto */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para destacar */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .card:hover {
-    transform: translateY(-5px); /* Eleva o cartão ao passar o mouse */
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Aumenta a sombra */
-  }
-  
-  .card h3 {
-    font-size: 1.5rem;
-    color: #333;
-    margin-bottom: 10px;
-  }
-  
-  .card p {
-    font-size: 1rem;
-    color: #666;
-    line-height: 1.5;
-  }
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border: 2px solid #ff69b4;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.imagemContainer {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin: 1rem 0;
+  border-radius: 8px;
+  object-fit: cover;
+}
