@@ -11,7 +11,7 @@ const slides = [
   //slide (Projetos WordPress)
   <section className={styles.container} key="Projetos WordPress">
       <h2 className={styles.titulo}>Projetos WordPress</h2>         {/*titulo do slide */}
-    <img src={imagemTetris} className={styles.imagemContainer} />    {/*imagem do meio do slide */}
+    <img src={imagemTetris} alt="Tetris" className={styles.imagemContainer} />    {/*imagem do meio do slide */}
     <p className={styles.textoDescricao}>                                       
     Criamos o site institucional da EJ Tetris, unindo design
     moderno com funcionalidade para destacar sua presença online.    {/*texto do slide */}
@@ -21,7 +21,7 @@ const slides = [
   //slide (Desenvolvimento Web)
   <section className={styles.container} key=" Desenvolvimento Web"> 
       <h2 className={styles.titulo}> Desenvolvimento Web</h2>            {/*titulo do slide */}
-    <img src={imagemArcseed} className={styles.imagemContainer} />   {/*imagem do meio do slide */}
+    <img src={imagemArcseed} alt="Arcseed" className={styles.imagemContainer} />   {/*imagem do meio do slide */}
     <p className={styles.textoDescricao}>        
     Site desenvolvido pela nossa Empresa Júnior que usa IA para gerar imagens realistas a partir de descrições. 
     Voltado para arquitetos que buscam criar referências visuais de forma rápida e personalizada.                 {/*texto do slide */}
@@ -32,7 +32,7 @@ const slides = [
   //slide (Desenvolvimento de Software)
   <section className={styles.container} key="Desenvolvimento de Software"> 
       <h2 className={styles.titulo}> Desenvolvimento de Software</h2>     {/*titulo do slide */}
-    <img src={imagemilustrativa} className={styles.imagemContainer} />    {/*imagem do meio do slide */}
+    <img src={imagemilustrativa} alt="ilustrativa" className={styles.imagemContainer} />    {/*imagem do meio do slide */}
     <p className={styles.textoDescricao}>
     Projetos de desenvolvimento de software pela Therion!                 {/*texto do slide */}
     </p>
@@ -80,8 +80,8 @@ function Projetos() {
 
           {/* foto equipe */}
             <img
-              src="equipe.jpg"
-              className={styles.equipe}
+              src="equipe.jpg" 
+              className={styles.equipe} alt="equipe"
             />
 
           {/*chama a funçao carrossel */}
