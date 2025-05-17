@@ -97,7 +97,7 @@
     }
 
     .footer-logo-container {
-        max-width: 120px; /* Reduzi o tamanho máximo */
+        max-width: 120px;
         margin: 0 auto 15px;
         padding: 5px;
     }
