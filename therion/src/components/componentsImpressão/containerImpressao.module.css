@@ -74,13 +74,12 @@ SEÇÃO 1: TITULO E SUBTITULO
   margin-top: -1.3rem;
   margin-bottom: 0rem;
   background-color: #ffc0cb;
-  padding: -2rem 1rem;
+  padding-block: 0.25rem; 
   text-align: center;
   width: 100vw;
   position: relative;
   left: 50%;
-  right: 50%;
-  transform: translateX(-50%); 
+  transform: translateX(-50%);
 }
 
 .titulotopo {
@@ -111,6 +110,7 @@ SEÇÃO 1: TITULO E SUBTITULO
   margin-left: 30rem;  
   position: relative;
   bottom: -50px; 
+  z-index: 1;
 }
 
 /*
