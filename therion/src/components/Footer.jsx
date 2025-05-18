@@ -7,22 +7,22 @@ function Footer() {
                 <div className="footer-column footer-first-column"> {/* Adicionei classe extra */}
                     <div className="footer-logo-container">
                         <img 
-                            src="../images/logo-therion.webp" alt="Therion Empresa Júnior" className="footer-logo" loading="lazy" style={{ maxHeight: '115px' }}  // Otimização de carregamento
+                            src="../images/logo-therion.webp" alt="Therion Empresa Júnior" className="footer-logo" loading="lazy" style={{ maxHeight: '125px' }}  // Otimização de carregamento
                         />
                     </div>
                     <h4>REDES SOCIAIS</h4>
                     <div className="social-icons">
-                        <a href="#" aria-label="Instagram">
+                        <a href="https://www.instagram.com/therion.ej/" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
                             <img src="https://cdn.simpleicons.org/instagram/FFFFFF" alt="Instagram" width="32" height="32" />
                         </a>
-                        <a href="#" aria-label="LinkedIn">
+                        <a href="https://www.linkedin.com/company/therion/?originalSubdomain=br" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
                             <img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/linkedin.svg" alt="LinkedIn" width="32" height="32" />
                         </a>
-                        <a href="#" aria-label="WhatsApp">
-                            <img src="https://cdn.simpleicons.org/whatsapp/FFFFFF" alt="WhatsApp" width="32" height="32" />
+                        <a href="https://www.facebook.com/therionej" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+                            <img src="https://cdn.simpleicons.org/facebook/FFFFFF" alt="Facebook" width="32" height="32" />
                         </a>
+                        </div>
                     </div>
-                </div>
 
                 {/* Coluna Contato */}
                 <div className="footer-column">
@@ -37,10 +37,10 @@ function Footer() {
                 <div className="footer-column">
                     <h4>LINKS RÁPIDOS</h4>
                     <ul className="footer-links">
-                        <li><a href="#">Quem somos</a></li>
-                        <li><a href="#">Serviços</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Política de Privacidade</a></li>
+                        <li><a href="/sobre" target="_blank" rel="noopener noreferrer">Sobre nós</a></li>
+                        <li><a href="/servicos" target="_blank" rel="noopener noreferrer">Serviços</a></li>
+                        <li><a href="/blog" target="_blank" rel="noopener noreferrer">Blog</a></li>
+                        <li><a href="/politica-de-privacidade" target="_blank" rel="noopener noreferrer">Política de Privacidade</a></li>
                     </ul>
                 </div>
             </div>

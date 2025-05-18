@@ -23,8 +23,8 @@
 
 .footer-column h4 {
     color: #F2F2F2;
-    margin-bottom: 20px;
-    font-size: 18px;
+    margin-bottom: 25px;
+    font-size: 25px;
 }
 
 .footer-column p, .footer-column a {
@@ -32,6 +32,7 @@
     line-height: 1.6;
     margin-bottom: 10px;
     text-decoration: none;
+    font-size: 19px;
 }
 
 .footer-column a:hover {
@@ -41,8 +42,8 @@
 
 .social-icons {
     display: flex;
-    gap: 15px;
-    margin-top: 15px;
+    gap: 25px;
+    margin-top: 25px;
     filter: brightness(0) invert(1);
 }
 
@@ -56,8 +57,8 @@
 }
 
 .social-icons img {
-    width: 24px;
-    height: 24px;
+    width: 40px;
+    height: 40px;
 }
 
 .footer-links {
@@ -75,7 +76,7 @@
     border-top: 1px solid #e1e1e1;
     margin-top: 30px;
     color: #F5CBD9;
-    font-size: 14px;
+    font-size: 17px;
 }
 
 
