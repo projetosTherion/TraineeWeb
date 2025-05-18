@@ -11,13 +11,13 @@ function Header() {
           <img 
             src={LogoBranca} 
             alt="Logo" 
-            style={{ height: '40px' }} 
+            style={{ height: '47px' }} 
           />
         </div>
 
         {/* Navegação centralizada */}
-        <nav style={{ position: 'absolute', left: '50%', transform: 'translateX(-50%)' }}>
-          <ul style={{ listStyle: 'none', display: 'flex', gap: '15px', margin: 0, padding: 0 }}>
+        <nav style={{ position: 'absolute', left: '50%', transform: 'translateX(-50%)'}}>
+          <ul style={{ listStyle: 'none', display: 'flex', gap: '30px', margin: 0, padding: 0, fontSize: '27px'}}>
             <li><Link to="/" style={{ color: '#fff' }}>Home</Link></li>
             <li><Link to="/sobre" style={{ color: '#fff' }}>Sobre Nós</Link></li>
             <li><Link to="/projetos" style={{ color: '#fff' }}>Projetos</Link></li>
