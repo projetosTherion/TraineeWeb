@@ -100,6 +100,32 @@ function Contato() {
           </button>
         </form>
       </div>
+      
+  {/* SEÇÃO 3 : INFORMAÇÕES DE CONTATO E LOCALIZAÇÃO */}
+ <section className={styles.SectionInformacoes}>
+        <div className={styles.infoWrapper}>
+          <div className={styles.infoContato}>
+            <h2>Informações de Contato</h2>
+            <p><strong>E-mail:</strong> <a href="mailto:contato@therionej.com.br">contato@therionej.com.br</a></p>
+            <p><strong>Telefone:</strong> <a href="tel:+5512996353758">(12) 99635-3758</a></p>
+            <p><strong>WhatsApp:</strong> <a href="https://wa.me/5512996353758" target="_blank" rel="noopener noreferrer">Enviar mensagem</a></p>
+          </div>
+
+          <div className={styles.mapaContainer}>
+            <h2>Onde estamos localizados?</h2>
+            <iframe
+              title="Localização UTFPR Apucarana"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3668.745582631465!2d-51.47843798534921!3d-23.541436765344107!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ecd13b88f79371%3A0x6e02d7fc42f2967!2sUTFPR%20-%20C%C3%A2mpus%20Apucarana!5e0!3m2!1spt-BR!2sbr!4v1715979582557!5m2!1spt-BR!2sbr"
+              width="100%"
+              height="300"
+              style={{ border: 0 }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+      </section>
     </>
   );
 }
