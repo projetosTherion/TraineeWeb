@@ -99,7 +99,28 @@ function Contato() {
             {isSubmitting ? 'Enviando...' : 'ENVIAR'}
           </button>
         </form>
+
+        {/* REDES SOCIAIS E CONTATO */}
+        <div className={styles.infoContato}>
+          <h4>Acesse nossas redes sociais!</h4>
+          <div className={styles.socialIcons}>
+            <a href="https://www.instagram.com/therion.ej/" target="_blank" rel="noopener noreferrer">
+              <img src="https://cdn.simpleicons.org/instagram/000000" alt="Instagram" width="32" height="32" />
+            </a>
+            <a href="https://www.linkedin.com/company/therion/?originalSubdomain=br" target="_blank" rel="noopener noreferrer">
+              <img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/linkedin.svg" alt="LinkedIn" width="32" height="32" />
+            </a>
+            <a href="https://www.facebook.com/therionej" target="_blank" rel="noopener noreferrer">
+              <img src="https://cdn.simpleicons.org/facebook/000000" alt="Facebook" width="32" height="32" />
+            </a>
+          </div>
+
+          <h4>Informações de Contato</h4>
+          <p><strong>Email:</strong> contato@therionej.com.br</p>
+          <p><strong>Telefone:</strong> (12) 99635-3758</p>
+        </div>
       </div>
+      
       
   {/* SEÇÃO 3 : INFORMAÇÕES DE CONTATO E LOCALIZAÇÃO */}
  <section className={styles.SectionInformacoes}>
