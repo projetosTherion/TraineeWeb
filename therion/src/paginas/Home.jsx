@@ -15,8 +15,8 @@ const servicosImages = [
 
 const projetosImages = [
   require("../assets/celular.png"),
-  require("../assets/SiteArcseed.png"),
   require("../assets/chaveiro.jpg"),
+  require("../assets/SiteArcseed.png"),
 ];
 
 function Home() {
