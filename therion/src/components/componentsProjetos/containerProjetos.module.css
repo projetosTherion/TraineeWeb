@@ -1,22 +1,13 @@
 .fadeIn {
-    opacity: 0;
-  }
-  
-  .fadeInVisible {
-    animation: fadeIn 0.6s ease forwards;
-  }
-  
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fadeInVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
   .pinkSectionTop {
     margin-top: -1.3rem;
     background-color: #ffc0cb;
@@ -43,12 +34,12 @@
     margin-bottom: -1.3rem;
   }
   
-  .titulo {
+  .tituloTopo {
     font-family: 'League Spartan';
     font-size: 50px;
     margin-bottom: 20px;
     font-weight: bold;
-    color: #ff5991;
+    color: #000000;
     text-align: center;
   }
   
@@ -72,9 +63,9 @@
     margin-right: 0px;
   }
   
-  .textoDescricao {
+  .historia {
     font-family: 'League Spartan';
-    font-size: 30px;
+    font-size: 25px;
     color: #414141;
     text-align: center;
     margin-top: 0px;
@@ -104,41 +95,35 @@
     object-fit: cover;
   }
   
-
+  
   .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;   /* ocupar toda a largura do carrossel */
-    max-width: none;
+    max-width: 1000px;
+    margin: 2rem auto;
     padding: 2rem;
-    margin: 0; /* remova margem para não somar espaço */
     border: 2px solid #ff69b4;
-    border-radius: 80px;
+    border-radius: 8px;
     background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   }
   
+  .imagemContainer {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin: 1rem 0;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+
   
+    /* carrossel  */
   .imagemContainer {
     width: 90%; /* para ocupar o container do slide */
     height: auto;
     border-radius: 8px;
     object-fit: cover;
     margin: 1rem 0;
-    border: 3px solid #000000; /* borda */
-  }
-
-
-  .carrosselContainer {
-    display: flex;
-    align-items: center;
-    justify-content: center;     /* ← Centraliza tudo */
-    gap: 2rem; 
-    max-width: none;            /* sem limite */
-    width: 95vw;         
-    margin: 2rem auto;           
-    padding: 0;
+    border: 3px solid #000000; 
   }
 
   .botaoCarrossel {
@@ -156,4 +141,93 @@
     justify-content: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     margin: 0 10px;
+  }
+  
+  .carrosselContainer {
+    width: 80%;                         
+    height: 60%; 
+    display: flex;
+    align-items: center;
+    justify-content: center;     
+    gap: 2rem; 
+    max-width: none;            
+    width: 95vw;         
+    margin: 2rem auto;           
+    padding: 0;
+  }
+  
+  .imagemPantera {
+    width:1000px;
+    max-width: 1000px;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15rem;
+    height: auto;
+  }
+  
+  .containerGeral {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  
+  .containerEsquerda,
+  .containerDireita {
+    width: 78%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .caixaTexto {
+    height: 280px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start; 
+    gap: 1.5rem;
+    background-color: #fff;
+    padding: 0.5rem;
+    border: 2px solid #ff69b4;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 1rem auto;
+  }
+  
+  .icon {
+    width: 180px;
+    height: auto;
+    object-fit: contain;
+    align-self: center;      
+    border-radius: 12px;      
+  }
+  
+  .textoContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .titulo {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+  }
+  
+  .texto {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #555;
+  }
+  
+  .chamadacarrossel {
+    font-family: 'League Spartan';
+    font-size: 40px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #000000;
+    text-align: center;
   }
