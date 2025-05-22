@@ -16,7 +16,7 @@ function Sobre() {
       });
     });
 
-    const elements = document.querySelectorAll(`.${styles.fadeIn}`);
+    const elements = document.querySelectorAll(`.${CSS.escape(styles.fadeIn)}`);
     elements.forEach((el) => observer.observe(el));
 
     return () => observer.disconnect();
