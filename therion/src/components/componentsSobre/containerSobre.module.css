@@ -123,3 +123,253 @@
   border-radius: 8px;
   object-fit: cover;
 }
+
+.mvvContainer {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 2rem 0;
+    margin: 2rem auto;
+    max-width: 1200px;
+}
+
+.mvvColumn {
+    flex: 1;
+    text-align: center;
+    padding: 2rem;
+    background: linear-gradient(135deg, #fff 0%, #f8f8f8 100%);
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 105, 180, 0.1);
+}
+
+.mvvColumn:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(255, 105, 180, 0.2);
+}
+
+.mvvColumn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #FF69B4, #ff99cc);
+}
+
+.mvvColumn h3 {
+    color: #FF69B4;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.mvvColumn h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background: #FF69B4;
+}
+
+.mvvColumn p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 1.5rem;
+}
+
+.mvvColumn ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+.mvvColumn ul li {
+    margin: 0.8rem 0;
+    color: #555;
+    font-size: 1.1rem;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255, 105, 180, 0.1);
+    transition: color 0.3s ease;
+}
+
+.mvvColumn ul li:hover {
+    color: #FF69B4;
+}
+
+.testimonialWrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.testimonialCarousel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.testimonialContent {
+  flex: 1;
+  min-height: 250px;
+  perspective: 1000px;
+}
+
+.testimonialCard {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 2.5rem;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: slideIn 0.5s ease-out;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.quoteIcon {
+  position: absolute;
+  top: -20px;
+  left: 20px;
+  font-size: 80px;
+  color: rgba(255, 255, 255, 0.2);
+  font-family: Georgia, serif;
+}
+
+.testimonialCard p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: white;
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.testimonialCard footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.testimonialCard strong {
+  font-size: 1.1rem;
+  color: white;
+}
+
+.testimonialCard em {
+  color: rgba(255, 255, 255, 0.8);
+  font-style: normal;
+}
+
+.divider {
+  width: 50px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, white, transparent);
+  margin: 0.5rem 0;
+}
+
+.carouselButton {
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  cursor: pointer;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.carouselButton:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+.testimonialDots {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-top: 2rem;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.activeDot {
+  background: white;
+  transform: scale(1.2);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(50px) rotateY(-10deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) rotateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+    .mvvContainer {
+        flex-direction: column;
+        padding: 1rem;
+    }
+    
+    .mvvColumn {
+        margin-bottom: 2rem;
+    }
+    
+    .mvvColumn:hover {
+        transform: translateY(-5px);
+    }
+  
+  .testimonialCarousel {
+    padding: 1rem;
+  }
+  
+  .testimonial p {
+    font-size: 1rem;
+  }
+
+  .testimonialCard {
+    padding: 1.5rem;
+  }
+
+  .testimonialCard p {
+    font-size: 1rem;
+  }
+
+  .carouselButton {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+}

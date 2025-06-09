@@ -1,9 +1,38 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import styles from '../components/componentsSobre/containerSobre.module.css';
 import imagemHistoria from '../assets/utfpr.jpg';
 import imagemMissao from '../assets/panteraSobre.png';
+import imagemPalco from '../assets/membrosPalco.jpg';
 
 function Sobre() {
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
+  
+  const testimonials = [
+    {
+      text: "A Therion fez um trabalho excepcional no desenvolvimento do meu site. Profissionalismo e qualidade do início ao fim!",
+      author: "Maria Silva",
+      role: "Empresária"
+    },
+    {
+      text: "Impressionante como a equipe é dedicada e comprometida com os prazos. O sistema que desenvolveram superou minhas expectativas.",
+      author: "João Santos",
+      role: "Gerente de Projetos"
+    },
+    {
+      text: "A automação implementada pela Therion revolucionou nossos processos internos. Resultado extraordinário!",
+      author: "Ana Oliveira",
+      role: "Diretora de Operações"
+    }
+  ];
+
+  const nextTestimonial = () => {
+    setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+  };
+
+  const prevTestimonial = () => {
+    setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  };
+
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -22,6 +51,14 @@ function Sobre() {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    const timer = setInterval(() => {
+      nextTestimonial();
+    }, 5000); // Auto-play a cada 5 segundos
+
+    return () => clearInterval(timer);
+  }, [currentTestimonial]);
+
   return (
     <>
       {/* SEÇÃO 1: TÍTULO E INTRODUÇÃO */}
@@ -34,7 +71,7 @@ function Sobre() {
 
       {/* SEÇÃO 1.1: IMAGEM */}
         <img
-          src="equipe.jpg"
+          src={imagemPalco}
           className={`${styles.equipe} ${styles.fadeIn}`}
         />
 
@@ -54,21 +91,72 @@ function Sobre() {
         <div className={styles.tituloComFundo}>
           <h2 className={styles.titulo}>Missão, Visão e Valores</h2>
         </div>
-        <img src={imagemMissao} className={styles.imagemContainer} />
-        <p className={styles.historia}>
-          <strong>Missão:</strong> Promover o desenvolvimento de soluções tecnológicas que gerem valor para clientes e aprendizado prático para os membros.<br /><br />
-          <strong>Visão:</strong> Ser reconhecida como uma empresa júnior referência em inovação, qualidade e impacto social na área de tecnologia.<br /><br />
-          <strong>Valores:</strong> Proatividade, colaboração, ética, responsabilidade, inovação e espírito de equipe.
-        </p>
+        <div className={styles.mvvContainer}>
+          <div className={styles.mvvColumn}>
+            <h3>
+              <span role="img" aria-label="target">🎯</span>
+              Missão
+            </h3>
+            <p>Promover o desenvolvimento de soluções tecnológicas que gerem valor para clientes e aprendizado prático para os membros.</p>
+          </div>
+          <div className={styles.mvvColumn}>
+            <h3>
+              <span role="img" aria-label="vision">🔭</span>
+              Visão
+            </h3>
+            <p>Ser reconhecida como uma empresa júnior referência em inovação, qualidade e impacto social na área de tecnologia.</p>
+          </div>
+          <div className={styles.mvvColumn}>
+            <h3>
+              <span role="img" aria-label="values">⭐</span>
+              Valores
+            </h3>
+            <ul>
+              <li>Proatividade</li>
+              <li>Colaboração</li>
+              <li>Ética</li>
+              <li>Responsabilidade</li>
+              <li>Inovação</li>
+              <li>Espírito de equipe</li>
+            </ul>
+          </div>
+        </div>
       </section>
 
       {/* SEÇÃO 4: DEPOIMENTO */}
       <section className={styles.pinkSectionBottom}>
         <h2 className={styles.titulo}>O que dizem sobre nós?</h2>
-        <blockquote className={styles.subtitulo} style={{ textAlign: 'center', fontStyle: 'italic', marginTop: '20px' }}>
-          <p>"Relatar a experiência do usuário"</p>
-          <footer style={{ marginTop: '10px' }}>- Fulano</footer>
-        </blockquote>
+        <div className={styles.testimonialWrapper}>
+          <div className={styles.testimonialCarousel}>
+            <button className={`${styles.carouselButton} ${styles.prevButton}`} onClick={prevTestimonial}>
+              <span>❮</span>
+            </button>
+            <div className={styles.testimonialContent}>
+              <div className={styles.testimonialCard}>
+                <div className={styles.quoteIcon}>"</div>
+                <p>{testimonials[currentTestimonial].text}</p>
+                <footer>
+                  <strong>{testimonials[currentTestimonial].author}</strong>
+                  <span className={styles.divider}></span>
+                  <em>{testimonials[currentTestimonial].role}</em>
+                </footer>
+              </div>
+            </div>
+            <button className={`${styles.carouselButton} ${styles.nextButton}`} onClick={nextTestimonial}>
+              <span>❯</span>
+            </button>
+          </div>
+          <div className={styles.testimonialDots}>
+            {testimonials.map((_, index) => (
+              <button
+                key={index}
+                className={`${styles.dot} ${currentTestimonial === index ? styles.activeDot : ''}`}
+                onClick={() => setCurrentTestimonial(index)}
+                aria-label={`Depoimento ${index + 1}`}
+              />
+            ))}
+          </div>
+        </div>
       </section>
     </>
   );
