@@ -4,8 +4,8 @@ Componentes GERAIS
 
 .titulo {
   font-family: 'League Spartan';
-  font-size: 45px;
-  margin-bottom: 20px;
+  font-size: clamp(1.8rem, 6vw, 2.8rem);
+  margin-bottom: clamp(10px, 3vw, 30px);
   font-weight: bold;
   color: #000000;
   text-align: center;
@@ -13,21 +13,18 @@ Componentes GERAIS
 
 .subtitulo {
   font-family: 'League Spartan';
-  font-size: 25px;
-  margin-bottom: 30px;
+  font-size: clamp(1.1rem, 4vw, 1.8rem);
+  margin-bottom: clamp(10px, 3vw, 30px);
   color: #000000;
   text-align: center;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  margin-left: 0px;
-  margin-right: 0px;
+  margin: 0;
 }
 
 .cards {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 1.5rem;
+  gap: clamp(1rem, 3vw, 2.5rem);
   margin-top: 1rem;
 }
 
@@ -35,8 +32,8 @@ Componentes GERAIS
   border: 3px solid #ff5991;
   border-radius: 12px;
   overflow: hidden;
-  width: 300px;
-  height: 450px;
+  width: clamp(220px, 30vw, 300px);
+  height: clamp(320px, 50vw, 450px);
   margin: 1px auto;
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
   display: flex;
@@ -51,14 +48,14 @@ Componentes GERAIS
 
 .container {
   text-align: center;
-  padding: 2rem;
+  padding: clamp(1rem, 4vw, 2rem);
   background-color: #fff;
 }
 
 .pinkSection {
-  margin-top: 3rem;
+  margin-top: clamp(1.5rem, 6vw, 3rem);
   background-color: #ffc0cb;
-  padding: 2rem 1rem;
+  padding: clamp(1rem, 5vw, 2rem) clamp(0.5rem, 3vw, 1rem);
   text-align: center;
   width: 100vw;
   position: relative;
@@ -74,7 +71,7 @@ SEÇÃO 1: TITULO E SUBTITULO
   margin-top: -1.3rem;
   margin-bottom: 0rem;
   background-color: #ffc0cb;
-  padding-block: 0.25rem; 
+  padding-block: clamp(0.25rem, 2vw, 1rem); 
   text-align: center;
   width: 100vw;
   position: relative;
@@ -83,31 +80,31 @@ SEÇÃO 1: TITULO E SUBTITULO
 }
 
 .titulotopo {
-  font-size: 55px;
+  font-size: clamp(1.8rem, 8vw, 3.4rem);
   font-family: 'League Spartan';
   font-weight: bold;
-  margin-top: 3.5rem;
+  margin-top: clamp(1.5rem, 8vw, 3.5rem);
   line-height: 1.4;
   text-align: left;
-  margin-left: 35rem;
+  margin-left: clamp(0rem, 20vw, 35rem);
 }
   
 .subtitulotopo {
-  font-size: 35px;
-  margin-top: -2.5rem;
+  font-size: clamp(1.1rem, 5vw, 2.2rem);
+  margin-top: clamp(-1.5rem, -4vw, -2.5rem);
   font-family: 'League Spartan';
   color: #000000;
   text-align: left;
-  margin-left: 35rem;
+  margin-left: clamp(0rem, 20vw, 35rem);
 }
 
 .bambulabImage {
   max-width: 400px;
   width: 100%;
-  height: 400px;
+  height: clamp(120px, 30vw, 400px);
   object-fit: contain;
-  margin-top: -20rem;   
-  margin-left: 30rem;  
+  margin-top: clamp(-8rem, -20vw, -20rem);   
+  margin-left: clamp(0rem, 18vw, 30rem);  
   position: relative;
   bottom: -50px; 
   z-index: 1;
@@ -125,7 +122,7 @@ SEÇÃO 2: PORTIFOLIO
 
 .imagemSlide {
   width: 100%;
-  height: 300px;
+  height: clamp(180px, 30vw, 300px);
   object-fit: cover;
   border-radius: 0;
 }
@@ -150,7 +147,7 @@ SEÇÃO 3: METODOLOGIA
 .metodologiaGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2rem; 
+  gap: clamp(1rem, 4vw, 2rem); 
   justify-items: center; 
   align-items: start; 
 }
@@ -158,11 +155,11 @@ SEÇÃO 3: METODOLOGIA
 .metodologiaCard {
   width: 100%; 
   max-width: 300px; 
-  height: 300px; 
+  height: clamp(180px, 30vw, 300px); 
   background-color: #fff;
   border: 3px solid  #ff5991;
   border-radius: 40px;
-  padding: 1.5rem;
+  padding: clamp(1rem, 3vw, 1.5rem);
   text-align: left;
   display: flex;
   flex-direction: column;
@@ -175,7 +172,7 @@ SEÇÃO 3: METODOLOGIA
 }
 
 .metodologiaCard p {
-  font-size: 1.35rem;
+  font-size: clamp(1rem, 3vw, 1.35rem);
   color: #333;
   line-height: 1.25;
   margin-bottom: 1rem;
@@ -184,8 +181,8 @@ SEÇÃO 3: METODOLOGIA
 
 .metodologiaIcon {
   display: block;
-  width: 60px;
-  height: 60px;
+  width: clamp(32px, 8vw, 60px);
+  height: clamp(32px, 8vw, 60px);
   margin: 0 auto 1rem auto;
   background-color: #ff5991;
 }
@@ -198,9 +195,9 @@ SEÇÃO 4: VANTAGENS
   width: 90%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: clamp(1rem, 4vw, 2rem);
   display: flex;
-  gap: 2rem;
+  gap: clamp(1rem, 4vw, 2rem);
   border: 2px solid  #ff5991;
   border-radius: 16px;
   background: #ffc0cb;
@@ -216,8 +213,7 @@ SEÇÃO 4: VANTAGENS
   left: 50%;
   bottom: 0;
   transform: translateX(-50%);
-  width: 40%;
-  max-width: 434px;
+  width: clamp(120px, 40vw, 434px);
   height: auto;
   object-fit: contain;
   border-radius: 12px;
@@ -232,21 +228,21 @@ SEÇÃO 4: VANTAGENS
   align-items: center;
   font-family: 'League Spartan', sans-serif;
   color: #500808;
-  gap: 1rem;
-  font-size: 1.8vw;
+  gap: clamp(0.5rem, 2vw, 1rem);
+  font-size: clamp(1rem, 2vw, 1.8vw);
 }
 
 .colunaVantagens p {
   width: 100%;
   max-width: 300px;
-  padding: 1rem 1.5rem;
+  padding: clamp(0.5rem, 2vw, 1rem) clamp(1rem, 3vw, 1.5rem);
   color: #000000;
   background: rgba(255, 255, 255, 0.6);
   border-radius: 12px;
   text-align: center;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
   transition: 0.2s;
-  font-size: clamp(16px, 1.5vw, 22px);
+  font-size: clamp(1rem, 1.5vw, 1.375rem);
   box-sizing: border-box;
 }
 
@@ -258,33 +254,33 @@ SEÇÃO 4: VANTAGENS
 /* ===================== RESPONSIVIDADE ===================== */
 @media (max-width: 1024px) {
   .titulo {
-    font-size: 35px;
+    font-size: clamp(1.5rem, 6vw, 2.2rem);
   }
 
   .subtitulo {
-    font-size: 20px;
+    font-size: clamp(1rem, 4vw, 1.3rem);
   }
 
   .card {
-    width: 260px;
-    height: 400px;
+    width: clamp(180px, 40vw, 260px);
+    height: clamp(220px, 50vw, 400px);
   }
 
   .titulotopo {
-    font-size: 45px;
-    margin-left: 5rem;
+    font-size: clamp(1.5rem, 8vw, 2.8rem);
+    margin-left: clamp(0rem, 4vw, 5rem);
     text-align: center;
   }
 
   .subtitulotopo {
-    font-size: 25px;
-    margin-left: 5rem;
+    font-size: clamp(1rem, 5vw, 1.6rem);
+    margin-left: clamp(0rem, 4vw, 5rem);
     text-align: center;
   }
 
   .bambulabImage {
     margin-left: 0;
-    margin-top: -10rem;
+    margin-top: clamp(-4rem, -10vw, -10rem);
     width: 100%;
     height: auto;
   }
@@ -300,17 +296,17 @@ SEÇÃO 4: VANTAGENS
   }
 
   .colunaVantagens {
-    font-size: 2.5vw;
+    font-size: clamp(1rem, 3vw, 2.5vw);
   }
 }
 
 @media (max-width: 768px) {
   .titulo {
-    font-size: 30px;
+    font-size: clamp(1.1rem, 8vw, 1.8rem);
   }
 
   .subtitulo {
-    font-size: 18px;
+    font-size: clamp(0.9rem, 5vw, 1.1rem);
   }
 
   .card {
@@ -319,21 +315,21 @@ SEÇÃO 4: VANTAGENS
   }
 
   .titulotopo {
-    font-size: 35px;
+    font-size: clamp(1.1rem, 8vw, 1.5rem);
     margin-left: 0;
     text-align: center;
   }
 
   .subtitulotopo {
-    font-size: 20px;
+    font-size: clamp(0.9rem, 5vw, 1rem);
     margin-left: 0;
     text-align: center;
   }
 
   .bambulabImage {
     margin-left: 0;
-    margin-top: -8rem;
-    height: 250px;
+    margin-top: clamp(-2rem, -8vw, -8rem);
+    height: clamp(80px, 30vw, 250px);
   }
 
   .metodologiaGrid {
@@ -342,12 +338,12 @@ SEÇÃO 4: VANTAGENS
 
   .caixa {
     flex-direction: column;
-    padding: 1rem;
+    padding: clamp(0.5rem, 2vw, 1rem);
   }
 
   .colunaVantagens {
     width: 100%;
-    font-size: 4vw;
+    font-size: clamp(1rem, 5vw, 4vw);
   }
 
   .colunaVantagens p {

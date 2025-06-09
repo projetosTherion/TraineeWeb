@@ -2,8 +2,9 @@
 @import "~slick-carousel/slick/slick-theme.css";
 
 .slideContainer {
-  max-width: 600px;
+  max-width: clamp(280px, 80vw, 600px);
   margin: 0 auto;
+  padding: clamp(10px, 4vw, 30px);
 }
 
 .slide {
@@ -11,46 +12,68 @@
 }
 
 .foto {
-  width: 150px;
-  height: 150px;
+  width: clamp(80px, 20vw, 150px);
+  height: clamp(80px, 20vw, 150px);
   border-radius: 50%;
   object-fit: cover;
-  margin: 0 auto 10px;
+  margin: 0 auto clamp(8px, 2vw, 10px);
 }
 
 h3 {
-  font-size: 1.5rem;
+  font-size: clamp(1.1rem, 4vw, 1.5rem);
   color: #333;
 }
 
 p {
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 3vw, 1rem);
   color: #666;
 }
-  
+
+.navButton {
+  background-color: #ff5991;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: clamp(32px, 8vw, 40px);
+  height: clamp(32px, 8vw, 40px);
+  font-size: clamp(1.1rem, 4vw, 1.5rem);
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.navButton:hover {
+  background-color: #e04d7f;
+}
+
+.navButton:first-of-type {
+  left: clamp(4px, 2vw, 10px);
+}
+
+.navButton:last-of-type {
+  right: clamp(4px, 2vw, 10px);
+}
+
+/* Responsividade extra para telas pequenas */
+@media (max-width: 600px) {
+  .slideContainer {
+    padding: clamp(4px, 2vw, 10px);
+  }
+  .foto {
+    width: clamp(60px, 30vw, 100px);
+    height: clamp(60px, 30vw, 100px);
+  }
+  h3 {
+    font-size: clamp(1rem, 6vw, 1.2rem);
+  }
+  p {
+    font-size: clamp(0.8rem, 4vw, 1rem);
+  }
   .navButton {
-    background-color: #ff5991;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    font-size: 1.5rem;
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 10;
+    width: clamp(24px, 10vw, 32px);
+    height: clamp(24px, 10vw, 32px);
+    font-size: clamp(1rem, 6vw, 1.2rem);
   }
-  
-  .navButton:hover {
-    background-color: #e04d7f;
-  }
-  
-  .navButton:first-of-type {
-    left: 10px;
-  }
-  
-  .navButton:last-of-type {
-    right: 10px;
-  }
+}

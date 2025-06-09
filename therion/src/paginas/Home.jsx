@@ -35,19 +35,23 @@ function Home() {
     <div className="home">
       {/* banner-home */}
       <section className="banner-home">
-        <div className="banner-home-overlay">
-          <img src={require('../assets/membros.jpg')} alt="Foto dos membros" className="banner-home-background" />
-          <div className="banner-home-pink-overlay"></div>
-        </div>
-        <div className="banner-home-content">
-          <div className="logo-text">
-            <img src={require('../assets/LogoBranca.png')} alt="Logo T" className="banner-home-logo" />
-            <h1 className="banner-home-title">THERION</h1>
-            <p className="banner-home-slogan">Rosa choque por resultados!</p>
-          </div>
-          <img src={require('../assets/pantherion_banner.png')} alt="Mascote Pantera Cor-de-Rosa" className="banner-home-mascot" />
-        </div>
-      </section>
+  <div className="banner-home-overlay">
+    <img src={require('../assets/membros.jpg')} alt="Foto dos membros" className="banner-home-background" />
+    <div className="banner-home-pink-overlay"></div>
+  </div>
+  <div className="banner-home-content">
+    <div className="logo-text">
+      <img src={require('../assets/LogoBranca.png')} alt="Logo T" className="banner-home-logo" />
+      <h1 className="banner-home-title">THERION</h1>
+      <p className="banner-home-slogan">Rosa choque por resultados!</p>
+    </div>
+  </div>
+  <img
+    src={require('../assets/pantherion_banner.png')}
+    alt="Mascote Pantera Cor-de-Rosa"
+    className="banner-home-mascot"
+  />
+</section>
 
       {/* Sobre nós */}
       <section className="quem-somos">

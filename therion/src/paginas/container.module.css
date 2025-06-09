@@ -1,70 +1,95 @@
-/* CSS da pagina projetos*/
-
 @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap');
 
 main {
   display: flex;
   flex-direction: column;
 }
-        .paragrafo{
-          font-family: 'League Spartan', sans-serif;
-          font-size: 16px;
-          margin-bottom: 1px;
-        }
 
-        .container {
-          font-family: 'League Spartan', sans-serif;
-          padding: 2rem;
-          color: #333;
-        }
-        
-        .titulo1 {
-          font-family: 'League Spartan', sans-serif;
-          font-size: 40px;        
-          margin-bottom: 20px;
-          color: #FF5991;
-          text-align: center;     
-        }
-        
-        .titulo2{
-          font-family: 'League Spartan', sans-serif;
-          font-size: 20px;
-          margin-bottom: 5px;
-          color: #FF5991;
-        }
+.paragrafo {
+  font-family: 'League Spartan', sans-serif;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  margin-bottom: 1px;
+}
 
-        .image {
-          display: block;
-          margin: 20px auto;
-          width: 300px;
-          border: 3px solid #FF5991;
-          border-radius: 10px;
-        }
-        
-        .button {
-          background-color: #FF5991;
-          color: white;
-          border: none;
-          padding: 10px 20px;
-          margin-top: 1rem;
-          font-size: 16px;
-          border-radius: 5px;
-          cursor: pointer;
-          font-family: 'League Spartan', sans-serif;
-          transition: background-color 0.3s ease;
-        }
-        
-        .button:hover {
-          background-color: #e0487a;
-        }
-        .card {
-        background-color: #f9f9f9; /* Cor de fundo do 
-        cartão */
-        border: 2px solid #FF5991; /* Borda do cartão */
-        border-radius: 8px; /* Cantos arredondados */
-        padding: 20px; /* Espaçamento interno */
-        margin: 10px; /* Espaçamento externo */
-        width: 300px; /* Largura do cartão */
-      }
+.container {
+  font-family: 'League Spartan', sans-serif;
+  padding: clamp(1rem, 4vw, 2.5rem);
+  color: #333;
+}
 
+.titulo1 {
+  font-family: 'League Spartan', sans-serif;
+  font-size: clamp(2rem, 6vw, 2.5rem);
+  margin-bottom: clamp(10px, 3vw, 30px);
+  color: #FF5991;
+  text-align: center;
+}
 
+.titulo2 {
+  font-family: 'League Spartan', sans-serif;
+  font-size: clamp(1.1rem, 4vw, 1.5rem);
+  margin-bottom: clamp(4px, 2vw, 10px);
+  color: #FF5991;
+}
+
+.image {
+  display: block;
+  margin: clamp(10px, 4vw, 20px) auto;
+  width: clamp(180px, 40vw, 320px);
+  border: 3px solid #FF5991;
+  border-radius: 10px;
+}
+
+.button {
+  background-color: #FF5991;
+  color: white;
+  border: none;
+  padding: clamp(8px, 2vw, 16px) clamp(16px, 6vw, 32px);
+  margin-top: 1rem;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'League Spartan', sans-serif;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #e0487a;
+}
+
+.card {
+  background-color: #f9f9f9;
+  border: 2px solid #FF5991;
+  border-radius: 8px;
+  padding: clamp(1rem, 4vw, 2rem);
+  margin: clamp(8px, 2vw, 16px);
+  width: clamp(220px, 40vw, 320px);
+  box-sizing: border-box;
+}
+
+/* Responsividade para grid de cards */
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(10px, 4vw, 30px);
+  justify-content: center;
+  margin-top: clamp(10px, 4vw, 30px);
+}
+
+/* Ajustes para telas menores */
+@media (max-width: 600px) {
+  .container {
+    padding: clamp(0.5rem, 4vw, 1.2rem);
+  }
+  .titulo1 {
+    font-size: clamp(1.2rem, 8vw, 1.8rem);
+  }
+  .image {
+    width: clamp(120px, 80vw, 200px);
+  }
+  .card {
+    width: 100%;
+    min-width: 0;
+    padding: clamp(0.5rem, 2vw, 1rem);
+  }
+}

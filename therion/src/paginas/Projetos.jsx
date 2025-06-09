@@ -1,6 +1,6 @@
 import styles from '../components/componentsProjetos/containerProjetos.module.css'; // Importa o arquivo CSS do containerProjetos
 import imagemTetris from '../assets/tetris.png';
-import imagemArcseed from '../assets/arcseed.png';
+import imagemArcseed from '../assets/SiteArcseed.png';
 import React, { useState } from "react";
 
 /*imagem serviços */

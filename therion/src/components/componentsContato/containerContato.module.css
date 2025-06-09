@@ -10,43 +10,44 @@ SEÇÃO 1: TITULO E SUBTITULO
   margin-top: -1.3rem;
   margin-bottom: 0rem;
   background-color: #ffc0cb;
-  padding-block: 2.9rem; 
+  padding-block: clamp(1rem, 6vw, 2.9rem);
   text-align: center;
   width: 100vw;
   position: relative;
   left: 50%;
   right: 50%;
-  transform: translateX(-50%); 
+  transform: translateX(-50%);
 }
 
 .panteraInicial {
   max-width: 400px;
   width: 100%;
-  height: 400px;
+  height: clamp(120px, 30vw, 400px);
   object-fit: contain;
-  margin-top: -21rem;   
-  margin-left: 45rem;  
+  margin-top: clamp(-8rem, -20vw, -21rem);
+  margin-left: clamp(0rem, 20vw, 45rem);
   position: relative;
-  bottom: -50px; 
+  bottom: -50px;
+  z-index: 1;
 }
 
 .tituloInicial {
-  font-size: 55px;
+  font-size: clamp(1.8rem, 8vw, 3.4rem);
   font-family: 'League Spartan';
   font-weight: bold;
-  margin-top: 3.5rem;
+  margin-top: clamp(1.5rem, 8vw, 3.5rem);
   line-height: 1.4;
   text-align: left;
-  margin-left: 35rem;
+  margin-left: clamp(0rem, 20vw, 35rem);
 }
-  
+
 .subtituloInicial {
-  font-size: 35px;
-  margin-top: -2.5rem;
+  font-size: clamp(1.1rem, 5vw, 2.2rem);
+  margin-top: clamp(-1.5rem, -4vw, -2.5rem);
   font-family: 'League Spartan';
   color: #000000;
   text-align: left;
-  margin-left: 35rem;
+  margin-left: clamp(0rem, 20vw, 35rem);
 }
 
 /*
@@ -55,11 +56,11 @@ CONTAINER E FORMULÁRIO
 
 .container {
   display: flex;
-  justify-content: center; /* CENTRALIZA os elementos lado a lado */
+  justify-content: center;
   align-items: center;
-  padding: 2rem;
+  padding: clamp(1rem, 4vw, 2rem);
   background-color: #fff;
-  gap: 3rem;
+  gap: clamp(1rem, 4vw, 3rem);
   flex-wrap: wrap;
   max-width: 1200px;
   margin: 0 auto;
@@ -69,8 +70,8 @@ CONTAINER E FORMULÁRIO
   background-color: #f7f7f7;
   border: 2px solid #FF5991;
   border-radius: 15px;
-  padding: 2rem;
-  width: 350px;
+  padding: clamp(1rem, 4vw, 2rem);
+  width: clamp(220px, 40vw, 350px);
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -80,19 +81,19 @@ CONTAINER E FORMULÁRIO
 
 label {
   font-weight: bold;
-  font-size: 1.5rem;
+  font-size: clamp(1rem, 3vw, 1.5rem);
   color: #000000;
 }
 
 input,
 textarea {
-  padding: 0.6rem;
+  padding: clamp(0.4rem, 2vw, 0.6rem);
   border: none;
   border-radius: 25px;
   background-color: #d3d3d3;
   outline: none;
   width: 100%;
-  font-size: 1rem;
+  font-size: clamp(1rem, 2vw, 1.1rem);
   font-family: 'League Spartan', sans-serif;
   color: #000000;
 }
@@ -104,13 +105,13 @@ textarea {
 
 button {
   margin-top: 1rem;
-  padding: 0.7rem;
+  padding: clamp(0.5rem, 2vw, 0.7rem);
   border: none;
   border-radius: 20px;
   background-color: #FF5991;
   color: white;
   font-weight: bold;
-  font-size: 1rem;
+  font-size: clamp(1rem, 2vw, 1.2rem);
   cursor: pointer;
   font-family: 'League Spartan', sans-serif;
   transition: background-color 0.3s ease;
@@ -120,20 +121,20 @@ button:hover {
   background-color: #d23669;
 }
 
-/*contato do lado do forms*/ 
+/*contato do lado do forms*/
 .infoContato {
   display: flex;
   flex-direction: column;
   gap: 1rem;
   font-family: 'League Spartan', sans-serif;
   color: #000;
-  max-width: 600px; /* REMOVER espaço extra antes de 'px' */
+  max-width: 600px;
   margin-bottom: 0.3rem;
-  text-align: center;  
+  text-align: center;
 }
 
 .infoContato h4 {
-  font-size: 3rem;
+  font-size: clamp(1.5rem, 6vw, 3rem);
   font-weight: bold;
   margin-bottom: 0.5rem;
   margin-top: 1rem;
@@ -141,85 +142,83 @@ button:hover {
 
 .infoContato p {
   margin: 0;
-  font-size: 1rem;
+  font-size: clamp(1rem, 2vw, 1.2rem);
 }
 
 .infoContato a {
   color: #000000;
   text-decoration: none;
-  font-size: 1.5rem;
+  font-size: clamp(1rem, 3vw, 1.5rem);
 }
 
 .infoContato a:hover {
   text-decoration: underline;
 }
 
-
 .socialIcons {
   display: flex;
-  justify-content: center; /* CENTRALIZA os elementos lado a lado */
-  gap: 1rem;
+  justify-content: center;
+  gap: clamp(0.5rem, 2vw, 1rem);
   align-items: center;
 }
 
 /* ========== RESPONSIVIDADE ========== */
 @media (max-width: 1024px) {
   .tituloInicial {
-    font-size: 45px;
-    margin-left: 5rem;
+    font-size: clamp(1.5rem, 8vw, 2.8rem);
+    margin-left: 0;
     text-align: center;
   }
 
   .subtituloInicial {
-    font-size: 25px;
-    margin-left: 5rem;
+    font-size: clamp(1rem, 5vw, 1.6rem);
+    margin-left: 0;
     text-align: center;
   }
 
   .panteraInicial {
     margin-left: 0;
-    margin-top: -10rem;
-    height: 300px;
-    width: 100%;
+    margin-top: clamp(-4rem, -10vw, -10rem);
+    height: clamp(120px, 30vw, 300px);
   }
 
   .container {
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    padding: clamp(0.5rem, 2vw, 1rem);
   }
 }
 
 @media (max-width: 768px) {
   .tituloInicial {
-    font-size: 35px;
+    font-size: clamp(1.1rem, 8vw, 1.5rem);
     margin-left: 0;
     text-align: center;
   }
 
   .subtituloInicial {
-    font-size: 20px;
+    font-size: clamp(0.9rem, 5vw, 1rem);
     margin-left: 0;
     text-align: center;
   }
 
   .panteraInicial {
     margin-left: 0;
-    margin-top: -8rem;
-    height: 250px;
+    margin-top: clamp(-2rem, -8vw, -8rem);
+    height: clamp(80px, 30vw, 250px);
   }
 
   .formulario {
     width: 100%;
     max-width: 350px;
-    padding: 1.5rem;
+    padding: clamp(0.5rem, 2vw, 1.5rem);
   }
 
   .container {
-    padding: 1rem;
+    padding: clamp(0.25rem, 2vw, 1rem);
   }
 }
-
 
 /*LOCALIZAÇÃO */
 
@@ -235,10 +234,9 @@ button:hover {
 }
 
 .mapaContainer h2 {
-  font-size: 28px;
+  font-size: clamp(1.1rem, 5vw, 1.75rem);
   margin-bottom: 1rem;
   margin-top: -1rem;
-  color: #000000; 
+  color: #000000;
   font-weight: bold;
 }
-
