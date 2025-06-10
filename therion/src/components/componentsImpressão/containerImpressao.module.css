@@ -77,6 +77,7 @@ SEÇÃO 1: TITULO E SUBTITULO
   position: relative;
   left: 50%;
   transform: translateX(-50%);
+  overflow: auto;
 }
 
 .titulotopo {
@@ -99,6 +100,7 @@ SEÇÃO 1: TITULO E SUBTITULO
 }
 
 .bambulabImage {
+  float: right;
   max-width: 400px;
   width: 100%;
   height: clamp(120px, 30vw, 400px);

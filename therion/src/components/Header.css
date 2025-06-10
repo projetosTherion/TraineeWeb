@@ -18,7 +18,7 @@
   justify-content: space-between;
   align-items: center;
   /* Remova ou comente as duas linhas abaixo */
-  /* max-width: 1200px; */
+   max-width: 1450px;
   /* margin: 0 auto; */
   padding: 0 clamp(8px, 4vw, 32px);
   width: 100%;

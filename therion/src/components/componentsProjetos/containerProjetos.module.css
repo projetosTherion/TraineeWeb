@@ -159,7 +159,7 @@
 
 .containerEsquerda,
 .containerDireita {
-  width: 78%;
+  width: 48%;
   display: flex;
   flex-direction: column;
 }
