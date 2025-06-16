@@ -9,31 +9,32 @@
   transform: translateY(0);
 }
 
+.projetosContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem;
+  margin: 0 auto;
+
+  padding: 0 clamp(8px, 4vw, 32px);
+  width: 100%;
+}
+
+/*Seção Inicial Topo*/
+
 .pinkSectionTop {
   margin-top: -1.3rem;
   background-color: #ffc0cb;
   padding: clamp(1rem, 5vw, 2rem) clamp(0.5rem, 3vw, 1rem);
-  text-align: center;
+  text-align: left;
   width: 100vw;
   position: relative;
   left: 50%;
   right: 50%;
   transform: translateX(-50%);
   margin-bottom: clamp(1rem, 6vw, 3rem);
-}
-
-.pinkSectionBottom {
-  margin-top: clamp(1rem, 6vw, 3rem);
-  background-color: #ffc0cb;
-  padding: clamp(1rem, 5vw, 2rem) clamp(0.5rem, 3vw, 1rem);
-  text-align: center;
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  transform: translateX(-50%);
-  margin-bottom: -1.3rem;
-}
+}/*Seção Rosa*/
 
 .tituloTopo {
   font-family: 'League Spartan';
@@ -41,101 +42,252 @@
   margin-bottom: clamp(10px, 3vw, 20px);
   font-weight: bold;
   color: #000000;
-  text-align: center;
-}
-
-.tituloComFundo {
-  background-color: #ffc0cb;
-  padding: clamp(0.5rem, 2vw, 1rem) clamp(0.25rem, 2vw, 0.5rem);
-  text-align: center;
-  border-radius: 8px;
-  margin-bottom: clamp(0.5rem, 2vw, 1rem);
-}
+  width: 100%;
+}/*Titulo no topo*/
 
 .subtitulo {
   font-family: 'League Spartan';
   font-size: clamp(1.2rem, 4vw, 2rem);
   margin-bottom: clamp(10px, 3vw, 30px);
   color: #000000;
-  text-align: center;
-  margin: 0;
-}
-
-.historia {
-  font-family: 'League Spartan';
-  font-size: clamp(1rem, 3vw, 1.6rem);
-  color: #414141;
-  text-align: center;
-  margin: 0;
-}
-
-.missao {
-  font-family: 'League Spartan';
-  font-size: clamp(1rem, 3vw, 1.6rem);
-  color: #414141;
   text-align: left;
   margin: 0;
-  transition: transform 0.5s ease;
-}
+}/*Subtitulo*/
 
-.equipe {
+/*Fim da seção do topo*/
+
+/*Cards com nossa cartela de trabalho*/
+
+.imagemTextoWrapper{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1.5rem;
   width: 100%;
-  height: auto;
-  display: block;
-  margin: clamp(0.5rem, 2vw, 1rem) auto;
-  border-radius: 8px;
-  object-fit: cover;
-}
+}/*Alinha a imagem ao texto do card*/
 
-.container {
-  max-width: 1000px;
-  margin: clamp(1rem, 4vw, 2rem) auto;
-  padding: clamp(1rem, 4vw, 2rem);
-  border: 2px solid #ff69b4;
-  border-radius: 8px;
+
+.caixaTexto {
+  min-height: clamp(120px, 30vw, 280px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: clamp(0.5rem, 3vw, 1.5rem);
   background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  padding: clamp(0.25rem, 2vw, 0.5rem);
+  border: 2px solid #ff69b4;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  max-width: none;
+ }
+
+.containerEsquerda,
+.containerDireita {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  flex: 1;
+  min-width: 300px;
+}/*Container dos cards*/
+
+.icon {
+  width: clamp(48px, 12vw, 180px);
+  height: auto;
+  object-fit: contain;
+  align-self: center;
+  border-radius: 12px;
+}/*Container das imagens*/
+
+.titulo {
+  font-family: 'League Spartan';
+  font-weight: bold;
+  font-size: clamp(1.2rem, 5vw, 2rem);
+  margin-bottom: 0.5rem;
+  color: #000000;
+  text-align: left;
+  margin-left: 1.5rem;
+  width: 100%;
+}/*Titulo dos cards*/
+
+.texto{
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+  color: #666;
+  line-height: 1.6;
+  text-align: left;
+  flex-grow: 1;
 }
 
-.imagemContainer {
-  width: 90%;
-  max-width: 100%;
+/*Fim da seção dos cards*/
+
+/*Seção de Cases de Sucesso*/
+
+.fundoRosa{
+  margin-bottom: -1.3rem;
+  background-color: #ffc0cb;
+  padding: clamp(5rem, 10vw, 10rem) clamp(0.5rem, 3vw, 1rem) clamp(1rem, 5vw, 2rem) clamp(0.5rem, 3vw, 1rem); 
+
+  text-align: left;
+  width: 100vw;
   height: auto;
-  margin: clamp(0.5rem, 2vw, 1rem) 0;
-  border-radius: 8px;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  transform: translateX(-50%);
+  margin-top: clamp(4rem, 10vw, 7rem);
+
+  /*====Gradiente====*/
+  background-image: linear-gradient(to top, #ffc0cb 80%, #fff 100%);
+}/*Seção Rosa*/
+
+.containerCases{
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+  row-gap: 0.5rem;
+  margin: 1rem auto;
+  max-width: clamp(900px, 90vw, 1500px);
+  padding: 0 clamp(8px, 4vw, 32px);
+  padding-bottom: 300px;
+}/*.containerCasesSucesso*/
+
+.tituloCases{
+  font-family: 'League Spartan';
+  font-weight: bold;
+  font-size: clamp(2.5rem, 5vw, 3rem);
+  margin-bottom: 5rem;
+  color: #000000;
+  text-align: center;
+  width: 100%;
+}/*Titulo dos cases de sucesso*/
+
+.tituloCasesCaixa{
+  font-family: 'League Spartan';
+  font-weight: bold;
+  font-size: clamp(1.2rem, 5vw, 2rem);
+  margin-bottom: 0.5rem;
+  color: #000000;
+  text-align: left;
+  width: 100%;
+}
+
+/*====Itens a direita======*/
+.imagemContainerDireita,
+.imagemContainerEsquerda,
+.imagemContainerCentro{     /*Unica coisa a esquerda nessa parte*/
+  /*Tamanho pequeno e fixo da imagem*/
+  width: clamp(300px, 50vw, 600px);
+  height: clamp(150px, 30vw, 300px);
+  
+  /*Alinhamento a direita*/
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+
   object-fit: cover;
   border: 3px solid #000000;
-}
+  display: block;
+}/*Container das imagens dos cases*/
 
-/* carrossel */
-.botaoCarrossel {
-  width: clamp(36px, 10vw, 60px);
-  height: clamp(36px, 10vw, 60px);
-  background-color: #ffc0cb;
-  color: white;
-  border: none;
-  font-size: clamp(1.5rem, 5vw, 2rem);
-  border-radius: 12px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  margin: 0 10px;
-}
-
-.carrosselContainer {
-  width: 95vw;
-  max-width: none;
+.caseImagemWrapperDireita{
+  position: relative;
+  width: fit-content;
   height: auto;
+  
+  min-height: calc(clamp(150px, 30vw, 300px) + 200px);
+  margin-left: 0;
+  margin-right: 0;
+  display: block;
+}/*.caseImagemWrapper*/
+
+.caixaTextoCasesDireita{
+  position: absolute;
+  top: clamp(100px, 35vw, 200px);
+  right: 0px;
+  transform: none;
+  left: unset;
+  
+  width: clamp(280px, 70vw, 450px);
+  max-height: 300px;
+  
+  /*Estilos Visuais*/
+  background-color: #fff;
+  padding: clamp(1rem, 3vw, 2rem);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  border: 5px solid #ff69b4;
+  z-index: 10;
+}/*.caixaTextoCases*/
+
+/*=====Itens a esquerda*/
+
+.caseImagemWrapperEsquerda{
+  position: relative;
+  width: fit-content;
+  height: auto;
+  
+  min-height: calc(clamp(150px, 30vw, 300px) + 200px);
+  margin-left: 0;
+  margin-right: 0;
+  display: block;
+}/*.caseImagemWrapper*/
+
+.caixaTextoCasesEsquerda{
+  position: absolute;
+  top: clamp(100px, 35vw, 200px);
+  left: 0px;
+  transform: none;
+  
+  width: clamp(280px, 70vw, 450px);
+  max-height: 300px;
+  
+  /*Estilos Visuais*/
+  background-color: #fff;
+  padding: clamp(1rem, 3vw, 2rem);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  border: 5px solid #ff69b4;
+  z-index: 10;
+}/*.caixaTextoCases*/
+
+/*====Imagem ao centro*/
+
+.caseImagemWrapperCentro{
+  position: relative;
+  width: 100%;
+  height: auto;
+  
+  min-height: calc(clamp(150px, 30vw, 300px) + 200px);
   display: flex;
-  align-items: center;
   justify-content: center;
-  gap: clamp(1rem, 4vw, 2rem);
-  margin: clamp(1rem, 4vw, 2rem) auto;
-  padding: 0;
-}
+  align-items: flex-end;
+
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: -3rem;
+}/*.caseImagemWrapper*/
+
+.caixaTextoCasesCentro{
+  position: absolute;
+  top: clamp(300px, 65vw, 450px);
+  left: 50%;
+  transform: translateX(-50%);
+  right: unset;
+  
+  width: clamp(280px, 70vw, 450px);
+  max-height: 300px;
+  
+  /*Estilos Visuais*/
+  background-color: #fff;
+  padding: clamp(1rem, 3vw, 2rem);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  border: 5px solid #ff69b4;
+  z-index: 10;
+}/*.caixaTextoCases*/
+/*Fim da seção de cases de Sucesso*/
+
+/*Containers não usados*/
+
 
 .imagemPantera {
   width: clamp(200px, 60vw, 1000px);
@@ -157,35 +309,8 @@
   flex-wrap: wrap;
 }
 
-.containerEsquerda,
-.containerDireita {
-  width: 48%;
-  display: flex;
-  flex-direction: column;
-}
 
-.caixaTexto {
-  height: clamp(120px, 30vw, 280px);
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  gap: clamp(0.5rem, 3vw, 1.5rem);
-  background-color: #fff;
-  padding: clamp(0.25rem, 2vw, 0.5rem);
-  border: 2px solid #ff69b4;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  max-width: 800px;
-  margin: clamp(0.5rem, 2vw, 1rem) auto;
-}
 
-.icon {
-  width: clamp(48px, 12vw, 180px);
-  height: auto;
-  object-fit: contain;
-  align-self: center;
-  border-radius: 12px;
-}
 
 .textoContainer {
   display: flex;
@@ -193,26 +318,6 @@
   justify-content: center;
 }
 
-.titulo {
-  font-size: clamp(1.1rem, 4vw, 1.5rem);
-  margin-bottom: 0.5rem;
-  color: #333;
-}
-
-.texto {
-  font-size: clamp(0.9rem, 2vw, 1rem);
-  line-height: 1.5;
-  color: #555;
-}
-
-.chamadacarrossel {
-  font-family: 'League Spartan';
-  font-size: clamp(1.5rem, 6vw, 2.5rem);
-  margin-bottom: clamp(10px, 3vw, 20px);
-  font-weight: bold;
-  color: #000000;
-  text-align: center;
-}
 
 /* Responsividade para telas menores */
 @media (max-width: 900px) {
