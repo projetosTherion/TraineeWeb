@@ -8,15 +8,15 @@ const sobreNosImages = [
 ];
 
 const servicosImages = [
-  require("../assets/SiteGol.png"),
-  require("../assets/FotoImpressora.jpg"),
-  require("../assets/suporte.jpg"),
+  require("../assets/IconeModelagem.png"),
+  require("../assets/IconeDesWeb.png"),
+  require("../assets/IconeMicrocontrolados.png"),
 ];
 
 const projetosImages = [
-  require("../assets/celular.png"),
-  require("../assets/chaveiro.jpg"),
-  require("../assets/SiteArcseed.png"),
+  require("../assets/Microcontrolados.png"),
+  require("../assets/DesWeb.png"),
+  require("../assets/Modelagem.png"),
 ];
 
 function Home() {
@@ -36,7 +36,7 @@ function Home() {
       {/* banner-home */}
       <section className="banner-home">
   <div className="banner-home-overlay">
-    <img src={require('../assets/membros.jpg')} alt="Foto dos membros" className="banner-home-background" />
+    <img src={require('../assets/TimeTherion.jpg')} alt="Foto dos membros" className="banner-home-background" />
     <div className="banner-home-pink-overlay"></div>
   </div>
   <div className="banner-home-content">
