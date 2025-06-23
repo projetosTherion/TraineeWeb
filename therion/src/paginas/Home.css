@@ -141,7 +141,7 @@ h2 {
 
 .quem-somos-title {
   position: absolute;
-  top: clamp(-60px, -8vw, -110px);
+  top: clamp(-110px, -8vw, -110px);
   left: clamp(5px, 2vw, 20px);
   background-color: #ffffff;
   color: #ff5991;
@@ -185,6 +185,7 @@ h2 {
   flex: 1;
   position: relative;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
@@ -196,32 +197,33 @@ h2 {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.carousel-button {
-  position: absolute;
-  background-color: #ff5991;
-  color: #ffffff;
-  border: none;
-  border-radius: 50%;
-  width: clamp(30px, 8vw, 40px);
-  height: clamp(30px, 8vw, 40px);
-  font-size: clamp(1rem, 3vw, 1.5rem);
-  font-weight: bold;
-  cursor: pointer;
+/* Dots para carrossel */
+.carousel-dots {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 18px;
 }
 
-.carousel-button:hover {
-  background-color: #e04d7f;
+.carousel-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: none;
+  background: #ffd6e8;
+  transition: background 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+  box-shadow: none;
+  padding: 0;
 }
-
-.carousel-button.prev {
-  left: clamp(10px, 10vw, 100px);
+.carousel-dot.active {
+  background: #ff5991;
+  box-shadow: 0 0 0 2px #ff5991;
 }
-
-.carousel-button.next {
-  right: clamp(10px, 10vw, 100px);
+.carousel-dot:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px #ff5991;
 }
 
 /* Serviçoes*/
@@ -245,7 +247,7 @@ h2 {
 
 .servicos-home-title {
   position: absolute;
-  top: clamp(-60px, -8vw, -110px);
+  top: clamp(-110px, -8vw, -110px);
   right: clamp(5px, 2vw, 20px);
   background-color: #ffffff;
   color: #ff5991;
@@ -289,6 +291,7 @@ h2 {
   flex: 1;
   position: relative;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
@@ -314,7 +317,7 @@ h2 {
 
 .projetos-home-title {
   position: absolute;
-  top: clamp(-60px, -8vw, -110px);
+  top: clamp(-110px, -8vw, -110px);
   left: clamp(5px, 2vw, 20px);
   background-color: #ffffff;
   color: #ff5991;
@@ -358,14 +361,15 @@ h2 {
   flex: 1;
   position: relative;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-/* contato-home-home */
+/* contato-home */
 .contato-home {
   width: 100vw;
-  padding: clamp(40px, 10vw, 100px) 0;
+  padding: 100px 0;
   display: flex;
   justify-content: center;
   background-color: #ffffff;
@@ -378,26 +382,32 @@ h2 {
   background-color: #ffffff;
   border: 5px solid #ff5991;
   border-radius: 30px;
-  padding: clamp(20px, 6vw, 80px);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+  padding: 80px;
 }
 
-.contato-home-title {
-  font-size: clamp(2rem, 8vw, 5rem);
+.contato-home-title-moldura {
+  position: absolute;
+  top: -110px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #fff;
   color: #ff5991;
+  font-size: 4rem;
   font-weight: bold;
-  margin-bottom: 10px;
+  padding: 0 30px;
+  z-index: 2;
+  text-align: center;
+  white-space: nowrap;
 }
 
 .contato-home-content {
   display: flex;
+  flex-direction: row;
   align-items: center;
-  justify-content: space-between;
-  gap: clamp(20px, 8vw, 80px);
+  justify-content: center;
+  gap: 100px;
   width: 100%;
+  height: 330px;
 }
 
 .contato-home-image {
@@ -405,53 +415,68 @@ h2 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   text-align: center;
 }
 
 .contato-home-image img {
-  width: clamp(120px, 40vw, 600px);
-  height: auto;
-  border-radius: 10px;
+  width: auto;
+  max-width: 350px;     
+  height: 320px;
+  max-height: 100%;
+  border-radius: 0;     
+  box-shadow: none;      
+  background: transparent;
+  object-fit: contain;   
+  display: block;
+  margin: 0 auto;
 }
 
 .contato-home-slogan {
   color: #ff5991;
   font-weight: bold;
-  font-size: clamp(1rem, 4vw, 2rem);
-  margin-top: 20px;
+  font-size: 2rem;  /* Maior */
+  margin-top: 30px;
+  text-align: center;
+  letter-spacing: 1px;
+  line-height: 2.4rem;
 }
 
 .contato-home-text {
   flex: 1;
-  font-size: clamp(0.9rem, 2vw, 1rem);
-  line-height: 2rem;
-  color: #333333;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: center;       /* Centraliza verticalmente o conteúdo */
+  align-items: center;           /* Centraliza horizontalmente o texto e o botão */
   text-align: center;
+  height: 100%;
+  gap: 24px;
 }
 
 .contato-home-text p {
   font-weight: bold;
-  margin: 10px 0;
+  margin: 0;
+  font-size: 1.6rem;
+  line-height: 2.1rem;
 }
 
 .contato-home-button {
-  margin-top: 20px;
   background-color: #ff5991;
   color: #ffffff;
-  padding: clamp(8px, 2vw, 15px) clamp(16px, 6vw, 30px);
-  font-size: clamp(1.2rem, 6vw, 3rem);
+  padding: 16px 40px;
+  font-size: 1.4rem;
   border: none;
-  border-radius: 10px;
+  border-radius: 20px;
   cursor: pointer;
   font-weight: bold;
+  transition:  0.2s;
+  margin: 0; 
 }
 
-.contato-home-home-button:hover {
+.contato-home-button:hover {
   background-color: #e04d7f;
 }
+
 
 /* Responsividade extra para layout em telas pequenas */
 @media (max-width: 900px) {
@@ -476,12 +501,6 @@ h2 {
     width: clamp(120px, 60vw, 350px);
     margin: 0 auto;
     display: block;
-  }
-
-  .carousel-button.prev,
-  .carousel-button.next {
-    left: 10px;
-    right: 10px;
   }
 }
 
