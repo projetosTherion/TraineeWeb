@@ -8,15 +8,15 @@ const sobreNosImages = [
 ];
 
 const servicosImages = [
-  require("../assets/SiteGol.png"),
-  require("../assets/FotoImpressora.jpg"),
-  require("../assets/suporte.jpg"),
+  require("../assets/IconeModelagem.png"),
+  require("../assets/IconeDesWeb.png"),
+  require("../assets/IconeMicrocontrolados.png"),
 ];
 
 const projetosImages = [
-  require("../assets/celular.png"),
-  require("../assets/chaveiro.jpg"),
-  require("../assets/SiteArcseed.png"),
+  require("../assets/Microcontrolados.png"),
+  require("../assets/DesWeb.png"),
+  require("../assets/Modelagem.png"),
 ];
 
 function Home() {
@@ -35,23 +35,23 @@ function Home() {
     <div className="home">
       {/* banner-home */}
       <section className="banner-home">
-  <div className="banner-home-overlay">
-    <img src={require('../assets/membros.jpg')} alt="Foto dos membros" className="banner-home-background" />
-    <div className="banner-home-pink-overlay"></div>
-  </div>
-  <div className="banner-home-content">
-    <div className="logo-text">
-      <img src={require('../assets/LogoBranca.png')} alt="Logo T" className="banner-home-logo" />
-      <h1 className="banner-home-title">THERION</h1>
-      <p className="banner-home-slogan">Rosa choque por resultados!</p>
-    </div>
-  </div>
-  <img
-    src={require('../assets/pantherion_banner.png')}
-    alt="Mascote Pantera Cor-de-Rosa"
-    className="banner-home-mascot"
-  />
-</section>
+        <div className="banner-home-overlay">
+          <img src={require('../assets/TimeTherion.jpg')} alt="Foto dos membros" className="banner-home-background" />
+          <div className="banner-home-pink-overlay"></div>
+        </div>
+        <div className="banner-home-content">
+          <div className="logo-text">
+            <img src={require('../assets/LogoBranca.png')} alt="Logo T" className="banner-home-logo" />
+            <h1 className="banner-home-title">THERION</h1>
+            <p className="banner-home-slogan">Rosa choque por resultados!</p>
+          </div>
+        </div>
+        <img
+          src={require('../assets/pantherion_banner.png')}
+          alt="Mascote Pantera Cor-de-Rosa"
+          className="banner-home-mascot"
+        />
+      </section>
 
       {/* Sobre nós */}
       <section className="quem-somos">
@@ -72,31 +72,21 @@ function Home() {
               </button>
             </div>
             <div className="quem-somos-carousel">
-              <button
-                className="carousel-button prev"
-                onClick={() =>
-                  setSobreIndex(prev =>
-                    prev === 0 ? sobreNosImages.length - 1 : prev - 1
-                  )
-                }
-              >
-                {"<"}
-              </button>
               <img
                 src={sobreNosImages[sobreIndex]}
                 alt="Carrossel"
                 className="carousel-image"
               />
-              <button
-                className="carousel-button next"
-                onClick={() =>
-                  setSobreIndex(prev =>
-                    prev === sobreNosImages.length - 1 ? 0 : prev + 1
-                  )
-                }
-              >
-                {">"}
-              </button>
+              <div className="carousel-dots">
+                {sobreNosImages.map((_, idx) => (
+                  <button
+                    key={idx}
+                    className={`carousel-dot${sobreIndex === idx ? " active" : ""}`}
+                    onClick={() => setSobreIndex(idx)}
+                    aria-label={`Selecionar imagem ${idx + 1}`}
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -108,31 +98,21 @@ function Home() {
           <h2 className="servicos-home-title">Serviços</h2>
           <div className="servicos-home-content">
             <div className="servicos-home-carousel">
-              <button
-                className="carousel-button prev"
-                onClick={() =>
-                  setServicoIndex(prev =>
-                    prev === 0 ? servicosImages.length - 1 : prev - 1
-                  )
-                }
-              >
-                {"<"}
-              </button>
               <img
                 src={servicosImages[servicoIndex]}
                 alt="Serviço"
                 className="carousel-image"
               />
-              <button
-                className="carousel-button next"
-                onClick={() =>
-                  setServicoIndex(prev =>
-                    prev === servicosImages.length - 1 ? 0 : prev + 1
-                  )
-                }
-              >
-                {">"}
-              </button>
+              <div className="carousel-dots">
+                {servicosImages.map((_, idx) => (
+                  <button
+                    key={idx}
+                    className={`carousel-dot${servicoIndex === idx ? " active" : ""}`}
+                    onClick={() => setServicoIndex(idx)}
+                    aria-label={`Selecionar serviço ${idx + 1}`}
+                  />
+                ))}
+              </div>
             </div>
             <div className="servicos-home-text">
               <p style={{ fontSize: "2rem", lineHeight: "2rem" }}>
@@ -169,31 +149,21 @@ function Home() {
               </button>
             </div>
             <div className="projetos-home-carousel">
-              <button
-                className="carousel-button prev"
-                onClick={() =>
-                  setProjetoIndex(prev =>
-                    prev === 0 ? projetosImages.length - 1 : prev - 1
-                  )
-                }
-              >
-                {"<"}
-              </button>
               <img
                 src={projetosImages[projetoIndex]}
                 alt="Projeto"
                 className="carousel-image"
               />
-              <button
-                className="carousel-button next"
-                onClick={() =>
-                  setProjetoIndex(prev =>
-                    prev === projetosImages.length - 1 ? 0 : prev + 1
-                  )
-                }
-              >
-                {">"}
-              </button>
+              <div className="carousel-dots">
+                {projetosImages.map((_, idx) => (
+                  <button
+                    key={idx}
+                    className={`carousel-dot${projetoIndex === idx ? " active" : ""}`}
+                    onClick={() => setProjetoIndex(idx)}
+                    aria-label={`Selecionar projeto ${idx + 1}`}
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -202,27 +172,27 @@ function Home() {
       {/* Gostou do nosso trabalho */}
       <section className="contato-home">
         <div className="contato-home-container">
-          <h2 className="contato-home-title">Gostou do nosso trabalho?</h2>
+          <h2 className="contato-home-title-moldura">Gostou do nosso trabalho?</h2>
           <div className="contato-home-content">
             <div className="contato-home-image">
               <img
-                src={require("../assets/pantherion_contato.png")}
+                src={require("../assets/PanteraContato.png")}
                 alt="Mascote Pantera Cor-de-Rosa"
+                style={{ maxWidth: "320px", margin: "0 auto" }}
               />
-              <p className="contato-home-slogan">VENHA SER ROSA CHOQUE POR RESULTADOS!</p>
+              <div className="contato-home-slogan">
+                VENHA SER ROSA CHOQUE POR RESULTADO!
+              </div>
             </div>
             <div className="contato-home-text">
-              <p style={{ fontSize: "2.5rem", lineHeight: "5rem" }}>
-                Não espere muito tempo!
-              </p>
-              <p style={{ fontSize: "2.5rem", lineHeight: "5rem" }}>
-                Nos contate imediatamente
+              <p style={{ fontSize: "2rem", lineHeight: "2rem", fontWeight: "bold" }}>
+                Entre em contato com a nossa equipe e descubra como podemos contribuir para o sucesso do seu negócio.
               </p>
               <button
-                className="contato-home-button"
+                className="quem-somos-button"
                 onClick={() => handleNavigate("/contato")}
               >
-                Contato
+                Fale conosco
               </button>
             </div>
           </div>
@@ -232,4 +202,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Home;
