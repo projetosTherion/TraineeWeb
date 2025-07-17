@@ -1,0 +1,141 @@
+/* Container Principal da Seção */
+.fundoRosa{
+  margin-bottom: -1.3rem;
+  background-color: #ffc0cb;
+  padding: clamp(5rem, 10vw, 10rem) clamp(0.5rem, 3vw, 1rem) clamp(1rem, 5vw, 2rem) clamp(0.5rem, 3vw, 1rem); 
+  text-align: left;
+  width: 100vw;
+  height: auto;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  transform: translateX(-50%);
+  margin-top: clamp(4rem, 10vw, 7rem);
+  background-image: linear-gradient(to top, #ffc0cb 80%, #fff 100%);
+  /* Adicionado para garantir que o fundo rosa tenha um z-index menor se necessário */
+  z-index: 1; 
+}
+
+/* Container de Todos os Cases (Coluna Esquerda + Coluna Direita) */
+.containerCases{
+  display: flex;
+  position: relative; 
+  flex-wrap: wrap; 
+  justify-content: space-between;
+  gap: 4rem; 
+  margin: 1rem auto;
+  max-width: clamp(900px, 90vw, 1500px);
+  padding: 0 clamp(8px, 4vw, 32px);
+  padding-bottom: 300px;
+  min-height: 100vh; 
+  z-index: 2; 
+  overflow: hidden;
+}
+
+.tituloCases{
+  font-family: 'League Spartan';
+  font-weight: bold;
+  font-size: clamp(2.5rem, 5vw, 3rem);
+  margin-bottom: 5rem;
+  color: #000000;
+  text-align: center;
+  width: 100%;
+}
+
+.tituloCasesCaixa{
+  font-family: 'League Spartan';
+  font-weight: bold;
+  font-size: clamp(1.2rem, 5vw, 2rem);
+  margin-bottom: 0.5rem;
+  color: #000000;
+  text-align: left;
+  width: 100%;
+}
+
+/* ==== Estilos BASE das Imagens e Wrappers ==== */
+
+.casesColuna{
+  display: flex;
+  width: 100%; /* Ocupa toda a largura do containerCases */
+  position: relative; /* Pode ser útil para alinhamento futuro, mas não estritamente necessário aqui */
+  flex-wrap: wrap; /* Permite que as colunas quebrem em telas pequenas */
+  justify-content: space-between; /* Espaço entre as colunas */
+  gap: 2rem; /* Espaçamento entre as colunas em telas maiores */
+}
+
+/* Coluna Esquerda e Coluna Direita - Agora são FLEX ITEMS de .casesColuna */
+.casesEsquerda{
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  flex: 1; 
+  min-width: 350px; 
+}
+
+.casesDireita{
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  flex: 1; 
+  min-width: 350px; 
+  margin-top: 10%;
+}
+
+/* Wrapper Individual de Cada Case (Imagem + Caixa de Texto) */
+.caseImagemWrapper{
+  position: relative; /* Essencial para as caixas de texto e imagens absolutas */
+  width: clamp(300px, 50vw, 600px); /* Defina a largura base do wrapper aqui, igual à imagem */
+  min-height: calc(clamp(150px, 30vw, 300px) + clamp(100px, 15vw, 200px)); /* Altura mínima para imagem + um buffer para texto */
+  margin: 0 auto; /* Centraliza o wrapper dentro de sua coluna */
+}
+
+/* Ajustes específicos para alinhamento dos wrappers dentro das colunas */
+.caseImagemWrapperDireita{
+  margin-left: auto; /* Empurra para a direita dentro da coluna direita */
+}
+
+.caseImagemWrapperEsquerda{
+  margin-right: auto; /* Empurra para a esquerda dentro da coluna esquerda */
+  /* display: inline-block; Removido, preferimos que seja block */
+}
+
+/* Estilo das Imagens */
+.imagemContainerDireita,
+.imagemContainerEsquerda{
+  width: clamp(300px, 50vw, 600px); /* A imagem preenche a largura do wrapper */
+  height: clamp(150px, 30vw, 300px);
+  object-fit: cover;
+  border: 3px solid #000000;
+  display: block; /* Garante que a imagem se comporte como um bloco */
+  z-index: 5; /* Garante que a imagem esteja acima de coisas que poderiam cobri-la */
+}
+
+/* Ajustes de posicionamento horizontal para as imagens */
+.imagemContainerDireita {
+  right: 0; /* Alinha a imagem da direita à direita do seu wrapper */
+}
+.imagemContainerEsquerda {
+  left: 0; /* Alinha a imagem da esquerda à esquerda do seu wrapper */
+}
+
+/*=== Estilos e Bases das Caixas de Texto ===*/
+.caixaTextoEstilo{
+  position: relative;
+  width: clamp(280px, 70vw, 450px);
+  background-color: #fff;
+  padding: clamp(1rem, 3vw, 2rem);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  border: 5px solid #ff69b4;
+  z-index: 10; 
+}
+
+/* Posicionamento horizontal e vertical das caixas de texto */
+.caixaTextoEsquerda{
+  left: 0;
+  top: -10%;
+}
+
+.caixaTextoDireita{
+  right: 0; 
+  top: -10%   ; 
+}
