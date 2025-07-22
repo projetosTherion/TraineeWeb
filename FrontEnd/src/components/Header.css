@@ -1,0 +1,119 @@
+:root {
+  --cor-primaria: #FF5991;
+  --cor-texto: #FFFFFF;
+  --cor-hover: #F5CBD9;
+}
+
+.header {
+  background-color: var(--cor-primaria);
+  padding: clamp(10px, 3vw, 30px) 0;
+  position: relative;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* Remova ou comente as duas linhas abaixo */
+   max-width: 1450px;
+  /* margin: 0 auto; */
+  padding: 0 clamp(8px, 4vw, 32px);
+  width: 100%;
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+}
+
+.header-logo {
+  height: clamp(32px, 7vw, 60px);
+  transition: transform 0.3s ease;
+}
+
+.header-logo:hover {
+  transform: scale(1.05);
+}
+
+.nav-menu {
+  display: flex;
+}
+
+.nav-list {
+  display: flex;
+  list-style: none;
+  gap: clamp(12px, 4vw, 36px);
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link {
+  color: var(--cor-texto);
+  text-decoration: none;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  font-weight: 500;
+  padding: 5px 0;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--cor-hover);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--cor-hover);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Responsivo */
+@media (max-width: 900px) {
+  .header {
+    padding: clamp(8px, 2vw, 16px) 0;
+  }
+
+  .header-container {
+    flex-direction: column;
+    align-items: center;
+    padding: clamp(8px, 2vw, 16px) clamp(8px, 4vw, 24px);
+    width: 100%;
+  }
+
+  .logo-link {
+    margin-bottom: clamp(10px, 4vw, 24px);
+    justify-content: center;
+    width: 100%;
+  }
+
+  .nav-list {
+
+  }
+
+  .nav-link {
+    font-size: clamp(1rem, 4vw, 1.2rem);
+    padding: clamp(6px, 2vw, 12px) 0;
+    width: 100%;
+    text-align: center;
+    border-radius: 8px;
+    transition: background 0.2s;
+  }
+
+  .nav-link:hover {
+    background: rgba(255,255,255,0.08);
+    color: var(--cor-hover);
+  }
+}

@@ -1,96 +1,70 @@
-# 🚀 Projeto Base - Site Therion
+# Getting Started with Create React App
 
-Bem-vindo ao projeto de capacitação FrontEnd!  
-Aqui você encontrará a estrutura base para criar o site da nossa empresa.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## 📋 Pré-requisitos
+## Available Scripts
 
-Antes de começar, verifique se você tem instalado na sua máquina:
+In the project directory, you can run:
 
-- [Node.js](https://nodejs.org/) (versão recomendada: **18.x** ou superior)
-- [NPM](https://www.npmjs.com/) (gerenciador de pacotes que já vem junto com o Node.js)
+### `npm start`
 
-Para verificar se já estão instalados, rode no terminal:
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-```bash
-node -v
-npm -v
-```
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-Se aparecerem as versões, você já está pronto para começar!
+### `npm test`
 
-## 🛠️ Instalação do Projeto
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-1. **Clone este repositório**
+### `npm run build`
 
-```bash
-git clone https://github.com/projetosTherion/TraineeWeb.git
-```
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-2. **Acesse a pasta do projeto**
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-```bash
-cd seu-repositorio
-```
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-3. **Instale as dependências**
+### `npm run eject`
 
-```bash
-npm install
-```
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-## 🔥 Rodando o Projeto
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Após instalar tudo, execute:
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-```bash
-npm start
-```
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-O projeto vai iniciar automaticamente no navegador em:
+## Learn More
 
-```
-http://localhost:3000
-```
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-## 🗂️ Estrutura de Pastas
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-```bash
-/src
-  /components
-    Header.jsx
-    Footer.jsx
-  /pages
-    Home.jsx
-    Sobre.jsx
-    Projetos.jsx
-    Impressao3D.jsx
-    Contato.jsx
-  App.js
-  main.jsx
-```
+### Code Splitting
 
-- `components/` → Componentes reutilizáveis (ex: Header, Footer)
-- `pages/` → Páginas principais do site
-- `App.js` → Configuração das rotas e organização principal
-- `main.jsx` → Ponto de entrada da aplicação
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-## 📚 Tecnologias Utilizadas
+### Analyzing the Bundle Size
 
-- [React](https://react.dev/)
-- [React Router DOM](https://reactrouter.com/en/main) para gerenciar as rotas
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-## ✨ Objetivo para os Trainees
+### Making a Progressive Web App
 
-- Entender a estrutura de um projeto React.
-- Praticar criação de páginas, rotas e componentes.
-- Implementar estilizações próprias utilizando CSS ou frameworks.
-- Criar novas funcionalidades no projeto, como formulários, sliders, cards de projetos, etc.
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-## 🤝 Contribuição
+### Advanced Configuration
 
-Sugestões e melhorias são muito bem-vindas!
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
----
+### Deployment
 
-**Bons estudos e bom desenvolvimento! 🚀**
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

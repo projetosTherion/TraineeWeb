@@ -1,0 +1,369 @@
+/*
+Componentes GERAIS 
+*/
+
+.titulo {
+  font-family: 'League Spartan';
+  font-size: clamp(1.8rem, 6vw, 2.8rem);
+  margin-bottom: clamp(10px, 3vw, 30px);
+  font-weight: bold;
+  color: #000000;
+  text-align: center;
+}
+
+.subtitulo {
+  font-family: 'League Spartan';
+  font-size: clamp(1.1rem, 4vw, 1.8rem);
+  margin-bottom: clamp(10px, 3vw, 30px);
+  color: #000000;
+  text-align: center;
+  margin: 0;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: clamp(1rem, 3vw, 2.5rem);
+  margin-top: 1rem;
+}
+
+.card {
+  border: 3px solid #ff5991;
+  border-radius: 12px;
+  overflow: hidden;
+  width: clamp(220px, 30vw, 300px);
+  height: clamp(320px, 50vw, 450px);
+  margin: 1px auto;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
+}
+
+.container {
+  text-align: center;
+  padding: clamp(1rem, 4vw, 2rem);
+  background-color: #fff;
+}
+
+.containerNoBg {
+  background: transparent !important;
+}
+
+.pinkSection {
+  margin-top: clamp(1.5rem, 6vw, 3rem);
+  background-color: #ffc0cb;
+  padding: clamp(1rem, 5vw, 2rem) clamp(0.5rem, 3vw, 1rem);
+  text-align: center;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  overflow-x: hidden;
+}
+body {
+  overflow-x: hidden;
+}
+
+/*
+SEÇÃO 1: TITULO E SUBTITULO
+*/
+.pinkSectionTopo {
+  margin-top: -1.3rem;
+  margin-bottom: 0rem;
+  background-color: #ffc0cb;
+  padding-block: clamp(0.25rem, 1vw, 1rem);
+  text-align: center;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  overflow: auto;
+  max-height: 425px; /* ajuste para o valor desejado */
+  overflow: hidden;
+}
+
+.titulotopo {
+  font-size: clamp(1.8rem, 8vw, 3.4rem);
+  font-family: 'League Spartan';
+  font-weight: bold;
+  margin-top: clamp(1.5rem, 8vw, 3.5rem);
+  line-height: 1.4;
+  text-align: left;
+  margin-left: clamp(0rem, 20vw, 35rem);
+}
+  
+.subtitulotopo {
+  font-size: clamp(1.1rem, 5vw, 2.2rem);
+  margin-top: clamp(-1.5rem, -4vw, -2.5rem);
+  font-family: 'League Spartan';
+  color: #000000;
+  text-align: left;
+  margin-left: clamp(0rem, 20vw, 35rem);
+}
+
+
+.bambulabImage {
+  float: right;
+  max-width: 400px;
+  width: 100%;
+  height: clamp(120px, 30vw, 400px);
+  object-fit: contain;
+  margin-top: clamp(-8rem, -20vw, -20rem);   
+  margin-left: clamp(0rem, 18vw, 30rem);  
+  position: relative;
+  bottom: 135px;
+  z-index: 1;
+}
+
+/*
+SEÇÃO 2: PORTIFOLIO
+*/ 
+.swiperSlide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.imagemSlide {
+  width: 100%;
+  height: clamp(180px, 30vw, 300px);
+  object-fit: cover;
+  border-radius: 0;
+}
+
+.videoWrapper {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+}
+  
+.video {
+  width: 40%;
+  max-height: 600px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+
+/*
+SEÇÃO 3: METODOLOGIA
+*/ 
+.metodologiaGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1rem, 4vw, 2rem); 
+  justify-items: center; 
+  align-items: start; 
+}
+
+.metodologiaCard {
+  width: 100%; 
+  max-width: 300px; 
+  min-height: 360px; /* altura padronizada baseada na maior caixa */
+  height: 340px;     /* altura fixa para todas ficarem iguais */
+  background-color: #fff;
+  border: 3px solid  #ff5991;
+  border-radius: 40px;
+  padding: clamp(1rem, 3vw, 1.5rem);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  justify-content: flex-start; /* mantém o conteúdo no topo */
+}
+
+.metodologiaCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
+}
+
+.metodologiaCard p {
+  font-size: clamp(1rem, 3vw, 1.35rem);
+  color: #333;
+  line-height: 1.25;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.metodologiaIcon {
+  display: block;
+  width: clamp(32px, 8vw, 60px);
+  height: clamp(32px, 8vw, 60px);
+  margin: 0 auto 1rem auto;
+  background-color: #ff5991;
+}
+
+/*
+SEÇÃO 4: VANTAGENS
+*/ 
+.caixa {
+  position: relative;
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: clamp(1rem, 4vw, 2rem);
+  display: flex;
+  gap: clamp(1rem, 4vw, 2rem);
+  border: 2px solid  #ff5991;
+  border-radius: 16px;
+  background: #ffc0cb;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  box-sizing: border-box;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.imagemPanterion {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: clamp(120px, 40vw, 434px);
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.colunaVantagens {
+  flex: 0 0 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'League Spartan', sans-serif;
+  color: #500808;
+  gap: clamp(0.5rem, 2vw, 1rem);
+  font-size: clamp(1rem, 2vw, 1.8vw);
+}
+
+.colunaVantagens p {
+  width: 100%;
+  max-width: 300px;
+  padding: clamp(0.5rem, 2vw, 1rem) clamp(1rem, 3vw, 1.5rem);
+  color: #000000;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: 0.2s;
+  font-size: clamp(1rem, 1.5vw, 1.375rem);
+  box-sizing: border-box;
+}
+
+.colunaVantagens p:hover {
+  transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.8);
+}
+
+/* ===================== RESPONSIVIDADE ===================== */
+@media (max-width: 1024px) {
+  .titulo {
+    font-size: clamp(1.5rem, 6vw, 2.2rem);
+  }
+
+  .subtitulo {
+    font-size: clamp(1rem, 4vw, 1.3rem);
+  }
+
+  .card {
+    width: clamp(180px, 40vw, 260px);
+    height: clamp(220px, 50vw, 400px);
+  }
+
+  .titulotopo {
+    font-size: clamp(1.5rem, 8vw, 2.8rem);
+    margin-left: clamp(0rem, 4vw, 5rem);
+    text-align: center;
+  }
+
+  .subtitulotopo {
+    font-size: clamp(1rem, 5vw, 1.6rem);
+    margin-left: clamp(0rem, 4vw, 5rem);
+    text-align: center;
+  }
+
+  .bambulabImage {
+    margin-left: 0;
+    margin-top: clamp(-4rem, -10vw, -10rem);
+    width: 100%;
+    height: auto;
+  }
+
+  .metodologiaGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .caixa {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .colunaVantagens {
+    font-size: clamp(1rem, 3vw, 2.5vw);
+  }
+}
+
+@media (max-width: 768px) {
+  .titulo {
+    font-size: clamp(1.1rem, 8vw, 1.8rem);
+  }
+
+  .subtitulo {
+    font-size: clamp(0.9rem, 5vw, 1.1rem);
+  }
+
+  .card {
+    width: 100%;
+    height: auto;
+  }
+
+  .titulotopo {
+    font-size: clamp(1.1rem, 8vw, 1.5rem);
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .subtitulotopo {
+    font-size: clamp(0.9rem, 5vw, 1rem);
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .bambulabImage {
+    margin-left: 0;
+    margin-top: clamp(-2rem, -8vw, -8rem);
+    height: clamp(80px, 30vw, 250px);
+  }
+
+  .metodologiaGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .caixa {
+    flex-direction: column;
+    padding: clamp(0.5rem, 2vw, 1rem);
+  }
+
+  .colunaVantagens {
+    width: 100%;
+    font-size: clamp(1rem, 5vw, 4vw);
+  }
+
+  .colunaVantagens p {
+    max-width: 100%;
+  }
+}

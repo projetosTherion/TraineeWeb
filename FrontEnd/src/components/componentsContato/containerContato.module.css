@@ -1,0 +1,253 @@
+/*
+Componentes usados na página de Contato
+*/
+
+/*
+SEÇÃO 1: TITULO E SUBTITULO
+*/
+
+.pinkSectionInicial {
+  background-color: #ffc0cb;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(2rem, 8vw, 4rem) 0;
+  min-height: 320px;
+  box-sizing: border-box;
+   padding: clamp(1rem, 4vw, 2rem) 0; /* padding menor em cima/baixo */
+}
+
+.contentWrapper {
+  display: flex;
+  align-items: center; /* Centraliza verticalmente */
+  justify-content: space-between;
+  width: 90vw;
+  max-width: 1200px; /* Reduz um pouco para melhor alinhamento */
+  margin: 0 auto;
+  gap: 2vw;
+}
+
+.panteraInicial {
+  flex-shrink: 0;
+  max-width: 240px;      /* Diminui o tamanho máximo */
+  width: 20vw;           /* Ajusta para telas grandes */
+  min-width: 100px;
+  height: auto;
+  object-fit: contain;
+  align-self: center;    /* Centraliza verticalmente */
+  margin-right: 1vw;
+}
+
+.tituloInicial {
+  font-size: clamp(1.8rem, 8vw, 3.4rem);
+  font-family: 'League Spartan';
+  font-weight: bold;
+  margin-top: 0;
+  line-height: 1.4;
+  text-align: left;
+  margin-left: clamp(0rem, 20vw, 35rem);
+}
+
+.subtituloInicial {
+  font-size: clamp(1.1rem, 5vw, 2.2rem);
+  margin-top: clamp(-1.5rem, -4vw, -2.5rem);
+  font-family: 'League Spartan';
+  color: #000000;
+  text-align: left;
+  margin-left: clamp(0rem, 20vw, 35rem);
+}
+
+/*
+CONTAINER E FORMULÁRIO
+*/
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: clamp(1rem, 4vw, 2rem);
+  background-color: #fff;
+  gap: clamp(1rem, 4vw, 3rem);
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.formulario {
+  background-color: #f7f7f7;
+  border: 2px solid #FF5991;
+  border-radius: 15px;
+  padding: clamp(1rem, 4vw, 2rem);
+  width: clamp(220px, 40vw, 350px);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-family: 'League Spartan', sans-serif;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+  font-weight: bold;
+  font-size: clamp(1rem, 3vw, 1.5rem);
+  color: #000000;
+}
+
+input,
+textarea {
+  padding: clamp(0.4rem, 2vw, 0.6rem);
+  border: none;
+  border-radius: 25px;
+  background-color: #d3d3d3;
+  outline: none;
+  width: 100%;
+  font-size: clamp(1rem, 2vw, 1.1rem);
+  font-family: 'League Spartan', sans-serif;
+  color: #000000;
+}
+
+textarea {
+  resize: none;
+  border-radius: 20px;
+}
+
+button {
+  margin-top: 1rem;
+  padding: clamp(0.5rem, 2vw, 0.7rem);
+  border: none;
+  border-radius: 20px;
+  background-color: #FF5991;
+  color: white;
+  font-weight: bold;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  cursor: pointer;
+  font-family: 'League Spartan', sans-serif;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #d23669;
+}
+
+/*contato do lado do forms*/
+.infoContato {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-family: 'League Spartan', sans-serif;
+  color: #000;
+  max-width: 600px;
+  margin-bottom: 0.3rem;
+  text-align: center;
+}
+
+.infoContato h4 {
+  font-size: clamp(1.5rem, 6vw, 3rem);
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  margin-top: 1rem;
+}
+
+.infoContato p {
+  margin: 0;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+}
+
+.infoContato a {
+  color: #000000;
+  text-decoration: none;
+  font-size: clamp(1rem, 3vw, 1.5rem);
+}
+
+.infoContato a:hover {
+  text-decoration: underline;
+}
+
+.socialIcons {
+  display: flex;
+  justify-content: center;
+  gap: clamp(0.5rem, 2vw, 1rem);
+  align-items: center;
+}
+
+/* ========== RESPONSIVIDADE ========== */
+@media (max-width: 1024px) {
+  .tituloInicial {
+    font-size: clamp(1.5rem, 8vw, 2.8rem);
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .subtituloInicial {
+    font-size: clamp(1rem, 5vw, 1.6rem);
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .panteraInicial {
+    margin-left: 0;
+    margin-top: clamp(-4rem, -10vw, -10rem);
+    height: clamp(120px, 30vw, 300px);
+  }
+
+  .container {
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: clamp(0.5rem, 2vw, 1rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .tituloInicial {
+    font-size: clamp(1.1rem, 8vw, 1.5rem);
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .subtituloInicial {
+    font-size: clamp(0.9rem, 5vw, 1rem);
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .panteraInicial {
+    margin-left: 0;
+    margin-top: clamp(-2rem, -8vw, -8rem);
+    height: clamp(80px, 30vw, 250px);
+  }
+
+  .formulario {
+    width: 100%;
+    max-width: 350px;
+    padding: clamp(0.5rem, 2vw, 1.5rem);
+  }
+
+  .container {
+    padding: clamp(0.25rem, 2vw, 1rem);
+  }
+}
+
+/*LOCALIZAÇÃO */
+
+@media (min-width: 768px) {
+  .infoWrapper {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.mapaContainer {
+  flex: 1;
+}
+
+.mapaContainer h2 {
+  font-size: clamp(1.1rem, 5vw, 1.75rem);
+  margin-bottom: 1rem;
+  margin-top: -1rem;
+  color: #000000;
+  font-weight: bold;
+}
