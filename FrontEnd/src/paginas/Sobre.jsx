@@ -6,45 +6,32 @@ import imagemPalco from '../assets/membrosPalco.jpg';
 
 function Sobre() {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
-  const [direction, setDirection] = useState('right');
-  const [animating, setAnimating] = useState(false);
-
+  
   const testimonials = [
     {
-      text: "A Therion fez um trabalho excepcional no desenvolvimento do meu site. Profissionalismo e qualidade do início ao fim!",
-      author: "Maria Silva",
-      role: "Empresária"
+      text: " Parabéns gente, arrasaram demais, tanto no atendimento, tanto na qualidade do produto, me senti segura durante todo processo, mesmo tendo aquele problema das argolas, vocês resolveram na hora, não sei como vocês tinham isso no evento, mas deu tudo certo, obrigada por tudo!",
+      author: "Núcleo das empresas juniores de Londrina (NEJLON)",
     },
     {
-      text: "Impressionante como a equipe é dedicada e comprometida com os prazos. O sistema que desenvolveram superou minhas expectativas.",
-      author: "João Santos",
-      role: "Gerente de Projetos"
+      text: "Ótimo atendimento",
+      author: "Leonardo Monteiro da Silva",
     },
     {
-      text: "A automação implementada pela Therion revolucionou nossos processos internos. Resultado extraordinário!",
-      author: "Ana Oliveira",
-      role: "Diretora de Operações"
+      text: "Qualidade, produto bem feito, uma ótima impressão e modelagem",
+      author: "Núcleo das empresas juniores de Londrina (NEJLON)",
+    },
+    {
+      text: "Atendimento excelente, tiveram muita paciência durante todo o processo de decisão final do produto.",
+      author: "Núcleo das empresas juniores de Londrina (NEJLON)",
     }
   ];
 
   const nextTestimonial = () => {
-    if (animating) return;
-    setDirection('right');
-    setAnimating(true);
-    setTimeout(() => {
-      setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
-      setAnimating(false);
-    }, 500);
+    setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
   };
 
   const prevTestimonial = () => {
-    if (animating) return;
-    setDirection('left');
-    setAnimating(true);
-    setTimeout(() => {
-      setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-      setAnimating(false);
-    }, 500);
+    setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
   };
 
   useEffect(() => {
@@ -71,7 +58,7 @@ function Sobre() {
     }, 5000); // Auto-play a cada 5 segundos
 
     return () => clearInterval(timer);
-  }, [currentTestimonial, animating]);
+  }, [currentTestimonial]);
 
   return (
     <>
@@ -84,12 +71,10 @@ function Sobre() {
       </section>
 
       {/* SEÇÃO 1.1: IMAGEM */}
-      <div className={styles.equipeBorda}>
         <img
           src={imagemPalco}
           className={`${styles.equipe} ${styles.fadeIn}`}
         />
-      </div>
 
       {/* SEÇÃO 2: HISTÓRIA */}
       <section className={`${styles.container} ${styles.fadeIn}`}>
@@ -144,21 +129,11 @@ function Sobre() {
         <h2 className={styles.titulo}>O que dizem sobre nós?</h2>
         <div className={styles.testimonialWrapper}>
           <div className={styles.testimonialCarousel}>
-            <button className={`${styles.carouselButton} ${styles.prevButton}`} onClick={prevTestimonial} disabled={animating}>
+            <button className={`${styles.carouselButton} ${styles.prevButton}`} onClick={prevTestimonial}>
               <span>❮</span>
             </button>
             <div className={styles.testimonialContent}>
-              <div className={
-                `${styles.testimonialCard} ` +
-                (animating
-                  ? direction === 'right'
-                    ? styles.slideOutLeft
-                    : styles.slideOutRight
-                  : direction === 'right'
-                    ? styles.slideInRight
-                    : styles.slideInLeft
-                )
-              }>
+              <div className={styles.testimonialCard}>
                 <div className={styles.quoteIcon}>"</div>
                 <p>{testimonials[currentTestimonial].text}</p>
                 <footer>
@@ -168,7 +143,7 @@ function Sobre() {
                 </footer>
               </div>
             </div>
-            <button className={`${styles.carouselButton} ${styles.nextButton}`} onClick={nextTestimonial} disabled={animating}>
+            <button className={`${styles.carouselButton} ${styles.nextButton}`} onClick={nextTestimonial}>
               <span>❯</span>
             </button>
           </div>
@@ -177,18 +152,8 @@ function Sobre() {
               <button
                 key={index}
                 className={`${styles.dot} ${currentTestimonial === index ? styles.activeDot : ''}`}
-                onClick={() => {
-                  if (index !== currentTestimonial && !animating) {
-                    setDirection(index > currentTestimonial ? 'right' : 'left');
-                    setAnimating(true);
-                    setTimeout(() => {
-                      setCurrentTestimonial(index);
-                      setAnimating(false);
-                    }, 500);
-                  }
-                }}
+                onClick={() => setCurrentTestimonial(index)}
                 aria-label={`Depoimento ${index + 1}`}
-                disabled={animating}
               />
             ))}
           </div>
