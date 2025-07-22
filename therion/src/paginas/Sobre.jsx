@@ -9,19 +9,20 @@ function Sobre() {
   
   const testimonials = [
     {
-      text: " Parabéns gente, arrasaram demais, tanto no atendimento, tanto na qualidade do produto, me senti segura durante todo processo, mesmo tendo aquele problema das argolas, vocês resolveram na hora, não sei como vocês tinha isso no evento kkkkkk, mas deu tudo certo, obrigada por tudo!",
-      author: "Maria Silva",
-      role: "Empresária"
+      text: " Parabéns gente, arrasaram demais, tanto no atendimento, tanto na qualidade do produto, me senti segura durante todo processo, mesmo tendo aquele problema das argolas, vocês resolveram na hora, não sei como vocês tinham isso no evento, mas deu tudo certo, obrigada por tudo!",
+      author: "Núcleo das empresas juniores de Londrina (NEJLON)",
     },
     {
-      text: "Atendimento excelente, tiveram muita paciência durante todo processo de decisão final do produto",
-      author: "João Santos",
-      role: "Gerente de Projetos"
+      text: "Ótimo atendimento",
+      author: "Leonardo Monteiro da Silva",
     },
     {
       text: "Qualidade, produto bem feito, uma ótima impressão e modelagem",
-      author: "Ana Oliveira",
-      role: "Diretora de Operações"
+      author: "Núcleo das empresas juniores de Londrina (NEJLON)",
+    },
+    {
+      text: "Atendimento excelente, tiveram muita paciência durante todo o processo de decisão final do produto.",
+      author: "Núcleo das empresas juniores de Londrina (NEJLON)",
     }
   ];
 
