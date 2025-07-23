@@ -112,14 +112,9 @@ function Sobre() {
               <span role="img" aria-label="values">⭐</span>
               Valores
             </h3>
-            <ul>
-              <li>Proatividade</li>
-              <li>Colaboração</li>
-              <li>Ética</li>
-              <li>Responsabilidade</li>
-              <li>Inovação</li>
-              <li>Espírito de equipe</li>
-            </ul>
+            <p>
+            Atuamos com proatividade, colaboração e espírito de equipe, sempre pautados pela ética, responsabilidade e inovação.
+            </p>
           </div>
         </div>
       </section>
