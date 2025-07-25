@@ -7,20 +7,16 @@
 .header {
   background-color: var(--cor-primaria);
   padding: clamp(10px, 3vw, 30px) 0;
-  position: relative;
+  position: sticky;
   top: 0;
   z-index: 1000;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  
 }
 
 .header-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* Remova ou comente as duas linhas abaixo */
-   max-width: 1450px;
-  /* margin: 0 auto; */
   padding: 0 clamp(8px, 4vw, 32px);
   width: 100%;
 }
@@ -41,6 +37,8 @@
 
 .nav-menu {
   display: flex;
+  flex-grow: 1;
+  justify-content: center;
 }
 
 .nav-list {
@@ -80,6 +78,47 @@
   width: 100%;
 }
 
+.cart-icon-wrapper {
+  margin-left: clamp(15px, 4vw, 30px);
+  display: flex;
+  align-items: center;
+}
+
+.cart-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.cart-icon {
+  width: clamp(24px, 6vw, 28px);
+  height: clamp(24px, 6vw, 28px);
+  color: var(--cor-texto);
+  transition: all 0.3s ease;
+}
+
+.cart-link:hover .cart-icon {
+  color: var(--cor-hover);
+  transform: scale(1.1);
+}
+
+.cart-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: #FFFFFF;
+  color: var(--cor-primaria);
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: bold;
+}
+
 /* Responsivo */
 @media (max-width: 900px) {
   .header {
@@ -87,33 +126,40 @@
   }
 
   .header-container {
-    flex-direction: column;
-    align-items: center;
-    padding: clamp(8px, 2vw, 16px) clamp(8px, 4vw, 24px);
-    width: 100%;
+    flex-wrap: wrap;
+    padding: clamp(8px, 2vw, 16px);
   }
 
   .logo-link {
-    margin-bottom: clamp(10px, 4vw, 24px);
-    justify-content: center;
+    order: 1;
+    margin-bottom: 10px;
+  }
+
+  .cart-icon-wrapper {
+    order: 2;
+    margin-left: auto;
+    margin-right: 15px;
+  }
+
+  .nav-menu {
+    order: 3;
     width: 100%;
+    margin-top: 15px;
   }
 
   .nav-list {
-
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
   }
 
   .nav-link {
-    font-size: clamp(1rem, 4vw, 1.2rem);
-    padding: clamp(6px, 2vw, 12px) 0;
-    width: 100%;
-    text-align: center;
-    border-radius: 8px;
-    transition: background 0.2s;
+    font-size: clamp(1rem, 4vw, 1.1rem);
+    padding: 8px 12px;
+    border-radius: 4px;
   }
 
   .nav-link:hover {
-    background: rgba(255,255,255,0.08);
-    color: var(--cor-hover);
+    background: rgba(255, 255, 255, 0.1);
   }
 }
