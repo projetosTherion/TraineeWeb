@@ -1,0 +1,130 @@
+const express = require('express');
+const router = express.Router();
+const EmailPedido = require('../models/EmailPedido');
+
+// Rota para enviar email de contato
+router.post('/enviar-email', async (req, res) => {
+  try {
+    const { nome, email, telefone, mensagem, assunto } = req.body;
+    
+    // Validação dos dados recebidos
+    if (!nome || !email || !telefone || !mensagem) {
+      return res.status(400).json({ 
+        success: false, 
+        message: 'Todos os campos são obrigatórios' 
+      });
+    }
+    
+    // Obter o transporter configurado no server.js
+    const transporter = req.app.get('emailTransporter');
+    
+    // Configuração do email
+    const mailOptions = {
+      from: process.env.EMAIL_USER,
+      to: process.env.EMAIL_DESTINATARIO || 'contato@therionej.com.br',
+      subject: assunto || 'Contato do site Therion',
+      replyTo: email,
+      html: `
+        <h1>Novo contato do site</h1>
+        <p><strong>Nome:</strong> ${nome}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Telefone:</strong> ${telefone}</p>
+        <p><strong>Mensagem:</strong></p>
+        <p>${mensagem.replace(/\n/g, '<br>')}</p>
+      `
+    };
+    
+    // Enviar email
+    const info = await transporter.sendMail(mailOptions);
+    
+    console.log('Email enviado com sucesso:', info.messageId);
+    
+    // Enviar email de confirmação para o cliente
+    const confirmacaoMailOptions = {
+      from: process.env.EMAIL_USER,
+      to: email,
+      subject: 'Recebemos sua mensagem - Therion EJ',
+      html: `
+        <h1>Olá, ${nome}!</h1>
+        <p>Recebemos sua mensagem e entraremos em contato em breve.</p>
+        <p>Agradecemos seu interesse em nossos serviços!</p>
+        <p><strong>Equipe Therion</strong></p>
+      `
+    };
+    
+    await transporter.sendMail(confirmacaoMailOptions);
+    
+    return res.status(200).json({ 
+      success: true, 
+      message: 'Email enviado com sucesso!' 
+    });
+    
+  } catch (error) {
+    console.error('Erro ao enviar email:', error);
+    return res.status(500).json({ 
+      success: false, 
+      message: 'Erro ao enviar email',
+      error: error.message
+    });
+  }
+});
+
+// Rota para processar pedidos
+router.post('/processar-pedido', async (req, res) => {
+  try {
+    const { nome, email, telefone, itens, total, observacao } = req.body;
+    
+    // Criar objeto de pedido usando o modelo
+    const pedido = new EmailPedido(
+      nome, 
+      email, 
+      telefone, 
+      itens, 
+      total, 
+      observacao
+    );
+    
+    // Validar dados do pedido
+    pedido.validar();
+    
+    // Obter o transporter configurado no server.js
+    const transporter = req.app.get('emailTransporter');
+    
+    // Enviar email para a empresa
+    const mailOptions = {
+      from: process.env.EMAIL_USER,
+      to: process.env.EMAIL_DESTINATARIO || 'contato@therionej.com.br',
+      subject: `Novo pedido #${pedido.numeroPedido} - ${nome}`,
+      replyTo: email,
+      html: pedido.gerarEmailHTML()
+    };
+    
+    await transporter.sendMail(mailOptions);
+    
+    // Enviar email de confirmação para o cliente
+    const confirmacaoMailOptions = {
+      from: process.env.EMAIL_USER,
+      to: email,
+      subject: `Confirmação do Pedido #${pedido.numeroPedido} - Therion`,
+      html: pedido.gerarConfirmacaoHTML()
+    };
+    
+    await transporter.sendMail(confirmacaoMailOptions);
+    
+    return res.status(200).json({
+      success: true,
+      message: 'Pedido recebido com sucesso!',
+      numeroPedido: pedido.numeroPedido
+    });
+    
+  } catch (error) {
+    console.error('Erro ao processar pedido:', error);
+    return res.status(400).json({
+      success: false,
+      message: 'Erro ao processar pedido',
+      error: error.message
+    });
+  }
+});
+
+module.exports = router;

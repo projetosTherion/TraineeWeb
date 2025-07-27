@@ -1,0 +1,42 @@
+/**
+ * Modelo para um item do carrinho de compras
+ * @module models/itemCarrinhoModel
+ */
+
+/**
+ * @typedef {Object} CarrinhoItem
+ * @property {number} id - ID único do produto/serviço
+ * @property {string} nome - Nome do produto/serviço
+ * @property {number} preco - Preço unitário
+ * @property {number} quantidade - Quantidade selecionada
+ * @property {string} imagem - URL da imagem do produto/serviço
+ * @property {string} [descricao] - Descrição opcional do produto/serviço
+ * @property {string} [categoria] - Categoria do produto/serviço
+ */
+
+/**
+ * Cria um novo objeto de item do carrinho
+ * @param {Object} data - Dados do item
+ * @returns {CarrinhoItem} - Objeto de item do carrinho validado
+ */
+function createCarrinhoItem(data) {
+  // Validações
+  if (!data.id) throw new Error('ID do produto é obrigatório');
+  if (!data.nome) throw new Error('Nome do produto é obrigatório');
+  if (typeof data.preco !== 'number' || data.preco <= 0) throw new Error('Preço deve ser um número positivo');
+  if (!Number.isInteger(data.quantidade) || data.quantidade < 1) throw new Error('Quantidade deve ser um número inteiro positivo');
+  
+  return {
+    id: data.id,
+    nome: data.nome,
+    preco: data.preco,
+    quantidade: data.quantidade,
+    imagem: data.imagem || '',
+    descricao: data.descricao || '',
+    categoria: data.categoria || ''
+  };
+}
+
+module.exports = {
+  createCarrinhoItem
+};

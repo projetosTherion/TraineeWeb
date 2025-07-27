@@ -1,0 +1,53 @@
+/**
+ * Modelo para um carrinho de compras
+ * @module models/carrinhoModel
+ */
+
+/**
+ * @typedef {import('./CarrinhoItem').CarrinhoItem} CarrinhoItem
+ */
+
+/**
+ * @typedef {Object} Carrinho
+ * @property {CarrinhoItem[]} itens - Itens no carrinho
+ * @property {number} subtotal - Valor subtotal dos itens
+ * @property {number} [frete] - Valor do frete
+ * @property {number} [desconto] - Valor do desconto
+ * @property {number} total - Valor total do carrinho
+ * @property {string} [cupom] - Código de cupom aplicado
+ */
+
+/**
+ * Calcula o subtotal do carrinho
+ * @param {CarrinhoItem[]} itens - Itens no carrinho
+ * @returns {number} - Valor subtotal
+ */
+function calcularSubtotal(itens) {
+  return itens.reduce((soma, item) => soma + (item.preco * item.quantidade), 0);
+}
+
+/**
+ * Cria um novo objeto de carrinho
+ * @param {Object} data - Dados do carrinho
+ * @returns {Carrinho} - Objeto de carrinho validado
+ */
+function createCarrinho(data) {
+  const itens = data.itens || [];
+  const subtotal = calcularSubtotal(itens);
+  const desconto = data.desconto || 0;
+  const frete = data.frete || 0;
+  
+  return {
+    itens,
+    subtotal,
+    desconto,
+    frete,
+    total: subtotal + frete - desconto,
+    cupom: data.cupom || ''
+  };
+}
+
+module.exports = {
+  createCarrinho,
+  calcularSubtotal
+};

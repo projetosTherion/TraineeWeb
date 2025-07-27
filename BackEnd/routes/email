@@ -1,0 +1,57 @@
+/**
+ * Rotas para envio de email
+ * @module routes/email
+ */
+
+const express = require('express');
+const { createEmailPedido, gerarHtmlEmailPedido } = require('../models/EmailPedido');
+const router = express.Router();
+
+/**
+ * Controlador para envio de email
+ */
+router.post('/enviar-email', async (req, res) => {
+  try {
+    // Validar e criar objeto de email usando o modelo
+    const emailData = createEmailPedido({
+      nome: req.body.nome,
+      email: req.body.email,
+      telefone: req.body.telefone,
+      mensagem: req.body.mensagem,
+      assunto: req.body.assunto,
+      destinatario: process.env.EMAIL_DESTINO
+    });
+
+    // Gerar HTML para o email
+    const htmlEmail = gerarHtmlEmailPedido(emailData);
+
+    // Configurar email
+    const mailOptions = {
+      from: `"Therion - Formulário de Pedido" <${process.env.EMAIL_USER}>`,
+      to: emailData.destinatario,
+      replyTo: emailData.email,
+      subject: emailData.assunto,
+      html: htmlEmail
+    };
+
+    // Enviar email
+    const info = await req.app.get('emailTransporter').sendMail(mailOptions);
+    
+    console.log('Email enviado com sucesso:', info.messageId);
+    
+    res.status(200).json({
+      success: true,
+      message: 'Email enviado com sucesso'
+    });
+
+  } catch (error) {
+    console.error('Erro ao enviar email:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Erro ao enviar email', 
+      error: error.message
+    });
+  }
+});
+
+module.exports = router;

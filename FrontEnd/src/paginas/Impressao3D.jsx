@@ -1,3 +1,5 @@
+import React from 'react';
+import { useCarrinho } from '../contexts/CarrinhoContext';
 import styles from '../components/componentsImpressão/containerImpressao.module.css';
 import chaveiroImg from '../assets/chaveiro.jpg';
 import suporteImg from '../assets/suporte.jpg';
@@ -17,12 +19,63 @@ import entregaImg from '../assets/entrega-rapida.jpg';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import 'swiper/css/autoplay'; // esta linha é opcional, mas boa prática
+import 'swiper/css/autoplay';
 import { Autoplay } from 'swiper/modules';
 
 
-
 function Impressao3D() {
+  const { adicionarAoCarrinho } = useCarrinho();
+  
+  // Array de produtos
+  const produtos = [
+    {
+      id: 1,
+      nome: "Chaveiro Personalizado",
+      desc: "Modelos personalizados com nomes, logotipos ou formatos criativos.",
+      preco: 19.90,
+      imagem: chaveiroImg,
+      categoria: "impressao3d"
+    },
+    {
+      id: 2,
+      nome: "Troféu Personalizado",
+      desc: "Design único para premiações e eventos, com personalização.",
+      preco: 129.90,
+      imagem: trofeuImg,
+      categoria: "impressao3d"
+    },
+    {
+      id: 3,
+      nome: "Suporte Personalizado",
+      desc: "Acessório projetado para estabilidade e visual personalizado.",
+      preco: 59.90,
+      imagem: suporteImg,
+      categoria: "impressao3d"
+    },
+    {
+      id: 4,
+      nome: "Kit Robô Educacional",
+      desc: "Protótipo funcional impresso em 3D, unindo eletrônica e automação.",
+      preco: 349.50,
+      imagem: roboImg,
+      categoria: "impressao3d"
+    },
+    {
+      id: 5,
+      nome: "Suporte de Celular",
+      desc: "Design ergonômico e divertido impresso em 3D, ideal para mesas.",
+      preco: 29.90,
+      imagem: celularImg,
+      categoria: "impressao3d"
+    }
+  ];
+
+  // Função para adicionar ao carrinho com feedback
+  const handleAdicionarAoCarrinho = (produto) => {
+    adicionarAoCarrinho(produto);
+    alert(`${produto.nome} foi adicionado ao carrinho!`);
+  };
+
   return (
     <>
       {/* SEÇÃO 1 : TÍTULO E SUBTITULO */}
@@ -33,11 +86,17 @@ function Impressao3D() {
               Impressão 3D
             </h1>
             <p className={styles.subtitulotopo}>
-              Transforme conceitos em realidade com agilidade, <br />
-              precisão e alto nível de detalhamento.<br />
+              Transforme conceitos em realidade <br />
+              com agilidade, precisão e alto nível <br />
+              de detalhamento.
             </p>
           </div>
-          <img className={styles.bambulabImage} src={bambulabImage} alt="Impressora 3D" />
+
+          <img
+            src={bambulabImage}
+            alt="Bambulab"
+            className={styles.bambulabImage}
+          />
         </div>
       </section>
 
@@ -45,64 +104,99 @@ function Impressao3D() {
       <section className={styles.container}>
         <h2 className={styles.titulo}>Nossos Projetos</h2>
         <p className={styles.subtitulo}>
-          Confira nosso portfólio e conheça as peças que já desenvolvemos com impressão 3D!
+          Confira nosso portfólio e adicione ao carrinho os produtos que desejar!
         </p>
 
-
-        <Swiper
+       
+<Swiper
+  style={{ 
+    maxWidth: '1200px', 
+    height: '600px',
+    margin: '50px auto 0',
+    padding: '15px 0 0'
+  }}
+  modules={[Autoplay]}
+  spaceBetween={30}
+  slidesPerView={3}
+  centeredSlides={true}
+  navigation
+  autoplay={{
+    delay: 3000,
+    disableOnInteraction: false,
+  }}
+  loop={true}
+>
+  {produtos.map((produto, idx) => (
+    <SwiperSlide key={idx} className={styles.swiperSlide}>
+      <div style={{
+        display: 'flex',
+        flexDirection: 'column',
+        height: '100%',
+        backgroundColor: 'white',
+        border: '2px solid #ff5991',
+        borderRadius: '15px',
+        overflow: 'hidden',
+        padding: '0 0 15px'
+      }}>
+        <img 
+          src={produto.imagem} 
+          alt={produto.nome} 
           style={{
-            maxWidth: '1200px',
-            height: '500px',
-            margin: '50px auto 0',
-            padding: '15px 0 0'
+            width: '100%',
+            height: '250px',
+            objectFit: 'cover'
           }}
-          modules={[Autoplay]}
-          spaceBetween={30}
-          slidesPerView={3}
-          centeredSlides={true}
-          navigation
-          autoplay={{
-            delay: 3000,
-            disableOnInteraction: false,
+        />
+        <h3 style={{ 
+          margin: '15px 0 5px 0',
+          color: '#333',
+          fontSize: '1.5rem',
+          textAlign: 'center'
+        }}>
+          {produto.nome.includes(" ") ? produto.nome.split(" ")[0] : produto.nome}
+        </h3>
+        <p style={{ 
+          margin: '0 15px 10px',
+          fontSize: '14px',
+          color: '#666',
+          textAlign: 'center'
+        }}>
+          {produto.desc}
+        </p>
+        <p style={{ 
+          margin: '10px 0',
+          fontSize: '1.2rem',
+          fontWeight: 'bold',
+          color: '#ff5991',
+          textAlign: 'center'
+        }}>
+          R$ {produto.preco.toFixed(2)}
+        </p>
+        <button 
+          style={{
+            backgroundColor: '#ff5991',
+            color: 'white',
+            border: 'none',
+            borderRadius: '20px',
+            padding: '8px 15px',
+            fontFamily: 'League Spartan, sans-serif',
+            fontSize: '0.9rem',
+            fontWeight: 'bold',
+            cursor: 'pointer',
+            margin: '10px auto 0',
+            display: 'block',
+            width: '80%',
+            maxWidth: '180px',
+            transition: 'background-color 0.2s'
           }}
-          loop={true} // importante para autoplay contínuo
+          onClick={() => handleAdicionarAoCarrinho(produto)}
         >
-          {[ // array de cards
-            {
-              img: chaveiroImg,
-              titulo: "Chaveiro",
-              desc: "Modelos personalizados com nomes, logotipos ou formatos criativos."
-            },
-            {
-              img: trofeuImg,
-              titulo: "Troféu",
-              desc: "Design único para premiações e eventos, com personalização."
-            },
-            {
-              img: suporteImg,
-              titulo: "Suporte",
-              desc: "Acessório projetado para estabilidade e visual personalizado."
-            },
-            {
-              img: roboImg,
-              titulo: "Robô",
-              desc: "Protótipo funcional impresso em 3D, unindo eletrônica e automação."
-            },
-            {
-              img: celularImg,
-              titulo: "Suporte de Celular",
-              desc: "Design ergonômico e divertido impresso em 3D, ideal para mesas de trabalho ou estudo."
-            },
-          ].map((item, idx) => (
-            <SwiperSlide key={idx} className={styles.swiperSlide} >
-              <div className={styles.card}>
-                <img src={item.img} alt={item.titulo} className={styles.imagemSlide} />
-                <h3 className={styles.subtitulo} style={{ marginTop: '15px', marginBottom: '1px', marginLeft: '10px' }}>{item.titulo}</h3>
-                <p className={styles.subtitulo} style={{ fontSize: '20px', marginTop: '10px', marginBottom: '1px', marginLeft: '15px', marginRight: '15px' }}>{item.desc}</p>
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+          Adicionar ao Carrinho
+        </button>
+      </div>
+    </SwiperSlide>
+  ))}
+</Swiper>
 
         <div className={styles.pinkSection}>
           <p className={styles.subtitulo}>
@@ -117,6 +211,7 @@ function Impressao3D() {
         </div>
       </section>
 
+      {/* O restante do componente permanece igual */}
       {/* SEÇÃO 3 : METODOLOGIA */}
       <section className={styles.container}>
         <h2 className={styles.titulo}>Metodologia</h2>
@@ -158,30 +253,30 @@ function Impressao3D() {
       </section>
 
       {/* SEÇÃO 4 : VANTAGENS */}
-      <section className={`${styles.container} ${styles.containerNoBg}`}>
-        <div className={styles.pinkSection}>
-          <p className={styles.titulo} style={{ marginBottom: '40px' }}>
-            Vantagens da Impressão 3D
-          </p>
+      <section className={styles.container}>
+       <div className={styles.pinkSection}>
+        <p className={styles.titulo} style={{ marginBottom: '40px' }}>
+          Vantagens da Impressão 3D
+        </p>
+        
+        <div className={styles.caixa}>
 
-          <div className={styles.caixa}>
-
-            <div className={styles.colunaVantagens}>
-              <p>Redução de Custos</p>
-              <p>Personalização Total</p>
-              <p>Integração com Projetos de Engenharia e Eletrônica</p>
-            </div>
-
-            <img src={panterionFilamento} alt="Pantherion segurando filamentos" className={styles.imagemPanterion} />
-
-            <div className={styles.colunaVantagens}>
-              <p>Agilidade no Desenvolvimento </p>
-              <p>Liberdade de Design</p>
-              <p>Validação Rápida de Ideias</p>
-            </div>
-
+          <div className={styles.colunaVantagens}>
+            <p>Redução de Custos</p>
+            <p>Personalização Total</p>
+            <p>Integração com Projetos de Engenharia e Eletrônica</p>
           </div>
+
+          <img src={panterionFilamento} alt="Pantherion segurando filamentos" className={styles.imagemPanterion} />
+
+          <div className={styles.colunaVantagens}>
+            <p>Agilidade no Desenvolvimento </p>
+            <p>Liberdade de Design</p>
+            <p>Validação Rápida de Ideias</p>
+          </div>
+
         </div>
+      </div>
       </section>
     </>
   );

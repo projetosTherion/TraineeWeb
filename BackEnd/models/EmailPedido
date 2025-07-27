@@ -1,0 +1,151 @@
+class EmailPedido {
+  constructor(nome, email, telefone, itens, total, observacao) {
+    this.nome = nome;
+    this.email = email;
+    this.telefone = telefone;
+    this.itens = itens || [];
+    this.total = total || 0;
+    this.observacao = observacao || '';
+    this.dataPedido = new Date();
+    this.numeroPedido = this.gerarNumeroPedido();
+  }
+
+  gerarNumeroPedido() {
+    // Gerar um número de pedido único com formato: ANO + MÊS + DIA + 5 dígitos aleatórios
+    const data = new Date();
+    const ano = data.getFullYear().toString();
+    const mes = (data.getMonth() + 1).toString().padStart(2, '0');
+    const dia = data.getDate().toString().padStart(2, '0');
+    const aleatorio = Math.floor(Math.random() * 100000).toString().padStart(5, '0');
+    
+    return `${ano}${mes}${dia}-${aleatorio}`;
+  }
+
+  validar() {
+    if (!this.nome || this.nome.trim() === '') {
+      throw new Error('Nome é obrigatório');
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!this.email || !emailRegex.test(this.email)) {
+      throw new Error('Email inválido');
+    }
+
+    const telefoneRegex = /\(\d{2}\) \d{4,5}-\d{4}/;
+    if (!this.telefone || !telefoneRegex.test(this.telefone)) {
+      throw new Error('Telefone inválido');
+    }
+
+    if (!Array.isArray(this.itens) || this.itens.length === 0) {
+      throw new Error('O pedido deve ter pelo menos um item');
+    }
+
+    if (typeof this.total !== 'number' || this.total <= 0) {
+      throw new Error('Valor total do pedido inválido');
+    }
+
+    return true;
+  }
+
+  formatarItensHTML() {
+    return this.itens.map(item => `
+      <tr>
+        <td style="border: 1px solid #ddd; padding: 8px;">${item.nome}</td>
+        <td style="border: 1px solid #ddd; padding: 8px;">R$ ${item.preco.toFixed(2)}</td>
+        <td style="border: 1px solid #ddd; padding: 8px;">${item.quantidade}</td>
+        <td style="border: 1px solid #ddd; padding: 8px;">R$ ${(item.preco * item.quantidade).toFixed(2)}</td>
+      </tr>
+    `).join('');
+  }
+
+  gerarEmailHTML() {
+    return `
+      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+        <h1 style="color: #ff5991; text-align: center;">Novo Pedido Recebido - #${this.numeroPedido}</h1>
+        <p><strong>Nome:</strong> ${this.nome}</p>
+        <p><strong>Email:</strong> ${this.email}</p>
+        <p><strong>Telefone:</strong> ${this.telefone}</p>
+        
+        <h2 style="color: #333;">Itens do Pedido:</h2>
+        <table style="width: 100%; border-collapse: collapse;">
+          <thead>
+            <tr style="background-color: #f2f2f2;">
+              <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Produto</th>
+              <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Preço Unit.</th>
+              <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Qtd</th>
+              <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Subtotal</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${this.formatarItensHTML()}
+          </tbody>
+          <tfoot>
+            <tr style="background-color: #f9f9f9;">
+              <td colspan="3" style="border: 1px solid #ddd; padding: 8px; text-align: right;"><strong>Total:</strong></td>
+              <td style="border: 1px solid #ddd; padding: 8px;"><strong>R$ ${this.total.toFixed(2)}</strong></td>
+            </tr>
+          </tfoot>
+        </table>
+        
+        ${this.observacao ? `
+          <h3 style="color: #333; margin-top: 20px;">Observações:</h3>
+          <p>${this.observacao.replace(/\n/g, '<br>')}</p>
+        ` : ''}
+        
+        <p style="margin-top: 30px; color: #666; font-size: 12px;">
+          Pedido gerado em ${this.dataPedido.toLocaleDateString('pt-BR')} às ${this.dataPedido.toLocaleTimeString('pt-BR')}<br>
+          Therion Empresa Júnior
+        </p>
+      </div>
+    `;
+  }
+
+  gerarConfirmacaoHTML() {
+    return `
+      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+        <h1 style="color: #ff5991; text-align: center;">Confirmação de Pedido</h1>
+        <h2 style="text-align: center;">Pedido #${this.numeroPedido}</h2>
+        
+        <p>Olá, ${this.nome}!</p>
+        <p>Recebemos seu pedido e já estamos trabalhando nele. Abaixo estão os detalhes:</p>
+        
+        <h3 style="color: #333;">Itens do seu pedido:</h3>
+        <table style="width: 100%; border-collapse: collapse;">
+          <thead>
+            <tr style="background-color: #f2f2f2;">
+              <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Produto</th>
+              <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Preço Unit.</th>
+              <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Qtd</th>
+              <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Subtotal</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${this.formatarItensHTML()}
+          </tbody>
+          <tfoot>
+            <tr style="background-color: #f9f9f9;">
+              <td colspan="3" style="border: 1px solid #ddd; padding: 8px; text-align: right;"><strong>Total:</strong></td>
+              <td style="border: 1px solid #ddd; padding: 8px;"><strong>R$ ${this.total.toFixed(2)}</strong></td>
+            </tr>
+          </tfoot>
+        </table>
+        
+        <p style="margin-top: 30px;">Em breve, nossa equipe entrará em contato para confirmar seu pedido e informar sobre o prazo de entrega.</p>
+        
+        <p>Caso tenha alguma dúvida, por favor, responda a este email ou entre em contato pelo WhatsApp (12) 99635-3758.</p>
+        
+        <p style="margin-top: 20px;">Atenciosamente,<br>Equipe Therion</p>
+        
+        <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #ddd; text-align: center;">
+          <p style="color: #666; font-size: 12px;">
+            Therion Empresa Júnior<br>
+            contato@therionej.com.br<br>
+            (12) 99635-3758
+          </p>
+        </div>
+      </div>
+    `;
+  }
+}
+
+module.exports = EmailPedido;

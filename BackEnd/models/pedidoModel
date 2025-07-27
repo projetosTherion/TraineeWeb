@@ -1,0 +1,89 @@
+/**
+ * Modelo para um pedido
+ * @module models/pedidoModel
+ */
+
+const { calcularSubtotal } = require('./Carrinho');
+
+/**
+ * @typedef {import('./Cliente').Cliente} Cliente
+ * @typedef {import('./CarrinhoItem').CarrinhoItem} CarrinhoItem
+ */
+
+/**
+ * @typedef {Object} Pedido
+ * @property {string} id - ID único do pedido
+ * @property {Cliente} cliente - Dados do cliente
+ * @property {CarrinhoItem[]} itens - Itens do pedido
+ * @property {number} subtotal - Valor subtotal dos itens
+ * @property {number} [frete] - Valor do frete
+ * @property {number} [desconto] - Valor do desconto
+ * @property {number} total - Valor total do pedido
+ * @property {string} [cupom] - Código de cupom aplicado
+ * @property {string} status - Status do pedido
+ * @property {Date} data - Data de criação do pedido
+ * @property {string} [observacoes] - Observações adicionais
+ */
+
+/**
+ * Lista de status válidos para um pedido
+ * @type {string[]}
+ */
+const statusValidos = [
+  'pendente',
+  'confirmado',
+  'em_producao',
+  'enviado',
+  'entregue',
+  'cancelado'
+];
+
+/**
+ * Gera um ID único para o pedido
+ * @returns {string} - ID do pedido
+ */
+function gerarPedidoId() {
+  const timestamp = Date.now().toString(36);
+  const random = Math.random().toString(36).substring(2, 8);
+  return `PED-${timestamp}-${random}`.toUpperCase();
+}
+
+/**
+ * Cria um novo objeto de pedido
+ * @param {Object} data - Dados do pedido
+ * @returns {Pedido} - Objeto de pedido validado
+ */
+function createPedido(data) {
+  // Validações
+  if (!data.cliente) throw new Error('Dados do cliente são obrigatórios');
+  if (!data.itens || !Array.isArray(data.itens) || data.itens.length === 0) {
+    throw new Error('O pedido deve conter pelo menos um item');
+  }
+  
+  const status = data.status && statusValidos.includes(data.status) ? 
+    data.status : 'pendente';
+  
+  const itens = data.itens || [];
+  const subtotal = calcularSubtotal(itens);
+  const frete = data.frete || 0;
+  const desconto = data.desconto || 0;
+  
+  return {
+    id: data.id || gerarPedidoId(),
+    cliente: data.cliente,
+    itens,
+    subtotal,
+    frete,
+    desconto,
+    total: subtotal + frete - desconto,
+    cupom: data.cupom || '',
+    status,
+    data: data.data || new Date(),
+    observacoes: data.observacoes || ''
+  };
+}
+
+module.exports = {
+  createPedido,
+  statusValidos
+};

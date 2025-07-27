@@ -1,0 +1,66 @@
+/**
+ * Modelo para um cliente
+ * @module models/clienteModel
+ */
+
+/**
+ * @typedef {Object} Cliente
+ * @property {string} nome - Nome completo do cliente
+ * @property {string} email - Email do cliente
+ * @property {string} telefone - Telefone do cliente
+ * @property {Object} [endereco] - Endereço do cliente
+ * @property {string} [endereco.rua] - Rua
+ * @property {string} [endereco.numero] - Número
+ * @property {string} [endereco.complemento] - Complemento
+ * @property {string} [endereco.bairro] - Bairro
+ * @property {string} [endereco.cidade] - Cidade
+ * @property {string} [endereco.estado] - Estado
+ * @property {string} [endereco.cep] - CEP
+ */
+
+/**
+ * Valida um email
+ * @param {string} email - Email para validar
+ * @returns {boolean} - Verdadeiro se for válido
+ */
+function validarEmail(email) {
+  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return re.test(String(email).toLowerCase());
+}
+
+/**
+ * Valida um telefone
+ * @param {string} telefone - Telefone para validar
+ * @returns {boolean} - Verdadeiro se for válido
+ */
+function validarTelefone(telefone) {
+  const re = /\(\d{2}\) \d{4,5}-\d{4}/;
+  return re.test(telefone);
+}
+
+/**
+ * Cria um novo objeto de cliente
+ * @param {Object} data - Dados do cliente
+ * @returns {Cliente} - Objeto de cliente validado
+ */
+function createCliente(data) {
+  // Validações
+  if (!data.nome) throw new Error('Nome do cliente é obrigatório');
+  if (!data.email) throw new Error('Email do cliente é obrigatório');
+  if (!validarEmail(data.email)) throw new Error('Email inválido');
+  if (!data.telefone) throw new Error('Telefone do cliente é obrigatório');
+  if (!validarTelefone(data.telefone)) throw new Error('Formato de telefone inválido');
+  
+  return {
+    nome: data.nome,
+    email: data.email,
+    telefone: data.telefone,
+    endereco: data.endereco || {}
+  };
+}
+
+module.exports = {
+  createCliente,
+  validarEmail,
+  validarTelefone
+};

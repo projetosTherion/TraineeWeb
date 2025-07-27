@@ -1,0 +1,67 @@
+/**
+ * Modelo para um produto ou serviço
+ * @module models/produtoModel
+ */
+
+/**
+ * @typedef {Object} Produto
+ * @property {number} id - ID único do produto
+ * @property {string} nome - Nome do produto
+ * @property {string} descricao - Descrição do produto
+ * @property {number} preco - Preço do produto
+ * @property {string} categoria - Categoria do produto
+ * @property {string[]} imagens - URLs das imagens do produto
+ * @property {boolean} disponivel - Indica se o produto está disponível
+ * @property {number} [estoque] - Quantidade em estoque (apenas para produtos físicos)
+ * @property {Object} [detalhes] - Detalhes específicos do produto
+ */
+
+/**
+ * Lista de categorias válidas
+ * @type {string[]}
+ */
+const categoriasValidas = [
+  'impressao3d',
+  'modelagem',
+  'microcontrolados',
+  'desenvolvimento_web',
+  'outros'
+];
+
+/**
+ * Cria um novo objeto de produto
+ * @param {Object} data - Dados do produto
+ * @returns {Produto} - Objeto de produto validado
+ */
+function createProduto(data) {
+  // Validações
+  if (!data.id) throw new Error('ID do produto é obrigatório');
+  if (!data.nome) throw new Error('Nome do produto é obrigatório');
+  if (!data.descricao) throw new Error('Descrição do produto é obrigatória');
+  if (typeof data.preco !== 'number' || data.preco <= 0) {
+    throw new Error('Preço deve ser um número positivo');
+  }
+  
+  // Verifica se a categoria é válida
+  const categoria = data.categoria || 'outros';
+  if (!categoriasValidas.includes(categoria)) {
+    throw new Error(`Categoria inválida. Categorias válidas: ${categoriasValidas.join(', ')}`);
+  }
+  
+  return {
+    id: data.id,
+    nome: data.nome,
+    descricao: data.descricao,
+    preco: data.preco,
+    categoria,
+    imagens: Array.isArray(data.imagens) ? data.imagens : [data.imagens || ''],
+    disponivel: data.disponivel !== undefined ? data.disponivel : true,
+    estoque: data.estoque,
+    detalhes: data.detalhes || {}
+  };
+}
+
+module.exports = {
+  createProduto,
+  categoriasValidas
+};
