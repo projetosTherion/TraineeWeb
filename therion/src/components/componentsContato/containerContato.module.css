@@ -10,7 +10,7 @@ SEÇÃO 1: TITULO E SUBTITULO
   margin-top: -1.3rem;
   margin-bottom: 0rem;
   background-color: #ffc0cb;
-  padding-block: clamp(1rem, 6vw, 2.9rem);
+  padding-block: clamp(0.5rem, 2vw, 1rem);
   text-align: center;
   width: 100vw;
   position: relative;
@@ -20,14 +20,15 @@ SEÇÃO 1: TITULO E SUBTITULO
 }
 
 .panteraInicial {
-  max-width: 400px;
+  position: absolute;
+  right: 0;
+  max-width: 300px;
   width: 100%;
   height: clamp(120px, 30vw, 400px);
   object-fit: contain;
-  margin-top: clamp(-8rem, -20vw, -21rem);
-  margin-left: clamp(0rem, 20vw, 45rem);
+  margin-left: 2rem;
+  display: block;
   position: relative;
-  bottom: -50px;
   z-index: 1;
 }
 
@@ -37,8 +38,7 @@ SEÇÃO 1: TITULO E SUBTITULO
   font-weight: bold;
   margin-top: clamp(1.5rem, 8vw, 3.5rem);
   line-height: 1.4;
-  text-align: left;
-  margin-left: clamp(0rem, 20vw, 35rem);
+  text-align: center;
 }
 
 .subtituloInicial {
@@ -46,8 +46,7 @@ SEÇÃO 1: TITULO E SUBTITULO
   margin-top: clamp(-1.5rem, -4vw, -2.5rem);
   font-family: 'League Spartan';
   color: #000000;
-  text-align: left;
-  margin-left: clamp(0rem, 20vw, 35rem);
+  text-align: center;
 }
 
 /*
@@ -162,23 +161,38 @@ button:hover {
   align-items: center;
 }
 
+.contentWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+}
+
+.textContainer {
+  flex: 1;
+  max-width: 600px;
+  text-align: center;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
 /* ========== RESPONSIVIDADE ========== */
 @media (max-width: 1024px) {
   .tituloInicial {
     font-size: clamp(1.5rem, 8vw, 2.8rem);
-    margin-left: 0;
     text-align: center;
   }
 
   .subtituloInicial {
     font-size: clamp(1rem, 5vw, 1.6rem);
-    margin-left: 0;
     text-align: center;
   }
 
   .panteraInicial {
-    margin-left: 0;
-    margin-top: clamp(-4rem, -10vw, -10rem);
+    margin: 0 auto;
     height: clamp(120px, 30vw, 300px);
   }
 
@@ -204,8 +218,9 @@ button:hover {
   }
 
   .panteraInicial {
-    margin-left: 0;
-    margin-top: clamp(-2rem, -8vw, -8rem);
+    position: relative;
+    margin-top: 1rem;
+    margin: 0 auto;
     height: clamp(80px, 30vw, 250px);
   }
 
@@ -217,6 +232,16 @@ button:hover {
 
   .container {
     padding: clamp(0.25rem, 2vw, 1rem);
+  }
+
+  .contentWrapper {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .panteraInicial {
+    margin-left: 0;
+    margin-top: 1rem;
   }
 }
 

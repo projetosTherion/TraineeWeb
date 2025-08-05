@@ -66,9 +66,9 @@ function Contato() {
           <div className={styles.textContainer}>
             <h1 className={styles.tituloInicial}>Vamos conversar?</h1>
             <p className={styles.subtituloInicial}>
-              Para perguntas sobre produtos, suporte <br />
-              técnico e outras dúvidas, você pode entrar <br />
-              em contato com a Therion por qualquer uma <br />
+              Para perguntas sobre produtos, suporte 
+              técnico e outras dúvidas, você pode entrar 
+              em contato com a Therion por qualquer uma 
               das seguintes maneiras.
             </p>
           </div>
