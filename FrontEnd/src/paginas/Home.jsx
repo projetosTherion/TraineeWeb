@@ -46,11 +46,6 @@ function Home() {
             <p className="banner-home-slogan">Rosa choque por resultados!</p>
           </div>
         </div>
-        <img
-          src={require('../assets/pantherion_banner.png')}
-          alt="Mascote Pantera Cor-de-Rosa"
-          className="banner-home-mascot"
-        />
       </section>
 
       {/* Sobre nós */}
@@ -59,7 +54,7 @@ function Home() {
           <h2 className="quem-somos-title">Sobre nós</h2>
           <div className="quem-somos-content">
             <div className="quem-somos-text">
-              <p style={{ fontSize: "2rem", lineHeight: "2rem" }}>
+              <p style={{ fontSize: "1.5rem", lineHeight: "2rem" }}>
                 Somos a Therion, a Empresa Júnior de Engenharia de Computação da UTFPR Apucarana.
                 Alunos com atitude, criatividade e sede por inovação. Sem fins lucrativos, com foco total em resultados
                 — porque acreditamos que aprender fazendo transforma carreiras e impulsiona o mercado.
