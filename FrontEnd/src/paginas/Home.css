@@ -16,6 +16,8 @@ h2 {
   width: 100vw;
   min-height: clamp(250px, 50vw, 500px);
   overflow: hidden;
+  left: -0.9%;
+  margin: -1.4%;
 }
 
 /* Fundo do banner-home */
@@ -125,10 +127,14 @@ h2 {
 /* Quem Somos */
 .quem-somos {
   width: 100vw;
-  padding: clamp(40px, 10vw, 100px) 0;
+  padding: clamp(20px, 10vw, 60px) 0;
   display: flex;
   justify-content: center;
   background-color: #ffffff;
+}
+
+.quem-somos-text p {
+  margin: 0;
 }
 
 .quem-somos-container {
@@ -138,12 +144,12 @@ h2 {
   background-color: #ffffff;
   border: 5px solid #ff5991;
   border-radius: 30px;
-  padding: clamp(20px, 6vw, 80px);
+  padding: clamp(10px, 6vw, 40px);
 }
 
 .quem-somos-title {
   position: absolute;
-  top: clamp(-110px, -8vw, -110px);
+  top: clamp(-98px, -8vw, -110px);
   left: clamp(5px, 2vw, 20px);
   background-color: #ffffff;
   color: #ff5991;
@@ -157,6 +163,7 @@ h2 {
   justify-content: space-between;
   align-items: center;
   gap: clamp(20px, 6vw, 60px);
+  min-height: 320px; 
 }
 
 .quem-somos-text {
@@ -166,13 +173,17 @@ h2 {
   line-height: 1.8;
   color: #333333;
   min-width: 50%;
+  display: flex;         
+  flex-direction: column; 
+  justify-content: center; 
+  height: 100%;           
 }
 
 .quem-somos-button {
   margin-top: clamp(30px, 8vw, 80px);
   background-color: #ff5991;
   color: #ffffff;
-  padding: clamp(8px, 2vw, 20px) clamp(10px, 4vw, 40px);
+  padding: clamp(4px, 2vw, 10px) clamp(5px, 4vw, 20px);
   border: none;
   border-radius: 20px;
   cursor: pointer;
@@ -194,7 +205,7 @@ h2 {
 
 .carousel-image {
   width: 100%;
-  max-width: clamp(180px, 50vw, 400px);
+  max-width: clamp(220px, 50vw, 500px);
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -231,7 +242,7 @@ h2 {
 /* Serviçoes*/
 .servicos-home {
   width: 100vw;
-  padding: clamp(40px, 10vw, 100px) 0;
+  padding: clamp(20px, 10vw, 60px) 0;
   display: flex;
   justify-content: center;
   background-color: #ffffff;
@@ -244,7 +255,7 @@ h2 {
   background-color: #ffffff;
   border: 5px solid #ff5991;
   border-radius: 30px;
-  padding: clamp(20px, 6vw, 80px);
+  padding: clamp(10px, 6vw, 40px);
 }
 
 .servicos-home-title {
@@ -255,7 +266,7 @@ h2 {
   color: #ff5991;
   font-size: clamp(2rem, 6vw, 4rem);
   font-weight: bold;
-  padding: 0 clamp(5px, 2vw, 20px);
+  padding: 0 clamp(2.5px, 2vw, 10px);
 }
 
 .servicos-home-content {
@@ -263,6 +274,7 @@ h2 {
   justify-content: space-between;
   align-items: center;
   gap: clamp(20px, 6vw, 60px);
+  min-height: 320px; 
 }
 
 .servicos-home-text {
@@ -272,21 +284,30 @@ h2 {
   line-height: 1.8;
   color: #333333;
   min-width: 50%;
+  display: flex;          
+  flex-direction: column; 
+  justify-content: center; 
+  height: 100%;           
 }
 
 .servicos-home-button {
   margin-top: clamp(30px, 8vw, 80px);
   background-color: #ff5991;
   color: #ffffff;
-  padding: clamp(8px, 2vw, 20px) clamp(10px, 4vw, 40px);
+  padding: clamp(4px, 2vw, 10px) clamp(5px, 4vw, 20px);
   border: none;
-  border-radius: 5px;
+  border-radius: 20px;
   cursor: pointer;
-  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-size: clamp(1.2rem, 4vw, 2.5rem);
 }
 
 .servicos-home-button:hover {
   background-color: #e04d7f;
+}
+
+.servicos-home-carousel img,
+.projetos-home-carousel img {
+  max-width: clamp(180px, 40vw, 400px);
 }
 
 .servicos-home-carousel {
@@ -333,6 +354,7 @@ h2 {
   justify-content: space-between;
   align-items: center;
   gap: clamp(20px, 6vw, 60px);
+  min-height: 320px; 
 }
 
 .projetos-home-text {
@@ -342,17 +364,21 @@ h2 {
   line-height: 1.8;
   color: #333333;
   min-width: 50%;
+  display: flex;          
+  flex-direction: column; 
+  justify-content: center; 
+  height: 100%;           
 }
 
 .projetos-home-button {
   margin-top: clamp(30px, 8vw, 80px);
   background-color: #ff5991;
   color: #ffffff;
-  padding: clamp(8px, 2vw, 20px) clamp(10px, 4vw, 40px);
+  padding: clamp(4px, 2vw, 10px) clamp(5px, 4vw, 20px);
   border: none;
-  border-radius: 5px;
+  border-radius: 20px;
   cursor: pointer;
-  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-size: clamp(1.2rem, 4vw, 2.5rem);
 }
 
 .projetos-home-button:hover {
@@ -370,12 +396,11 @@ h2 {
 
 /* contato-home */
 .contato-home {
-  width: 100%;
-  padding: 0 clamp(10px, 4vw, 30px);
+  width: 100vw;
+  padding: clamp(20px, 10vw, 60px) 0; 
   display: flex;
   justify-content: center;
   background-color: #ffffff;
-  font-size: clamp(1.5rem, 6vw, 4rem);
 }
 
 .contato-home-container {
@@ -385,57 +410,49 @@ h2 {
   background-color: #ffffff;
   border: 5px solid #ff5991;
   border-radius: 30px;
-  padding: clamp(20px, 6vw, 80px);
-  margin-top: 120px; /* ajuste esse valor conforme o top do título */
+  padding: clamp(10px, 6vw, 40px); 
+  margin-top: 0; 
 }
 
 .contato-home-title-moldura {
   position: absolute;
-  top: -110px;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
-  background-color: #fff;
+  top: clamp(-50px, -8vw, -110px);
+  right: clamp(5px, 2vw, 20px); 
+  background-color: #ffffff;
   color: #ff5991;
-  font-size: clamp(1.2rem, 7vw, 2.2rem);
+  font-size: clamp(2rem, 6vw, 4rem); 
   font-weight: bold;
-  padding: 0 30px;
+  padding: 0 clamp(2.5px, 2vw, 10px);
+  margin: 0; 
   z-index: 2;
-  text-align: center;
-  max-width: 90vw;
+  max-width: none;
   white-space: normal;
-  overflow-wrap: break-word;
-  word-break: break-word;
 }
 
 .contato-home-content {
   display: flex;
-  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  gap: clamp(20px, 8vw, 100px);
-  width: 100%;
-  min-height: clamp(200px, 30vw, 330px);
-  height: auto;
+  gap: clamp(20px, 6vw, 60px); 
+  min-height: 320px; 
 }
 
 .contato-home-image {
   flex: 1;
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-align: center;
 }
 
 .contato-home-image img {
   width: 100%;
-  max-width: 350px;
+  max-width: clamp(220px, 50vw, 500px);
   height: auto;
-  max-height: 320px;
   object-fit: contain;
-  display: block;
-  margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .contato-home-slogan {
@@ -454,25 +471,28 @@ h2 {
   word-break: break-word;
 }
 
-.contato-home-text p {
+.contato-home-text {
+  flex: 1;
+  font-size: clamp(1rem, 2vw, 1.5rem);
   font-weight: bold;
-  margin: 0;
-  font-size: 1.6rem;
-  line-height: 2.1rem;
+  line-height: 1.8;
+  color: #333333;
+  min-width: 50%;
+  display: flex;          
+  flex-direction: column; 
+  justify-content: center; 
+  height: 100%;
 }
 
 .contato-home-button {
+  margin-top: clamp(30px, 8vw, 80px);
   background-color: #ff5991;
   color: #ffffff;
-  padding: clamp(8px, 2vw, 16px) clamp(20px, 6vw, 40px);
-  font-size: 1.4rem;
+  padding: clamp(4px, 2vw, 10px) clamp(5px, 4vw, 20px);
   border: none;
   border-radius: 20px;
   cursor: pointer;
-  font-weight: bold;
-  transition:  0.2s;
-  margin: 0; 
-  font-size: clamp(1rem, 3vw, 1.4rem);
+  font-size: clamp(1.2rem, 4vw, 2.5rem);
 }
 
 .contato-home-button:hover {

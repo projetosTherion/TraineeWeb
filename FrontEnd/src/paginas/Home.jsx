@@ -46,11 +46,6 @@ function Home() {
             <p className="banner-home-slogan">Rosa choque por resultados!</p>
           </div>
         </div>
-        <img
-          src={require('../assets/pantherion_banner.png')}
-          alt="Mascote Pantera Cor-de-Rosa"
-          className="banner-home-mascot"
-        />
       </section>
 
       {/* Sobre nós */}
@@ -59,7 +54,7 @@ function Home() {
           <h2 className="quem-somos-title">Sobre nós</h2>
           <div className="quem-somos-content">
             <div className="quem-somos-text">
-              <p style={{ fontSize: "2rem", lineHeight: "2rem" }}>
+              <p style={{ fontSize: "1.5rem", lineHeight: "1.5rem" }}>
                 Somos a Therion, a Empresa Júnior de Engenharia de Computação da UTFPR Apucarana.
                 Alunos com atitude, criatividade e sede por inovação. Sem fins lucrativos, com foco total em resultados
                 — porque acreditamos que aprender fazendo transforma carreiras e impulsiona o mercado.
@@ -115,7 +110,7 @@ function Home() {
               </div>
             </div>
             <div className="servicos-home-text">
-              <p style={{ fontSize: "2rem", lineHeight: "2rem" }}>
+              <p style={{ fontSize: "1.5rem", lineHeight: "1.5rem" }}>
                 Criamos sites, aplicativos, modelagens 3D e realizamos impressões 3D sob demanda.
                 Soluções tecnológicas personalizadas, feitas por estudantes que vivem a engenharia na prática
                 — com visão jovem e mente inquieta.
@@ -137,7 +132,7 @@ function Home() {
           <h2 className="projetos-home-title">Projetos</h2>
           <div className="projetos-home-content">
             <div className="projetos-home-text">
-              <p style={{ fontSize: "2rem", lineHeight: "2rem" }}>
+              <p style={{ fontSize: "1.5rem", lineHeight: "1.5rem" }}>
                 Desenvolvemos projetos incríveis, com soluções criativas e inovadoras para atender às necessidades
                 dos nossos clientes. Desde protótipos funcionais até produtos finais, garantimos qualidade e excelência.
               </p>
@@ -185,7 +180,7 @@ function Home() {
               </div>
             </div>
             <div className="contato-home-text">
-              <p style={{ fontSize: "2rem", lineHeight: "2rem", fontWeight: "bold" }}>
+              <p style={{ fontSize: "1.5rem", lineHeight: "1.5rem", fontWeight: "bold" }}>
                 Entre em contato com a nossa equipe e descubra como podemos contribuir para o sucesso do seu negócio.
               </p>
               <button

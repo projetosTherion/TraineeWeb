@@ -85,9 +85,9 @@ function Contato() {
           <div className={styles.textContainer}>
             <h1 className={styles.tituloInicial}>Vamos conversar?</h1>
             <p className={styles.subtituloInicial}>
-              Para perguntas sobre produtos, suporte <br />
-              técnico e outras dúvidas, você pode entrar <br />
-              em contato com a Therion por qualquer uma <br />
+              Para perguntas sobre produtos, suporte 
+              técnico e outras dúvidas, você pode entrar 
+              em contato com a Therion por qualquer uma 
               das seguintes maneiras.
             </p>
           </div>
@@ -165,7 +165,7 @@ function Contato() {
               <h2>Onde estamos localizados?</h2>
               <iframe
                 title="Localização UTFPR Apucarana"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.4760502190184!2d-51.43123292467017!3d-23.551340178806807!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ec9c0034018819%3A0xf3bb3a2513e7817c!2sUTFPR%20Apucarana!5e0!3m2!1spt-BR!2sbr!4v1747597180463!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.4760502190184!2d-51.43123292467017!3d-23.551340178806807!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ec9c0034018819%3A0xf3bb3a2513e7817c!2sUTFPR%20Apucarana!5e0!3m2!1spt-BR!2sbr!4v1747597180463!5m2!1spt-BR!2sbr"
                 width="100%"
                 height="300"
                 style={{ border: 0 }}

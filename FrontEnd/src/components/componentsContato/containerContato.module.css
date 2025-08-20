@@ -7,49 +7,38 @@ SEÇÃO 1: TITULO E SUBTITULO
 */
 
 .pinkSectionInicial {
+  margin-top: -1.3rem;
+  margin-bottom: 0rem;
   background-color: #ffc0cb;
+  padding-block: clamp(0.5rem, 2vw, 1rem);
+  text-align: center;
   width: 100vw;
   position: relative;
   left: 50%;
+  right: 50%;
   transform: translateX(-50%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: clamp(2rem, 8vw, 4rem) 0;
-  min-height: 320px;
-  box-sizing: border-box;
-   padding: clamp(1rem, 4vw, 2rem) 0; /* padding menor em cima/baixo */
-}
-
-.contentWrapper {
-  display: flex;
-  align-items: center; /* Centraliza verticalmente */
-  justify-content: space-between;
-  width: 90vw;
-  max-width: 1200px; /* Reduz um pouco para melhor alinhamento */
-  margin: 0 auto;
-  gap: 2vw;
 }
 
 .panteraInicial {
-  flex-shrink: 0;
-  max-width: 240px;      /* Diminui o tamanho máximo */
-  width: 20vw;           /* Ajusta para telas grandes */
-  min-width: 100px;
-  height: auto;
+  position: absolute;
+  right: 0;
+  max-width: 300px;
+  width: 100%;
+  height: clamp(120px, 30vw, 400px);
   object-fit: contain;
-  align-self: center;    /* Centraliza verticalmente */
-  margin-right: 1vw;
+  margin-left: 2rem;
+  display: block;
+  position: relative;
+  z-index: 1;
 }
 
 .tituloInicial {
   font-size: clamp(1.8rem, 8vw, 3.4rem);
   font-family: 'League Spartan';
   font-weight: bold;
-  margin-top: 0;
+  margin-top: clamp(1.5rem, 8vw, 3.5rem);
   line-height: 1.4;
-  text-align: left;
-  margin-left: clamp(0rem, 20vw, 35rem);
+  text-align: center;
 }
 
 .subtituloInicial {
@@ -57,8 +46,7 @@ SEÇÃO 1: TITULO E SUBTITULO
   margin-top: clamp(-1.5rem, -4vw, -2.5rem);
   font-family: 'League Spartan';
   color: #000000;
-  text-align: left;
-  margin-left: clamp(0rem, 20vw, 35rem);
+  text-align: center;
 }
 
 /*
@@ -173,23 +161,38 @@ button:hover {
   align-items: center;
 }
 
+.contentWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+}
+
+.textContainer {
+  flex: 1;
+  max-width: 600px;
+  text-align: center;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
 /* ========== RESPONSIVIDADE ========== */
 @media (max-width: 1024px) {
   .tituloInicial {
     font-size: clamp(1.5rem, 8vw, 2.8rem);
-    margin-left: 0;
     text-align: center;
   }
 
   .subtituloInicial {
     font-size: clamp(1rem, 5vw, 1.6rem);
-    margin-left: 0;
     text-align: center;
   }
 
   .panteraInicial {
-    margin-left: 0;
-    margin-top: clamp(-4rem, -10vw, -10rem);
+    margin: 0 auto;
     height: clamp(120px, 30vw, 300px);
   }
 
@@ -215,8 +218,9 @@ button:hover {
   }
 
   .panteraInicial {
-    margin-left: 0;
-    margin-top: clamp(-2rem, -8vw, -8rem);
+    position: relative;
+    margin-top: 1rem;
+    margin: 0 auto;
     height: clamp(80px, 30vw, 250px);
   }
 
@@ -228,6 +232,16 @@ button:hover {
 
   .container {
     padding: clamp(0.25rem, 2vw, 1rem);
+  }
+
+  .contentWrapper {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .panteraInicial {
+    margin-left: 0;
+    margin-top: 1rem;
   }
 }
 
