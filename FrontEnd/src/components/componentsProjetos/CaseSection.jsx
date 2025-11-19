@@ -7,7 +7,6 @@ import styles from './caseSection.module.css'; // Ajuste o nome do arquivo CSS c
 import imagemTetris from '../../assets/tetris.png';
 import imagemArcseed from '../../assets/SiteArcseed.png';
 import imagemGol from '../../assets/SiteGol.png';
-import imagemSuporte from '../../assets/suporte.jpg';
 
 function CasesSection() {
   {/*Variantes das animações*/}
@@ -128,7 +127,7 @@ function CasesSection() {
                 whileInView="animate"
               >
                 <img 
-                  src={imagemSuporte} 
+                  src="/Impressao3D/suporte.jpg" 
                   alt="Projeto Suporte" 
                   className={styles.imagemContainerDireita}/>
                 <motion.div className={`${styles.caixaTextoDireita} ${styles.caixaTextoEstilo}`}

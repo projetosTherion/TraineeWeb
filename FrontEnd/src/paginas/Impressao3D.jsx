@@ -1,25 +1,48 @@
 import styles from '../components/componentsImpressão/containerImpressao.module.css';
-import chaveiroImg from '../assets/chaveiro.jpg';
-import suporteImg from '../assets/suporte.jpg';
-import trofeuImg from '../assets/trofeu.jpeg';
-import roboImg from '../assets/robo.png';
-import celularImg from '../assets/celular.png';
-import impressaoVideo from '../assets/impressao.mp4';
-import bambulabImage from '../assets/bambulab.png';
-import panterionFilamento from '../assets/panteraFilamento.png';
-
-import ideiaImg from '../assets/ideia.jpg';
-import orcamentoImg from '../assets/orcamento.jpg';
-import cuboImg from '../assets/cubo-3d.jpg';
-import modelagemImg from '../assets/modelagem-3d.jpg';
-import aprovadoImg from '../assets/aprovado.jpg';
-import entregaImg from '../assets/entrega-rapida.jpg';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/autoplay'; // esta linha é opcional, mas boa prática
 import { Autoplay } from 'swiper/modules';
+import {motion} from 'framer-motion'
 
+const cardVariants = {
+  initial: {opacity: 0, y: 100},
+  inView: {opacity: 1, y: 0, transition: {duration: 0.5}},
+}
+
+const containerVariants = {
+  initial: {},
+  inView: {transition: {staggerChildren: 0.2}},
+}
+
+const containerVantagens = {
+  hidden: {},
+  visible: {transition: {staggerChildren: 0.5}}
+}
+
+const conteudoVariants = {
+  hidden: {opacity: 0},
+  visible: {opacity: 1, transition: {duration: 0.8}}
+}
+
+const conteudoVariantsDireita = {
+  hidden: {opacity: 0, x: 50},
+  visible: {opacity: 1, x: 0, transition: {duration: 0.8}}
+}
+
+const conteudoVariantsEsquerda = {
+  hidden: {opacity: 0, x: -50},
+  visible: {opacity: 1, x: 0, transition: {duration: 0.8}}
+}
+
+const bordaVariants = {
+  hidden: {pathLength: 0},
+  visible: {
+    pathLength: 1,
+    transition: {durantion: 8, delay: 1.5}
+  }
+}
 
 
 function Impressao3D() {
@@ -29,24 +52,21 @@ function Impressao3D() {
       <section className={styles.pinkSectionTopo}>
         <div className={styles.contentWrapper}>
           <div className={styles.textContainer}>
-            <h1 className={styles.titulotopo}>
-              Impressão 3D
-            </h1>
-            <p className={styles.subtitulotopo}>
-              Transforme conceitos em realidade com agilidade, <br />
+            <h1>Impressão 3D</h1>
+            <p>Transforme conceitos em realidade com agilidade, <br />
               precisão e alto nível de detalhamento.<br />
             </p>
           </div>
-          <img className={styles.bambulabImage} src={bambulabImage} alt="Impressora 3D" />
+          <img src="/Impressao3D/bambulab.png" alt="Impressora 3D" />
         </div>
       </section>
 
       {/* SEÇÃO 2 : PORTFÓLIO */}
       <section className={styles.container}>
-        <h2 className={styles.titulo}>Nossos Projetos</h2>
-        <p className={styles.subtitulo}>
+        <h1 className={styles.titulo}>Nossos Projetos</h1>
+        <h2>
           Confira nosso portfólio e conheça as peças que já desenvolvemos com impressão 3D!
-        </p>
+        </h2>
 
 
         <Swiper
@@ -69,27 +89,27 @@ function Impressao3D() {
         >
           {[ // array de cards
             {
-              img: chaveiroImg,
+              img: "/Impressao3D/projetos/chaveiro.jpg",
               titulo: "Chaveiro",
               desc: "Modelos personalizados com nomes, logotipos ou formatos criativos."
             },
             {
-              img: trofeuImg,
+              img: "/Impressao3D/projetos/trofeu.jpeg",
               titulo: "Troféu",
               desc: "Design único para premiações e eventos, com personalização."
             },
             {
-              img: suporteImg,
+              img: "/Impressao3D/projetos/suporte.jpg",
               titulo: "Suporte",
               desc: "Acessório projetado para estabilidade e visual personalizado."
             },
             {
-              img: roboImg,
+              img: "/Impressao3D/projetos/robo.png",
               titulo: "Robô",
               desc: "Protótipo funcional impresso em 3D, unindo eletrônica e automação."
             },
             {
-              img: celularImg,
+              img: "/Impressao3D/projetos/celular.png",
               titulo: "Suporte de Celular",
               desc: "Design ergonômico e divertido impresso em 3D, ideal para mesas de trabalho ou estudo."
             },
@@ -97,90 +117,127 @@ function Impressao3D() {
             <SwiperSlide key={idx} className={styles.swiperSlide} >
               <div className={styles.card}>
                 <img src={item.img} alt={item.titulo} className={styles.imagemSlide} />
-                <h3 className={styles.subtitulo} style={{ marginTop: '15px', marginBottom: '1px', marginLeft: '10px' }}>{item.titulo}</h3>
-                <p className={styles.subtitulo} style={{ fontSize: '20px', marginTop: '10px', marginBottom: '1px', marginLeft: '15px', marginRight: '15px' }}>{item.desc}</p>
+                <h3 style={{ marginTop: '15px', marginBottom: '1px', marginLeft: '10px' }}>{item.titulo}</h3>
+                <p style={{ fontSize: '20px', marginTop: '10px', marginBottom: '1px', marginLeft: '15px', marginRight: '15px' }}>{item.desc}</p>
               </div>
             </SwiperSlide>
           ))}
         </Swiper>
 
-        <div className={styles.pinkSection}>
-          <p className={styles.subtitulo}>
-            Projetos que unem precisão, técnica e experiência prática para garantir o melhor da impressão 3D.
-          </p>
+        <button>Comprar Impressões</button>
+
+        <motion.div className={styles.pinkSection}
+          initial={{ backgroundColor: "#FFFFFF" }}
+          whileInView={{ backgroundColor: "#F5CBD9" }}
+          transition={{ duration: 2}}
+          viewport={{ once: true }}>
           <div className={styles.videoWrapper}>
             <video controls className={styles.video}>
-              <source src={impressaoVideo} type="video/mp4" />
+              <source src="/Impressao3D/impressao.mp4" type="video/mp4" />
               Seu navegador não suporta o vídeo.
             </video>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* SEÇÃO 3 : METODOLOGIA */}
-      <section className={styles.container}>
-        <h2 className={styles.titulo}>Metodologia</h2>
-        <p className={styles.subtitulo} style={{ marginBottom: '20px' }}>
-          Confira nosso portfólio e conheça as peças que já desenvolvemos com impressão 3D!
-        </p>
+      <section className={styles.containerPai}>
+        <h1>Metodologia</h1>
 
-        <div className={styles.metodologiaGrid}>
-          <div className={styles.metodologiaCard}>
-            <img src={ideiaImg} alt="Ícone ideia" className={styles.metodologiaIcon} />
+        <motion.div className={styles.metodologiaGrid} 
+        variants={containerVariants}
+        initial="initial"
+        whileInView="inView"
+        viewport={{once: true, amount: 0.3}}>
+
+          <motion.div className={styles.metodologiaCard} variants={cardVariants}>
+            <img src="/Impressao3D/grid/ideia.jpg" alt="Ícone ideia"/>
             <p>O primeiro passo é ouvir você. Coletamos todas as informações sobre o que deseja criar. Seja um objeto funcional, decorativo ou protótipo — projeto 100% personalizado.</p>
-          </div>
+          </motion.div>
 
-          <div className={styles.metodologiaCard}>
-            <img src={cuboImg} alt="Ícone engrenagem" className={styles.metodologiaIcon} />
+          <motion.div className={styles.metodologiaCard} variants={cardVariants}>
+            <img src="/Impressao3D/grid/cubo-3d.jpg" alt="Ícone engrenagem"/>
             <p>Avaliamos se o projeto é viável tecnicamente. Consideramos fatores como tipo de material, escala de impressão, nível de detalhe e limitações da tecnologia.</p>
-          </div>
+          </motion.div>
 
-          <div className={styles.metodologiaCard}>
-            <img src={modelagemImg} alt="Ícone modelagem" className={styles.metodologiaIcon} />
+          <motion.div className={styles.metodologiaCard} variants={cardVariants}>
+            <img src="/Impressao3D/grid/modelagem-3d.jpg" alt="Ícone modelagem"/>
             <p>Nossa equipe irá desenvolver ou modelar o arquivo 3D. Criamos ou adaptamos o arquivo otimizado para garantir compatibilidade e qualidade.</p>
-          </div>
+          </motion.div>
 
-          <div className={styles.metodologiaCard}>
-            <img src={orcamentoImg} alt="Ícone orçamento" className={styles.metodologiaIcon} />
+          <motion.div className={styles.metodologiaCard} variants={cardVariants}>
+            <img src="/Impressao3D/grid/orcamento.jpg" alt="Ícone orçamento"/>
             <p>Enviamos uma proposta com orçamento. Tipo de material, tempo de impressão, acabamento e envio. Números combinados e acordados previamente.</p>
-          </div>
+          </motion.div>
 
-          <div className={styles.metodologiaCard}>
-            <img src={aprovadoImg} alt="Ícone aprovação" className={styles.metodologiaIcon} />
+          <motion.div className={styles.metodologiaCard} variants={cardVariants}>
+            <img src="/Impressao3D/grid/aprovado.jpg" alt="Ícone aprovação"/>
             <p>Após sua aprovação, iniciamos o processo. Monitoramos o processo de impressão e mantemos você informado sobre cada etapa.</p>
-          </div>
+          </motion.div>
 
-          <div className={styles.metodologiaCard}>
-            <img src={entregaImg} alt="Ícone entrega" className={styles.metodologiaIcon} />
+          <motion.div className={styles.metodologiaCard} variants={cardVariants}>
+            <img src="/Impressao3D/grid/entrega-rapida.jpg" alt="Ícone entrega"/>
             <p>Enviamos a peça com toda proteção necessária. Garantimos qualidade no transporte e incluímos instruções para melhor uso e cuidado futuro.</p>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </section>
 
       {/* SEÇÃO 4 : VANTAGENS */}
-      <section className={`${styles.container} ${styles.containerNoBg}`}>
+      <section className={styles.containerVantagens}>
         <div className={styles.pinkSection}>
-          <p className={styles.titulo} style={{ marginBottom: '40px' }}>
+
+          <h1 style={{ marginBottom: '40px' }}>
             Vantagens da Impressão 3D
-          </p>
+          </h1>
 
-          <div className={styles.caixa}>
+          <motion.div className={styles.caixa}
+            variants={containerVantagens}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{once: true}}>
 
-            <div className={styles.colunaVantagens}>
+            <motion.div className={styles.colunaVantagens} variants={conteudoVariantsEsquerda}>
               <p>Redução de Custos</p>
               <p>Personalização Total</p>
               <p>Integração com Projetos de Engenharia e Eletrônica</p>
-            </div>
+            </motion.div>
 
-            <img src={panterionFilamento} alt="Pantherion segurando filamentos" className={styles.imagemPanterion} />
+            <motion.div variants={conteudoVariants}>
+              <img src="/Impressao3D/panteraFilamento.png" alt="Pantherion segurando filamentos" className={styles.imagemPanterion} />
+            </motion.div>
 
-            <div className={styles.colunaVantagens}>
+            <motion.div className={styles.colunaVantagens} variants={conteudoVariantsDireita}>
               <p>Agilidade no Desenvolvimento </p>
               <p>Liberdade de Design</p>
               <p>Validação Rápida de Ideias</p>
-            </div>
-
-          </div>
+            </motion.div>
+              
+            <motion.svg
+              variants={bordaVariants}
+              width="100%"
+              height="100%"
+              viewBox="0 0 1200 400"
+              preserveAspectRatio="none"
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                pointerEvents: 'none'
+              }}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}>
+              <motion.rect
+                x="0%" y="0%"
+                width="100%" height="100%"
+                rx="16" /* border-radius */
+                stroke="#ff5991"
+                strokeWidth="5px"
+                fill="none"
+                variants={bordaVariants}/>
+            </motion.svg>
+                
+          </motion.div>
         </div>
       </section>
     </>

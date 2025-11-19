@@ -1,24 +1,13 @@
+:root {
+  --cor-primaria: #FF5991;
+  --cor-texto: #FFFFFF;
+  --cor-hover: #F5CBD9;
+}
+
 /*
 Componentes GERAIS 
 */
 
-.titulo {
-  font-family: 'League Spartan';
-  font-size: clamp(1.8rem, 6vw, 2.8rem);
-  margin-bottom: clamp(10px, 3vw, 30px);
-  font-weight: bold;
-  color: #000000;
-  text-align: center;
-}
-
-.subtitulo {
-  font-family: 'League Spartan';
-  font-size: clamp(1.1rem, 4vw, 1.8rem);
-  margin-bottom: clamp(10px, 3vw, 30px);
-  color: #000000;
-  text-align: center;
-  margin: 0;
-}
 
 .cards {
   display: flex;
@@ -46,22 +35,71 @@ Componentes GERAIS
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
 }
 
-.container {
-  text-align: center;
-  padding: clamp(1rem, 4vw, 2rem);
-  background-color: #fff;
-}
-
 .pinkSection {
   margin-top: clamp(1.5rem, 6vw, 3rem);
   background-color: #ffc0cb;
   padding: clamp(1rem, 5vw, 2rem) clamp(0.5rem, 3vw, 1rem);
+  padding-bottom: clamp(3rem, 15vw, 100px);
   text-align: center;
   width: 100vw;
   position: relative;
   left: 50%;
   right: 50%;
   transform: translateX(-50%);
+}
+
+.container {
+  text-align: center;
+  padding: clamp(1rem, 4vw, 2rem);
+  background-color: #fff;
+}
+
+.container h1 {
+  font-family: 'League Spartan';
+  font-size: clamp(1.8rem, 6vw, 2.8rem);
+  margin-bottom: clamp(10px, 3vw, 30px);
+  font-weight: bold;
+  color: #000000;
+  text-align: center;
+}
+
+.container h2 {
+  font-family: 'League Spartan';
+  font-size: clamp(1.1rem, 4vw, 1.8rem);
+  font-weight: normal;
+  margin-bottom: clamp(10px, 3vw, 30px);
+  color: #000000;
+  text-align: center;
+  margin: 0;
+}
+
+.container h3 {
+  font-family: 'League Spartan';
+  font-size: clamp(1.1rem, 4vw, 1.8rem);
+  margin-bottom: clamp(10px, 3vw, 30px);
+  color: #000000;
+  text-align: center;
+  margin: 0;
+}
+
+.container p{
+  font-family: 'League Spartan';
+  font-size: clamp(1.1rem, 4vw, 1.8rem);
+  margin-bottom: clamp(10px, 3vw, 30px);
+  color: #000000;
+  text-align: center;
+  margin: 0;
+}
+
+.container button{
+  margin-top: clamp(30px, 8vw, 80px);
+  background-color: var(--cor-primaria);
+  color: #FFFFFF;
+  padding: clamp(4px, 2vw, 10px) clamp(5px, 4vw, 20px);
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: clamp(1.2rem, 4vw, 2.5rem);
 }
 
 /*
@@ -82,21 +120,21 @@ SEÇÃO 1: TITULO E SUBTITULO
 
 .contentWrapper {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  max-width: 1200px;
+  max-width: clamp(300px, 90vw, 1200px);;
   margin: 0 auto;
   gap: 2rem;
   padding: 0 20px;
 }
 
-.textContainer {
+.textContainer{
   flex: 1;
   text-align: center;
   max-width: 600px;
 }
 
-.titulotopo {
+.contentWrapper h1{
   font-size: clamp(1.8rem, 8vw, 3.4rem);
   font-family: 'League Spartan';
   font-weight: bold;
@@ -104,8 +142,8 @@ SEÇÃO 1: TITULO E SUBTITULO
   text-align: center;
   margin: 0;
 }
-  
-.subtitulotopo {
+
+.contentWrapper p{
   font-size: clamp(1.1rem, 5vw, 2.2rem);
   margin-top: 1rem;
   font-family: 'League Spartan';
@@ -114,7 +152,8 @@ SEÇÃO 1: TITULO E SUBTITULO
   margin-left: 0;
 }
 
-.bambulabImage {
+
+.contentWrapper img{
   max-width: 300px;
   width: 100%;
   height: auto;
@@ -125,6 +164,7 @@ SEÇÃO 1: TITULO E SUBTITULO
 /*
 SEÇÃO 2: PORTIFOLIO
 */ 
+
 .swiperSlide {
   display: flex;
   justify-content: center;
@@ -146,8 +186,8 @@ SEÇÃO 2: PORTIFOLIO
 }
   
 .video {
-  width: 40%;
-  max-height: 600px;
+  width: 60%;
+  height: auto;
   object-fit: cover;
   border-radius: 8px;
   margin-top: 1rem;
@@ -156,17 +196,36 @@ SEÇÃO 2: PORTIFOLIO
 /*
 SEÇÃO 3: METODOLOGIA
 */ 
+
+.containerPai{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.containerPai h1{
+  font-family: 'League Spartan';
+  font-size: clamp(1.8rem, 6vw, 2.8rem);
+  margin-bottom: clamp(10px, 3vw, 30px);
+  font-weight: bold;
+  color: #000000;
+  text-align: center;
+}
+
 .metodologiaGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: clamp(1rem, 4vw, 2rem); 
   justify-items: center; 
-  align-items: start; 
+  align-items: center; 
+  max-width: clamp(300px, 90vw, 1200px);
+  padding-top: 15px 5% 0;
+  margin: 0 auto;
 }
 
 .metodologiaCard {
   width: 100%; 
-  max-width: 300px; 
   height: clamp(180px, 30vw, 300px); 
   background-color: #fff;
   border: 3px solid  #ff5991;
@@ -178,6 +237,7 @@ SEÇÃO 3: METODOLOGIA
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 .metodologiaCard:hover {
   transform: translateY(-5px);
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
@@ -191,7 +251,7 @@ SEÇÃO 3: METODOLOGIA
   text-align: center;
 }
 
-.metodologiaIcon {
+.metodologiaCard img{
   display: block;
   width: clamp(32px, 8vw, 60px);
   height: clamp(32px, 8vw, 60px);
@@ -202,15 +262,30 @@ SEÇÃO 3: METODOLOGIA
 /*
 SEÇÃO 4: VANTAGENS
 */ 
+
+.containerVantagens{
+  margin: 0;
+  margin-bottom: -105px;
+}
+
+.containerVantagens h1{
+  font-family: 'League Spartan';
+  font-size: clamp(1.8rem, 6vw, 2.8rem);
+  margin-bottom: clamp(10px, 3vw, 30px);
+  font-weight: bold;
+  color: #000000;
+  text-align: center;
+}
+
 .caixa {
   position: relative;
   width: 90%;
   max-width: 1200px;
   margin: 0 auto;
   padding: clamp(1rem, 4vw, 2rem);
+  padding-bottom: clamp(3rem, 8vw, 6rem);
   display: flex;
   gap: clamp(1rem, 4vw, 2rem);
-  border: 2px solid  #ff5991;
   border-radius: 16px;
   background: #ffc0cb;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
@@ -308,6 +383,10 @@ SEÇÃO 4: VANTAGENS
   .colunaVantagens {
     font-size: clamp(1rem, 3vw, 2.5vw);
   }
+
+  .containerVantagens{
+    margin-bottom: -60px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -358,5 +437,9 @@ SEÇÃO 4: VANTAGENS
 
   .colunaVantagens p {
     max-width: 100%;
+  }
+
+  .containerVantagens{
+    margin-bottom: -20px;
   }
 }

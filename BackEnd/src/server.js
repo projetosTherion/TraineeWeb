@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Configuração do transporter do Nodemailer
-const transporter = nodemailer.createTransporter({
+const transporter = nodemailer.createTransport({
   service: 'gmail', // ou outro provedor
   auth: {
     user: 'teste@gmail.com', // puxar email do front
