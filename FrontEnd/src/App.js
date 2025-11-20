@@ -11,7 +11,7 @@ function App() {
   return (
     <Router>
       <Header />
-      <main style={{ minHeight: '80vh', padding: '20px' }}>
+      <main style={{ minHeight: '80vh'}}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/sobre" element={<Sobre />} />

@@ -127,7 +127,7 @@ function CasesSection() {
                 whileInView="animate"
               >
                 <img 
-                  src="/Impressao3D/suporte.jpg" 
+                  src="/Impressao3D/projetos/suporte.jpg" 
                   alt="Projeto Suporte" 
                   className={styles.imagemContainerDireita}/>
                 <motion.div className={`${styles.caixaTextoDireita} ${styles.caixaTextoEstilo}`}

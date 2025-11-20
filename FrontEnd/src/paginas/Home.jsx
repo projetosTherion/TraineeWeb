@@ -1,29 +1,54 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Home.css";
+import { motion } from 'framer-motion'
 
 const sobreNosImages = [
-  require("../assets/membros.jpg"),
-  require("../assets/utfpr.jpg"),
+  "/home/sobreNos/membros.jpg",
+  "/home/sobreNos/utfpr.jpg",
 ];
 
 const servicosImages = [
-  require("../assets/IconeModelagem.png"),
-  require("../assets/IconeDesWeb.png"),
-  require("../assets/IconeMicrocontrolados.png"),
+  "/home/servicos/IconeModelagem.png",
+  "/home/servicos/IconeDesWeb.png",
+  "/home/servicos/IconeMicrocontrolados.png",
 ];
 
 const projetosImages = [
-  require("../assets/Microcontrolados.png"),
-  require("../assets/DesWeb.png"),
-  require("../assets/Modelagem.png"),
+  "/home/projetos/Microcontrolados.png",
+  "/home/projetos/DesWeb.png",
+  "/home/projetos/Modelagem.png",
 ];
+
+const bannerVariants = {
+  initial: {opacity: 0, y: 50},
+  inView: {opacity: 1, y: 0},
+  ease: "easeInOut"
+}
+
+const containerBanner = {
+  initial: {},
+  inView: {transition: {staggerChildren: 0.75}}
+}
+
+const cardVariant = {
+  hidden: {opacity: 0, y: 50},
+  inView: {
+    opacity: 1, 
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: [0.17, 0.55, 0.55, 1]
+    }
+  },
+}
 
 function Home() {
   const [sobreIndex, setSobreIndex] = useState(0);
   const [servicoIndex, setServicoIndex] = useState(0);
   const [projetoIndex, setProjetoIndex] = useState(0);
   const navigate = useNavigate();
+
 
   // Função para navegar e ir ao topo
   const handleNavigate = (path) => {
@@ -32,46 +57,46 @@ function Home() {
   };
 
   return (
-    <div className="home">
+    <main>
+
       {/* banner-home */}
-      <section className="banner-home">
-        <div className="banner-home-overlay">
-          <img src={require('../assets/TimeTherion.jpg')} alt="Foto dos membros" className="banner-home-background" />
-          <div className="banner-home-pink-overlay"></div>
-        </div>
-        <div className="banner-home-content">
-          <div className="logo-text">
-            <img src={require('../assets/LogoBranca.png')} alt="Logo T" className="banner-home-logo" />
-            <h1 className="banner-home-title">THERION</h1>
-            <p className="banner-home-slogan">Rosa choque por resultados!</p>
-          </div>
-        </div>
+      <section className="bannerHome"
+      style={{backgroundImage: `url(/home/TimeTherion.jpg)`}}>
+
+        <motion.div variants={containerBanner}
+        initial="initial"
+        whileInView="inView"
+        viewport={{once: true}}>
+          <motion.img src="/images/logoBranca.webp" alt="Logo T" variants={bannerVariants}/>
+          <motion.h1 variants={bannerVariants}>THERION</motion.h1>
+          <motion.p variants={bannerVariants}>Rosa choque por resultados!</motion.p>
+        </motion.div>
+
       </section>
 
-      {/* Sobre nós */}
-      <section className="quem-somos">
-        <div className="quem-somos-container">
-          <h2 className="quem-somos-title">Sobre nós</h2>
-          <div className="quem-somos-content">
-            <div className="quem-somos-text">
-              <p style={{ fontSize: "1.5rem", lineHeight: "1.5rem" }}>
+      <section className="quemSomos">
+        {/* Sobre nós */}
+        <motion.div className="card" 
+        variants={cardVariant} 
+        initial="hidden"
+        whileInView="inView"
+        viewport={{ once: true}}>
+          <h2>Sobre nós</h2>
+          <div className="quemSomosContent">
+            <div className="textoButtonWrapper">
+              <p>
                 Somos a Therion, a Empresa Júnior de Engenharia de Computação da UTFPR Apucarana.
                 Alunos com atitude, criatividade e sede por inovação. Sem fins lucrativos, com foco total em resultados
                 — porque acreditamos que aprender fazendo transforma carreiras e impulsiona o mercado.
               </p>
-              <button
-                className="quem-somos-button"
-                onClick={() => handleNavigate("/sobre")}
-              >
+              <button onClick={() => handleNavigate("/sobre")}>
                 Sobre nós
               </button>
             </div>
-            <div className="quem-somos-carousel">
+            <div className="quemSomosCarousel">
               <img
                 src={sobreNosImages[sobreIndex]}
-                alt="Carrossel"
-                className="carousel-image"
-              />
+                alt="Carrossel"/>
               <div className="carousel-dots">
                 {sobreNosImages.map((_, idx) => (
                   <button
@@ -84,20 +109,20 @@ function Home() {
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </motion.div>
 
-      {/* Serviços */}
-      <section className="servicos-home">
-        <div className="servicos-home-container">
-          <h2 className="servicos-home-title">Serviços</h2>
-          <div className="servicos-home-content">
-            <div className="servicos-home-carousel">
+        {/* Serviços */}
+        <motion.div className="card" 
+        variants={cardVariant} 
+        initial="hidden"
+        whileInView="inView"
+        viewport={{ once: true}}>
+          <h2>Serviços</h2>
+          <div className="quemSomosContent">
+            <div className="quemSomosCarousel">
               <img
                 src={servicosImages[servicoIndex]}
-                alt="Serviço"
-                className="carousel-image"
-              />
+                alt="Serviço"/>
               <div className="carousel-dots">
                 {servicosImages.map((_, idx) => (
                   <button
@@ -105,50 +130,44 @@ function Home() {
                     className={`carousel-dot${servicoIndex === idx ? " active" : ""}`}
                     onClick={() => setServicoIndex(idx)}
                     aria-label={`Selecionar serviço ${idx + 1}`}
-                  />
+                    />
                 ))}
               </div>
             </div>
-            <div className="servicos-home-text">
-              <p style={{ fontSize: "1.5rem", lineHeight: "1.5rem" }}>
+            <div className="textoButtonWrapper">
+              <p>
                 Criamos sites, aplicativos, modelagens 3D e realizamos impressões 3D sob demanda.
                 Soluções tecnológicas personalizadas, feitas por estudantes que vivem a engenharia na prática
                 — com visão jovem e mente inquieta.
               </p>
-              <button
-                className="quem-somos-button"
-                onClick={() => handleNavigate("/impressao3d")}
-              >
+              <button onClick={() => handleNavigate("/impressao3d")}>
                 Conheça mais
               </button>
             </div>
           </div>
-        </div>
-      </section>
+        </motion.div>
 
-      {/* projetos-home */}
-      <section className="projetos-home">
-        <div className="projetos-home-container">
-          <h2 className="projetos-home-title">Projetos</h2>
-          <div className="projetos-home-content">
-            <div className="projetos-home-text">
-              <p style={{ fontSize: "1.5rem", lineHeight: "1.5rem" }}>
+        {/* projetos-home */}
+        <motion.div className="card" 
+        variants={cardVariant} 
+        initial="hidden"
+        whileInView="inView"
+        viewport={{ once: true}}>
+          <h2>Projetos</h2>
+          <div className="quemSomosContent">
+            <div className="textoButtonWrapper">
+              <p>
                 Desenvolvemos projetos incríveis, com soluções criativas e inovadoras para atender às necessidades
                 dos nossos clientes. Desde protótipos funcionais até produtos finais, garantimos qualidade e excelência.
               </p>
-              <button
-                className="quem-somos-button"
-                onClick={() => handleNavigate("/projetos")}
-              >
+              <button onClick={() => handleNavigate("/projetos")}>
                 Veja nossos projetos
               </button>
             </div>
             <div className="projetos-home-carousel">
               <img
                 src={projetosImages[projetoIndex]}
-                alt="Projeto"
-                className="carousel-image"
-              />
+                alt="Projeto"/>
               <div className="carousel-dots">
                 {projetosImages.map((_, idx) => (
                   <button
@@ -156,44 +175,43 @@ function Home() {
                     className={`carousel-dot${projetoIndex === idx ? " active" : ""}`}
                     onClick={() => setProjetoIndex(idx)}
                     aria-label={`Selecionar projeto ${idx + 1}`}
-                  />
+                    />
                 ))}
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </motion.div>
 
-      {/* Gostou do nosso trabalho */}
-      <section className="contato-home">
-        <div className="contato-home-container">
-          <h2 className="contato-home-title-moldura">Gostou do nosso trabalho?</h2>
-          <div className="contato-home-content">
-            <div className="contato-home-image">
+        {/* Gostou do nosso trabalho */}
+        <motion.div className="card" 
+        variants={cardVariant} 
+        initial="hidden"
+        whileInView="inView"
+        viewport={{ once: true}}>
+          <h2>Gostou do nosso trabalho?</h2>
+          <div className="quemSomosContent">
+            <div className="contatoContainer">
               <img
-                src={require("../assets/PanteraContato.png")}
+                src="/home/PanteraContato.png"
                 alt="Mascote Pantera Cor-de-Rosa"
                 style={{ maxWidth: "320px", margin: "0 auto" }}
               />
-              <div className="contato-home-slogan">
+              <h3>
                 VENHA SER ROSA CHOQUE POR RESULTADO!
-              </div>
+              </h3>
             </div>
-            <div className="contato-home-text">
-              <p style={{ fontSize: "1.5rem", lineHeight: "1.5rem", fontWeight: "bold" }}>
+            <div className="textoButtonWrapper">
+              <p>
                 Entre em contato com a nossa equipe e descubra como podemos contribuir para o sucesso do seu negócio.
               </p>
-              <button
-                className="quem-somos-button"
-                onClick={() => handleNavigate("/contato")}
-              >
+              <button onClick={() => handleNavigate("/contato")}>
                 Fale conosco
               </button>
             </div>
           </div>
-        </div>
-      </section>
-    </div>
+        </motion.div>
+        </section>
+    </main>
   );
 }
 

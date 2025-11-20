@@ -7,7 +7,7 @@ function Footer() {
                 <div className="footer-column footer-first-column"> {/* Adicionei classe extra */}
                     <div className="footer-logo-container">
                         <img 
-                            src="../images/logo-therion.webp" alt="Therion Empresa Júnior" className="footer-logo" loading="lazy" style={{ maxHeight: '125px' }}  // Otimização de carregamento
+                            src="/images/logoBranca.webp" alt="Therion Empresa Júnior" className="footer-logo" loading="lazy" style={{ maxHeight: '125px' }}  // Otimização de carregamento
                         />
                     </div>
                     <h4>REDES SOCIAIS</h4>

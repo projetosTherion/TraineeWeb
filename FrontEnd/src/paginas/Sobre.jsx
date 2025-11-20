@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import styles from '../components/componentsSobre/containerSobre.module.css';
-import imagemHistoria from '../assets/utfpr.jpg';
 import imagemMissao from '../assets/panteraSobre.png';
 import imagemPalco from '../assets/membrosPalco.jpg';
 
@@ -81,7 +80,7 @@ function Sobre() {
         <div className={styles.tituloComFundo}>
           <h2 className={styles.titulo}>Nossa História</h2>
         </div>
-        <img src={imagemHistoria} className={styles.imagemContainer} />
+        <img src="/home/sobreNos/utfpr.jpg" className={styles.imagemContainer} />
         <p className={styles.historia}>
           A Therion é a Empresa Júnior de Engenharia de Computação da UTFPR - Câmpus Apucarana. Fundada por alunos motivados a transformar conhecimento acadêmico em soluções reais de tecnologia, a Therion surgiu como um espaço de aprendizado prático e empreendedorismo. Desde sua criação, a empresa tem se destacado em projetos de desenvolvimento web, automação e consultoria e projetos de Modelagem 3D.
         </p>

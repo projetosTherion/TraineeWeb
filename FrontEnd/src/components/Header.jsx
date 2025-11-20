@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import LogoBranca from '../assets/LogoBranca.png';
 import './Header.css';
 
 function Header() {
@@ -9,7 +8,7 @@ function Header() {
         {/* Logo */}
         <Link to="/" className="logo-link">
           <img 
-            src={LogoBranca} 
+            src="/images/logoBranca.webp" 
             alt="Logo Therion" 
             className="header-logo" 
           />

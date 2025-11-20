@@ -1,185 +1,71 @@
-/* Geral */
-section {
-  padding: clamp(40px, 8vw, 80px) clamp(5px, 4vw, 20px);
-  text-align: center;
-}
-
-h2 {
-  font-size: clamp(1.5rem, 4vw, 2.5rem);
-  color: #ff5991;
-  margin-bottom: 20px;
-}
-
 /* banner-home */
-.banner-home {
-  position: relative;
-  width: 100vw;
-  min-height: clamp(250px, 50vw, 500px);
-  overflow: hidden;
-  left: -0.9%;
-  margin: -1.4%;
-}
-
-/* Fundo do banner-home */
-.banner-home-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
+.bannerHome{
   width: 100%;
-  height: 100%;
-}
+  height: 100vh;
 
-.banner-home-background {
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover;
 
-.banner-home-pink-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(249, 182, 204, 0.6);
-}
-
-/* Conteúdo do banner-home */
-.banner-home-content {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 90%;
-  max-width: 1200px;
+}
+
+.bannerHome::after{
+  content:'';
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 3;
+  inset: 0;
+  background-color: #EFA2BB;
+  opacity: 0.45;
 }
 
-/* Logo e texto */
-.logo-text {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  flex: 1;
-}
-
-.banner-home-logo {
-  width: clamp(100px, 20vw, 250px);
-  margin-bottom: 10px;
-}
-
-.banner-home-title {
+.bannerHome h1{
   font-size: clamp(2rem, 8vw, 8rem);
   font-weight: bold;
   color: #ffffff;
   margin: 0;
 }
 
-.banner-home-slogan {
+.bannerHome p{
   font-size: clamp(1rem, 3vw, 2rem);
   color: #ffffff;
   margin-top: 10px;
 }
 
-/* Mascote */
-.banner-home-mascot {
+.bannerHome img{
+  width: clamp(100px, 20vw, 250px);
+  margin-bottom: 10px;
+}
+
+.bannerHome div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
   position: absolute;
-  right: 0vw;
-  bottom: 0vw;
-  width: clamp(600px, 28vw, 1000px);   
-  min-width: 560px;                  
-  max-width: 1000px;                   
-  height: auto;
-  margin: 0;
-  z-index: 4;
-  pointer-events: none;
-}
+  inset: 0;
+  margin: auto;
 
-@media (max-width: 900px) {
-  .banner-home-mascot {
-    width: clamp(80px, 30vw, 180px);
-    right: 0vw;
-    bottom: 2vw;
-    min-width: 60px;
-    max-width: 180px;
-    position: absolute;
-    margin: 0;
-    display: block;
-  }
-}
-
-@media (max-width: 600px) {
-  .banner-home-mascot {
-    width: clamp(60px, 40vw, 120px);
-    right: 1vw;
-    bottom: 1vw;
-    min-width: 40px;
-    max-width: 120px;
-  }
+  width: fit-content;
+  height: fit-content;
+  z-index: 3;
 }
 
 /* Quem Somos */
-.quem-somos {
-  width: 100vw;
-  padding: clamp(20px, 10vw, 60px) 0;
+.quemSomos {
+  max-width: 2000px;
+  margin: 0 auto;
+  padding: clamp(80px, 15vw, 120px) 0;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  background-color: #ffffff;
-}
-
-.quem-somos-text p {
-  margin: 0;
-}
-
-.quem-somos-container {
-  position: relative;
-  width: 90%;
-  max-width: 1500px;
-  background-color: #ffffff;
-  border: 5px solid #ff5991;
-  border-radius: 30px;
-  padding: clamp(10px, 6vw, 40px);
-}
-
-.quem-somos-title {
-  position: absolute;
-  top: clamp(-98px, -8vw, -110px);
-  left: clamp(5px, 2vw, 20px);
-  background-color: #ffffff;
-  color: #ff5991;
-  font-size: clamp(2rem, 6vw, 4rem);
-  font-weight: bold;
-  padding: 0 clamp(5px, 2vw, 20px);
-}
-
-.quem-somos-content {
-  display: flex;
-  justify-content: space-between;
   align-items: center;
-  gap: clamp(20px, 6vw, 60px);
-  min-height: 320px; 
+  gap: 100px;
 }
 
-.quem-somos-text {
-  flex: 1;
-  font-size: clamp(1rem, 2vw, 1.5rem);
-  font-weight: bold;
-  line-height: 1.8;
-  color: #333333;
-  min-width: 50%;
-  display: flex;         
-  flex-direction: column; 
-  justify-content: center; 
-  height: 100%;           
-}
-
-.quem-somos-button {
+.quemSomos button{
   margin-top: clamp(30px, 8vw, 80px);
   background-color: #ff5991;
   color: #ffffff;
@@ -190,11 +76,81 @@ h2 {
   font-size: clamp(1.2rem, 4vw, 2.5rem);
 }
 
+.quemSomos img{
+  width: 100%;
+  max-width: 400px;
+  max-width: clamp(220px, 50vw, 500px);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card{
+  position: relative;
+  width: 100%;
+  max-width: 1500px;
+  min-height: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  background-color: #ffffff;
+  border: 5px solid #ff5991;
+  border-radius: 30px;
+  padding: clamp(10px, 6vw, 40px);
+}
+
+.card h2 {
+  position: absolute;
+  top: clamp(-98px, -8vw, -110px);
+  left: clamp(5px, 2vw, 20px);
+  background-color: #ffffff;
+  color: #ff5991;
+  font-size: clamp(2rem, 6vw, 4rem);
+  font-weight: bold;
+  padding: 0 clamp(5px, 2vw, 20px);
+}
+
+.card h3{
+  color: #ff5991;
+  font-weight: bold;
+  font-size: clamp(1rem, 4vw, 2rem);
+  margin-top: clamp(10px, 4vw, 30px);
+  text-align: center;
+  letter-spacing: 1px;
+  line-height: clamp(1.2rem, 4vw, 2.4rem);
+}
+
+.card p{
+  flex: 1;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  font-weight: bold;
+  line-height: 1.8;
+  color: #333333;
+}
+
+.textoButtonWrapper{
+  max-width: 50%;
+  display: flex;         
+  flex-direction: column; 
+  justify-content: center; 
+  height: 100%;
+
+}
+
+.quemSomosContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: clamp(20px, 6vw, 60px);
+  min-height: auto;
+  flex-grow: 1;
+}
+
 .quem-somos-button:hover {
   background-color: #e04d7f;
 }
 
-.quem-somos-carousel {
+.quemSomosCarousel{
   flex: 1;
   position: relative;
   display: flex;
@@ -203,11 +159,9 @@ h2 {
   justify-content: center;
 }
 
-.carousel-image {
-  width: 100%;
-  max-width: clamp(220px, 50vw, 500px);
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.contatoContainer{
+  display: flex;
+  flex-direction: column;
 }
 
 /* Dots para carrossel */
@@ -217,6 +171,7 @@ h2 {
   align-items: center;
   gap: 12px;
   margin-top: 18px;
+  max-height: 380px;
 }
 
 .carousel-dot {
@@ -230,345 +185,13 @@ h2 {
   box-shadow: none;
   padding: 0;
 }
+
 .carousel-dot.active {
   background: #ff5991;
   box-shadow: 0 0 0 2px #ff5991;
 }
+
 .carousel-dot:focus {
   outline: none;
   box-shadow: 0 0 0 3px #ff5991;
-}
-
-/* Serviçoes*/
-.servicos-home {
-  width: 100vw;
-  padding: clamp(20px, 10vw, 60px) 0;
-  display: flex;
-  justify-content: center;
-  background-color: #ffffff;
-}
-
-.servicos-home-container {
-  position: relative;
-  width: 90%;
-  max-width: 1500px;
-  background-color: #ffffff;
-  border: 5px solid #ff5991;
-  border-radius: 30px;
-  padding: clamp(10px, 6vw, 40px);
-}
-
-.servicos-home-title {
-  position: absolute;
-  top: clamp(-110px, -8vw, -110px);
-  right: clamp(5px, 2vw, 20px);
-  background-color: #ffffff;
-  color: #ff5991;
-  font-size: clamp(2rem, 6vw, 4rem);
-  font-weight: bold;
-  padding: 0 clamp(2.5px, 2vw, 10px);
-}
-
-.servicos-home-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: clamp(20px, 6vw, 60px);
-  min-height: 320px; 
-}
-
-.servicos-home-text {
-  flex: 1;
-  font-size: clamp(1rem, 2vw, 1.5rem);
-  font-weight: bold;
-  line-height: 1.8;
-  color: #333333;
-  min-width: 50%;
-  display: flex;          
-  flex-direction: column; 
-  justify-content: center; 
-  height: 100%;           
-}
-
-.servicos-home-button {
-  margin-top: clamp(30px, 8vw, 80px);
-  background-color: #ff5991;
-  color: #ffffff;
-  padding: clamp(4px, 2vw, 10px) clamp(5px, 4vw, 20px);
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  font-size: clamp(1.2rem, 4vw, 2.5rem);
-}
-
-.servicos-home-button:hover {
-  background-color: #e04d7f;
-}
-
-.servicos-home-carousel img,
-.projetos-home-carousel img {
-  max-width: clamp(180px, 40vw, 400px);
-}
-
-.servicos-home-carousel {
-  flex: 1;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-/* projetos-home*/
-.projetos-home {
-  width: 100vw;
-  padding: clamp(40px, 10vw, 100px) 0;
-  display: flex;
-  justify-content: center;
-  background-color: #ffffff;
-}
-
-.projetos-home-container {
-  position: relative;
-  width: 90%;
-  max-width: 1500px;
-  background-color: #ffffff;
-  border: 5px solid #ff5991;
-  border-radius: 30px;
-  padding: clamp(20px, 6vw, 80px);
-}
-
-.projetos-home-title {
-  position: absolute;
-  top: clamp(-110px, -8vw, -110px);
-  left: clamp(5px, 2vw, 20px);
-  background-color: #ffffff;
-  color: #ff5991;
-  font-size: clamp(2rem, 6vw, 4rem);
-  font-weight: bold;
-  padding: 0 clamp(5px, 2vw, 20px);
-}
-
-.projetos-home-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: clamp(20px, 6vw, 60px);
-  min-height: 320px; 
-}
-
-.projetos-home-text {
-  flex: 1;
-  font-size: clamp(1rem, 2vw, 1.5rem);
-  font-weight: bold;
-  line-height: 1.8;
-  color: #333333;
-  min-width: 50%;
-  display: flex;          
-  flex-direction: column; 
-  justify-content: center; 
-  height: 100%;           
-}
-
-.projetos-home-button {
-  margin-top: clamp(30px, 8vw, 80px);
-  background-color: #ff5991;
-  color: #ffffff;
-  padding: clamp(4px, 2vw, 10px) clamp(5px, 4vw, 20px);
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  font-size: clamp(1.2rem, 4vw, 2.5rem);
-}
-
-.projetos-home-button:hover {
-  background-color: #e04d7f;
-}
-
-.projetos-home-carousel {
-  flex: 1;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-/* contato-home */
-.contato-home {
-  width: 100vw;
-  padding: clamp(20px, 10vw, 60px) 0; 
-  display: flex;
-  justify-content: center;
-  background-color: #ffffff;
-}
-
-.contato-home-container {
-  position: relative;
-  width: 90%;
-  max-width: 1500px;
-  background-color: #ffffff;
-  border: 5px solid #ff5991;
-  border-radius: 30px;
-  padding: clamp(10px, 6vw, 40px); 
-  margin-top: 0; 
-}
-
-.contato-home-title-moldura {
-  position: absolute;
-  top: clamp(-50px, -8vw, -110px);
-  right: clamp(5px, 2vw, 20px); 
-  background-color: #ffffff;
-  color: #ff5991;
-  font-size: clamp(2rem, 6vw, 4rem); 
-  font-weight: bold;
-  padding: 0 clamp(2.5px, 2vw, 10px);
-  margin: 0; 
-  z-index: 2;
-  max-width: none;
-  white-space: normal;
-}
-
-.contato-home-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: clamp(20px, 6vw, 60px); 
-  min-height: 320px; 
-}
-
-.contato-home-image {
-  flex: 1;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.contato-home-image img {
-  width: 100%;
-  max-width: clamp(220px, 50vw, 500px);
-  height: auto;
-  object-fit: contain;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.contato-home-slogan {
-  color: #ff5991;
-  font-weight: bold;
-  font-size: clamp(1rem, 4vw, 2rem);
-  margin-top: clamp(10px, 4vw, 30px);
-  text-align: center;
-  letter-spacing: 1px;
-  line-height: clamp(1.2rem, 4vw, 2.4rem);
-}
-
-.contato-home-text p {
-  font-size: clamp(1rem, 3vw, 1.6rem);
-  line-height: clamp(1.2rem, 4vw, 2.1rem);
-  word-break: break-word;
-}
-
-.contato-home-text {
-  flex: 1;
-  font-size: clamp(1rem, 2vw, 1.5rem);
-  font-weight: bold;
-  line-height: 1.8;
-  color: #333333;
-  min-width: 50%;
-  display: flex;          
-  flex-direction: column; 
-  justify-content: center; 
-  height: 100%;
-}
-
-.contato-home-button {
-  margin-top: clamp(30px, 8vw, 80px);
-  background-color: #ff5991;
-  color: #ffffff;
-  padding: clamp(4px, 2vw, 10px) clamp(5px, 4vw, 20px);
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  font-size: clamp(1.2rem, 4vw, 2.5rem);
-}
-
-.contato-home-button:hover {
-  background-color: #e04d7f;
-}
-
-
-/* Responsividade extra para layout em telas pequenas */
-@media (max-width: 900px) {
-  .quem-somos-content,
-  .servicos-home-content,
-  .projetos-home-content,
-  .contato-home-content {
-    flex-direction: column;
-    gap: clamp(10px, 4vw, 30px);
-    align-items: stretch;
-  }
-
-  .banner-home-content {
-    flex-direction: column;
-    width: 100%;
-    max-width: 100vw;
-    gap: clamp(10px, 4vw, 20px);
-  }
-
-  .banner-home-mascot {
-    position: static;
-    width: clamp(120px, 60vw, 350px);
-    margin: 0 auto;
-    display: block;
-  }
-}
-
-@media (max-width: 600px) {
-  section,
-  .quem-somos,
-  .servicos-home,
-  .projetos-home,
-  .contato-home {
-    padding: clamp(20px, 8vw, 40px) clamp(2px, 2vw, 5px);
-  }
-
-  .quem-somos-title,
-  .servicos-home-title,
-  .projetos-home-title,
-  .contato-home-title {
-    font-size: clamp(1.2rem, 7vw, 2.2rem);
-    top: -40px;
-    left: 10px;
-    right: 10px;
-    padding: 0 10px;
-  }
-
-  .banner-home-title {
-    font-size: clamp(1.2rem, 8vw, 2.5rem);
-  }
-
-  .banner-home-logo {
-    width: clamp(60px, 30vw, 120px);
-  }
-
-  .carousel-image {
-    max-width: 90vw;
-  }
-
-  .contato-home-content {
-    flex-direction: column;
-    gap: clamp(10px, 4vw, 30px);
-    align-items: stretch;
-    min-height: unset;
-    height: auto;
-  }
-  .contato-home-image img {
-    width: 90vw;
-    max-width: 300px;
-    height: auto;
-    max-height: 200px;
-  }
 }
