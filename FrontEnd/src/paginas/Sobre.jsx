@@ -1,7 +1,5 @@
 import { useEffect, useState } from 'react';
 import styles from '../components/componentsSobre/containerSobre.module.css';
-import imagemMissao from '../assets/panteraSobre.png';
-import imagemPalco from '../assets/membrosPalco.jpg';
 
 function Sobre() {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
@@ -62,65 +60,66 @@ function Sobre() {
   return (
     <>
       {/* SEÇÃO 1: TÍTULO E INTRODUÇÃO */}
-      <section className={styles.pinkSectionTop}>
-        <h1 className={styles.titulo}>Sobre Nós</h1>
-        <p className={styles.subtitulo}>
+      <section className={styles.pinkSection}>
+        <h1>Sobre Nós</h1>
+        <h2>
           Conheça mais sobre a história, missão e valores que moldam a Therion.
-        </p>
+        </h2>
       </section>
 
       {/* SEÇÃO 1.1: IMAGEM */}
+      <section className={styles.sobreContainer}>
+
         <img
-          src={imagemPalco}
+          src="/sobreNos/membrosPalco.jpg"
           className={`${styles.equipe} ${styles.fadeIn}`}
-        />
+          />
 
-      {/* SEÇÃO 2: HISTÓRIA */}
-      <section className={`${styles.container} ${styles.fadeIn}`}>
-        <div className={styles.tituloComFundo}>
-          <h2 className={styles.titulo}>Nossa História</h2>
-        </div>
-        <img src="/home/sobreNos/utfpr.jpg" className={styles.imagemContainer} />
-        <p className={styles.historia}>
-          A Therion é a Empresa Júnior de Engenharia de Computação da UTFPR - Câmpus Apucarana. Fundada por alunos motivados a transformar conhecimento acadêmico em soluções reais de tecnologia, a Therion surgiu como um espaço de aprendizado prático e empreendedorismo. Desde sua criação, a empresa tem se destacado em projetos de desenvolvimento web, automação e consultoria e projetos de Modelagem 3D.
-        </p>
-      </section>
-
-      {/* SEÇÃO 3: MISSÃO, VISÃO, VALORES */}
-      <section className={`${styles.container} ${styles.fadeIn}`}>
-        <div className={styles.tituloComFundo}>
-          <h2 className={styles.titulo}>Missão, Visão e Valores</h2>
-        </div>
-        <div className={styles.mvvContainer}>
-          <div className={styles.mvvColumn}>
-            <h3>
-              <span role="img" aria-label="target">🎯</span>
-              Missão
-            </h3>
-            <p>Promover o desenvolvimento de soluções tecnológicas que gerem valor para clientes e aprendizado prático para os membros.</p>
-          </div>
-          <div className={styles.mvvColumn}>
-            <h3>
-              <span role="img" aria-label="vision">🔭</span>
-              Visão
-            </h3>
-            <p>Ser reconhecida como uma empresa júnior referência em inovação, qualidade e impacto social na área de tecnologia.</p>
-          </div>
-          <div className={styles.mvvColumn}>
-            <h3>
-              <span role="img" aria-label="values">⭐</span>
-              Valores
-            </h3>
+        {/* SEÇÃO 2: HISTÓRIA */}
+        <section className={`${styles.card} ${styles.fadeIn}`}>
+          <h1>Nossa História</h1>
+          <div className={styles.textoImagemWrapper}>
+            <img src="/home/sobreNos/utfpr.jpg"/>
             <p>
-            Atuamos com proatividade, colaboração e espírito de equipe, sempre pautados pela ética, responsabilidade e inovação.
+              A Therion é a Empresa Júnior de Engenharia de Computação da UTFPR - Câmpus Apucarana. Fundada por alunos motivados a transformar conhecimento acadêmico em soluções reais de tecnologia, a Therion surgiu como um espaço de aprendizado prático e empreendedorismo. Desde sua criação, a empresa tem se destacado em projetos de desenvolvimento web, automação, consultoria e projetos de Modelagem 3D.
             </p>
           </div>
-        </div>
-      </section>
+        </section>
 
+        {/* SEÇÃO 3: MISSÃO, VISÃO, VALORES */}
+        <section className={`${styles.card} ${styles.fadeIn}`}>
+          <h1>Missão, Visão e Valores</h1>
+          <div className={styles.mvvContainer}>
+            <div className={styles.mvvCard}>
+              <h3>
+                <span role="img" aria-label="target">🎯</span>
+                Missão
+              </h3>
+              <p>Promover o desenvolvimento de soluções tecnológicas que gerem valor para clientes e aprendizado prático para os membros.</p>
+            </div>
+            <div className={styles.mvvCard}>
+              <h3>
+                <span role="img" aria-label="vision">🔭</span>
+                Visão
+              </h3>
+              <p>Ser reconhecida como uma empresa júnior referência em inovação, qualidade e impacto social na área de tecnologia.</p>
+            </div>
+            <div className={styles.mvvCard}>
+              <h3>
+                <span role="img" aria-label="values">⭐</span>
+                Valores
+              </h3>
+              <p>
+              Atuamos com proatividade, colaboração e espírito de equipe, sempre pautados pela ética, responsabilidade e inovação.
+              </p>
+            </div>
+          </div>
+        </section>
+      </section>
+      
       {/* SEÇÃO 4: DEPOIMENTO */}
-      <section className={styles.pinkSectionBottom}>
-        <h2 className={styles.titulo}>O que dizem sobre nós?</h2>
+      <section className={styles.pinkSection}>
+        <h1>O que dizem sobre nós?</h1>
         <div className={styles.testimonialWrapper}>
           <div className={styles.testimonialCarousel}>
             <button className={`${styles.carouselButton} ${styles.prevButton}`} onClick={prevTestimonial}>
@@ -144,10 +143,10 @@ function Sobre() {
           <div className={styles.testimonialDots}>
             {testimonials.map((_, index) => (
               <button
-                key={index}
-                className={`${styles.dot} ${currentTestimonial === index ? styles.activeDot : ''}`}
-                onClick={() => setCurrentTestimonial(index)}
-                aria-label={`Depoimento ${index + 1}`}
+              key={index}
+              className={`${styles.dot} ${currentTestimonial === index ? styles.activeDot : ''}`}
+              onClick={() => setCurrentTestimonial(index)}
+              aria-label={`Depoimento ${index + 1}`}
               />
             ))}
           </div>

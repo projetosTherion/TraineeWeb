@@ -3,11 +3,6 @@ import React, { useRef, useEffect } from 'react';
 import {animate, motion} from 'framer-motion';
 import styles from './caseSection.module.css'; // Ajuste o nome do arquivo CSS conforme o seu
 
-// Importe suas imagens de cases (verifique os caminhos!)
-import imagemTetris from '../../assets/tetris.png';
-import imagemArcseed from '../../assets/SiteArcseed.png';
-import imagemGol from '../../assets/SiteGol.png';
-
 function CasesSection() {
   {/*Variantes das animações*/}
   const ImgVariant ={
@@ -53,7 +48,7 @@ function CasesSection() {
                   whileInView="animate"
                 >
                   <img 
-                    src={imagemTetris} 
+                    src="/projetos/cases/tetris.png" 
                     alt="Projeto Tetris EJ" 
                     className={styles.imagemContainerEsquerda}/>
                 <motion.div className={`${styles.caixaTextoEsquerda} ${styles.caixaTextoEstilo}`}
@@ -77,7 +72,7 @@ function CasesSection() {
                 whileInView="animate"
               >
                 <img 
-                  src={imagemGol} 
+                  src="/projetos/cases/SiteGol.png"
                   alt="Projeto Gol FC" 
                   className={styles.imagemContainerEsquerda}
                   />
@@ -103,7 +98,7 @@ function CasesSection() {
                 whileInView="animate"
               >
                 <img 
-                  src={imagemArcseed} 
+                  src="/projetos/cases/SiteArcseed.png" 
                   alt="Projeto Arcseed" 
                   className={styles.imagemContainerDireita}/>
                 <motion.div className={`${styles.caixaTextoDireita} ${styles.caixaTextoEstilo}`}

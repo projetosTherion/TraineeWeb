@@ -11,19 +11,15 @@
 }
 
 /*Seção Inicial Topo*/
-
 .pinkSectionTop {
-  margin-top: -1.3rem;
   background-color: #ffc0cb;
   padding: clamp(1.5rem, 4vw, 2.5rem) clamp(1rem, 5vw, 3rem);
   text-align: center;
-  width: 100vw;
+  width: 100%;
+  margin-top: 90px;
   position: relative;
-  left: 50%;
-  right: 50%;
-  transform: translateX(-50%);
   margin-bottom: clamp(1rem, 6vw, 3rem);
-}/*Seção Rosa*/
+}
 
 .contentWrapper {
   display: flex;

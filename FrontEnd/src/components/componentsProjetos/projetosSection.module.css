@@ -21,7 +21,7 @@
   box-sizing: border-box;
 }
 
-.titulo {
+.caixaTexto h3{
   font-family: 'League Spartan';
   font-weight: bold;
   font-size: clamp(1.2rem, 5vw, 2.2rem);
@@ -32,24 +32,7 @@
   width: 100%;
 }
 
-.imagemTextoWrapper {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start; 
-  gap: 2.1rem;
-  width: 100%;
-}
-
-.icon {
-  width: 104px;
-  height: 104px;
-  object-fit: contain;
-  align-self: flex-start; 
-  border-radius: 12px;
-  margin-top: 0;
-}
-
-.texto {
+.caixaTexto p{
   font-size: clamp(1rem, 2.5vw, 1.15rem);
   color: #666;
   line-height: 1.6;
@@ -58,17 +41,26 @@
   margin-top: 0;
 }
 
+.caixaTexto img{
+  width: 104px;
+  height: 104px;
+  object-fit: contain;
+  align-self: flex-start; 
+  border-radius: 12px;
+  margin-top: 0;
+}
+
+.imagemTextoWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start; 
+  gap: 2.1rem;
+  width: 100%;
+}
+
 .containerEsquerda,
 .containerDireita {
   display: contents;
   gap: 0;
   min-width: unset;
-}
-
-.icon-ajuste-formatacao {
-  margin-top: -16px; /* ajuste do da imagem de f"omatação e manutenção de computadores" */
-}
-
-.icon.icon-ajuste {
-  margin-top: 10px;  /* ajuste do da imagem de "consultoria em redes de computadores" */
 }

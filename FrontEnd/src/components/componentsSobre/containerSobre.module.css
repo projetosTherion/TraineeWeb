@@ -17,50 +17,93 @@
   }
 }
 
-.pinkSectionTop {
-  margin-top: -1.3rem;
-  background-color: #ffc0cb;
-  padding: 2rem 1rem;
-  text-align: center;
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  transform: translateX(-50%);
-  margin-bottom: 3rem;
+
+/*=== Geral ===*/
+.sobreContainer{
+  width: 100%;
+  max-width: 1600px;
+  height: auto;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
 }
 
-.pinkSectionBottom {
-  margin-top: 3rem;
-  background: #ffc0cb; /* novo tom de rosa para o fundo de "O que dizem sobre nós" */
-  padding: 2rem 1rem;
-  text-align: center;
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  transform: translateX(-50%);
-  margin-bottom: -1.3rem;
+.equipe {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 24px auto 24px auto;
+  margin-bottom: 50px;
+  border-radius: 12px;
 }
 
-.titulo {
+.card {
+  width: 100%;
+  max-width: 2000px;
+  margin: 2rem auto;
+  padding: 2rem;
+  margin-bottom: 50px;
+  border: 2px solid #ff69b4;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.card h1{
+  text-align: center;
+  margin: 0;
+  padding: 1rem 0.5rem;
+  
   font-family: 'League Spartan';
   font-size: 50px;
-  margin-bottom: 20px;
   font-weight: bold;
   color: #000000;
-  text-align: center;
-}
-
-.tituloComFundo {
   background-color: #ffc0cb; /* Rosa claro */
-  padding: 1rem 0.5rem;
-  text-align: center;
   border-radius: 8px;
-  margin-bottom: 1rem;
 }
 
-.subtitulo {
+
+.card img{
+  width: 100%;
+  height: auto;
+  margin: 1rem 0;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.card p{
+  font-family: 'League Spartan';
+  font-size: 35px;
+  color: #414141;
+  text-align: center;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+/*=== Seção Rosa ===*/
+.pinkSection {
+  width: 100%;
+  padding: 2rem 1rem;
+  text-align: center;
+  position: relative;
+  padding-bottom: 3rem;
+  padding-top: 100px;
+  
+  background-color: #ffc0cb;
+}
+
+.pinkSection h1{
+  font-family: 'League Spartan';
+  font-size: 50px;
+  font-weight: bold;
+  color: #000000;
+  background-color: #ffc0cb; /* Rosa claro */
+  border-radius: 8px;
+}
+
+.pinkSection h2{
   font-family: 'League Spartan';
   font-size: 30px;
   margin-bottom: 30px;
@@ -72,70 +115,14 @@
   margin-right: 0px;
 }
 
-.historia {
-  font-family: 'League Spartan';
-  font-size: 25px;
-  color: #414141;
-  text-align: center;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  margin-left: 0px;
-  margin-right: 0px;
-}
-
-.missao {
-  font-family: 'League Spartan';
-  font-size: 25px;
-  color: #414141;
-  text-align: left;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  margin-left: 0px;
-  margin-right: 0px;
-  transition: transform 0.5s ease;
-}
-
-.equipe {
-  max-width: 1200px;
-  width: 100%;
-  height: auto;
-  display: block;
-  margin: 24px auto 24px auto;
-  border-radius: 12px;
-}
-
-.equipeBorda {
-  border: 2px solid #ff69b4; /* mesma cor e grossura da borda de .container/.tituloComFundo */
-  border-radius: 12px;
-  padding: 12px;
-  background: #fff;
+/*=== História ===*/
+.textoImagemWrapper{
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  max-width: 1240px;
-  margin: 32px auto 32px auto;
-  box-shadow: 0 2px 12px 0 rgba(255, 192, 203, 0.10);
 }
 
-.container {
-  max-width: 1000px;
-  margin: 2rem auto;
-  padding: 2rem;
-  border: 2px solid #ff69b4;
-  border-radius: 8px;
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-.imagemContainer {
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-  margin: 1rem 0;
-  border-radius: 8px;
-  object-fit: cover;
-}
-
+/*=== Missão, Visão, Valores ===*/
 .mvvContainer {
     display: flex;
     justify-content: space-between;
@@ -145,7 +132,7 @@
     max-width: 1200px;
 }
 
-.mvvColumn {
+.mvvCard {
     flex: 1;
     text-align: center;
     padding: 2rem;
@@ -158,12 +145,12 @@
     border: 1px solid rgba(255, 105, 180, 0.1);
 }
 
-.mvvColumn:hover {
+.mvvCard:hover {
     transform: translateY(-10px);
     box-shadow: 0 15px 30px rgba(255, 105, 180, 0.2);
 }
 
-.mvvColumn::before {
+.mvvCard::before {
     content: '';
     position: absolute;
     top: 0;
@@ -173,7 +160,7 @@
     background: linear-gradient(90deg, #FF69B4, #ff99cc);
 }
 
-.mvvColumn h3 {
+.mvvCard h3 {
     color: #FF69B4;
     margin-bottom: 1.5rem;
     font-size: 1.8rem;
@@ -184,7 +171,7 @@
     padding-bottom: 15px;
 }
 
-.mvvColumn h3::after {
+.mvvCard h3::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -195,20 +182,20 @@
     background: #FF69B4;
 }
 
-.mvvColumn p {
+.mvvCard p {
     font-size: 1.1rem;
     line-height: 1.6;
     color: #555;
     margin-bottom: 1.5rem;
 }
 
-.mvvColumn ul {
+.mvvCard ul {
     list-style: none;
     padding: 0;
     text-align: center;
 }
 
-.mvvColumn ul li {
+.mvvCard ul li {
     margin: 0.8rem 0;
     color: #555;
     font-size: 1.1rem;
@@ -217,10 +204,11 @@
     transition: color 0.3s ease;
 }
 
-.mvvColumn ul li:hover {
+.mvvCard ul li:hover {
     color: #FF69B4;
 }
 
+/*=== Testemunho ===*/
 .testimonialWrapper {
   max-width: 1000px;
   margin: 0 auto;
