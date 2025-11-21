@@ -7,16 +7,13 @@ SEÇÃO 1: TITULO E SUBTITULO
 */
 
 .pinkSectionInicial {
-  margin-top: -1.3rem;
+  margin-top: 90px;
   margin-bottom: 0rem;
   background-color: #ffc0cb;
   padding-block: clamp(0.5rem, 2vw, 1rem);
   text-align: center;
-  width: 100vw;
+  width: 100%;
   position: relative;
-  left: 50%;
-  right: 50%;
-  transform: translateX(-50%);
 }
 
 .panteraInicial {

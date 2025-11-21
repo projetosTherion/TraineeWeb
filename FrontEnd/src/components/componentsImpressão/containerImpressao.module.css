@@ -106,15 +106,12 @@ Componentes GERAIS
 SEÇÃO 1: TITULO E SUBTITULO
 */
 .pinkSectionTopo {
-  margin-top: -1.3rem;
-  margin-bottom: 0rem;
+  margin-top: 90px;
   background-color: #ffc0cb;
   padding-block: clamp(0.5rem, 2vw, 1rem);
   text-align: center;
-  width: 100vw;
+  width: 100%;
   position: relative;
-  left: 50%;
-  transform: translateX(-50%);
   overflow: auto;
 }
 
