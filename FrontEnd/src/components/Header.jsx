@@ -29,7 +29,7 @@ function Header() {
     <>
       <div ref={sentinelRef} className="size-[0.1px]"/>
       <header className={`transition-all duration-300 ease-in-out bg-[#FF5991] max-h-[60px] h-[60px] py-[clamp(10px,3vw,15px)] z-40 w-full top-0 shadow-[0_2px_10px_rgba(0,0,0,0.1)] fixed
-        ${isSticky && "scale-95 rounded-3xl"}`}>
+        ${isSticky && "scale-95 rounded-3xl translate-y-2"}`}>
         <div className="flex justify-between items-center px-[clamp(8px,4vw,32px)] w-full h-full">
           {/* Logo */}
           <Link to="/">
