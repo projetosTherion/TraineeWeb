@@ -59,7 +59,7 @@ function Home() {
     <main>
       {/* banner-home */}
       <section 
-        className="w-full h-screen bg-center bg-top bg-no-repeat bg-cover flex items-center justify-center relative"
+        className="w-full h-screen bg-top bg-no-repeat bg-cover flex items-center justify-center relative"
         style={{backgroundImage: `url(/home/TimeTherion.jpg)`}}>
         <div className="absolute inset-0 bg-[#EFA2BB] opacity-45"></div>
         <motion.div 
@@ -67,7 +67,7 @@ function Home() {
           initial="initial"
           whileInView="inView"
           viewport={{once: true}}
-          className="flex flex-col items-center justify-center absolute inset-0 m-auto w-fit h-fit z-[3]">
+          className="flex flex-col items-center justify-center absolute inset-0 m-auto w-fit h-fit z-3">
           <motion.img 
             src="/images/logoBranca.webp" 
             alt="Logo T" 
@@ -86,10 +86,10 @@ function Home() {
         </motion.div>
       </section>
 
-      <section className="max-w-[2000px] mx-auto py-[clamp(80px,15vw,120px)] flex flex-col justify-center items-center gap-[100px]">
+      <section className="max-w-500 mx-auto py-[clamp(80px,15vw,120px)] flex flex-col justify-center items-center gap-25">
         {/* Sobre nós */}
         <motion.div 
-          className="relative w-full max-w-[1500px] min-h-[450px] md:min-h-auto flex flex-col justify-center bg-white border-[5px] border-[#ff5991] rounded-[30px] p-[clamp(10px,6vw,40px)]" 
+          className="relative w-full max-w-375 min-h-112.5 md:min-h-auto flex flex-col justify-center bg-white border-[5px] border-[#ff5991] rounded-[30px] p-[clamp(10px,6vw,40px)]" 
           variants={cardVariant} 
           initial="hidden"
           whileInView="inView"
@@ -97,7 +97,7 @@ function Home() {
           <h2 className="absolute top-[clamp(-98px,-8vw,-110px)] md:top-[-30px] md:left-1/2 md:-translate-x-1/2 left-[clamp(5px,2vw,20px)] bg-white text-[#ff5991] text-[clamp(2rem,6vw,4rem)] md:text-[clamp(1.8rem,6vw,3rem)] font-bold px-[clamp(5px,2vw,20px)]">
             Sobre nós
           </h2>
-          <div className="flex justify-between items-center gap-[clamp(20px,6vw,60px)] md:gap-[clamp(10px,4vw,40px)] min-h-auto flex-grow md:flex-col">
+          <div className="flex justify-between items-center gap-[clamp(20px,6vw,60px)] md:gap-[clamp(10px,4vw,40px)] min-h-auto grow md:flex-col">
             <div className="max-w-[50%] md:max-w-full flex flex-col justify-center h-full md:items-center md:text-center">
               <p className="flex-1 text-[clamp(1rem,2vw,1.5rem)] font-bold leading-[1.8] text-[#333333] md:text-center">
                 Somos a Therion, a Empresa Júnior de Engenharia de Computação da UTFPR Apucarana.
@@ -115,7 +115,7 @@ function Home() {
                 src={sobreNosImages[sobreIndex]}
                 alt="Carrossel"
                 className="w-full max-w-[clamp(220px,50vw,500px)] md:max-w-[90%] md:max-h-auto rounded-[10px] shadow-[0_4px_8px_rgba(0,0,0,0.1)]"/>
-              <div className="flex justify-center items-center gap-3 mt-[18px] max-h-[380px]">
+              <div className="flex justify-center items-center gap-3 mt-4.5 max-h-95">
                 {sobreNosImages.map((_, idx) => (
                   <button
                     key={idx}
@@ -135,7 +135,7 @@ function Home() {
 
         {/* Serviços */}
         <motion.div 
-          className="relative w-full max-w-[1500px] min-h-[450px] md:min-h-auto flex flex-col justify-center bg-white border-[5px] border-[#ff5991] rounded-[30px] p-[clamp(10px,6vw,40px)]" 
+          className="relative w-full max-w-375 min-h-112.5 md:min-h-auto flex flex-col justify-center bg-white border-[5px] border-[#ff5991] rounded-[30px] p-[clamp(10px,6vw,40px)]" 
           variants={cardVariant} 
           initial="hidden"
           whileInView="inView"
@@ -143,13 +143,13 @@ function Home() {
           <h2 className="absolute top-[clamp(-98px,-8vw,-110px)] md:top-[-30px] md:left-1/2 md:-translate-x-1/2 left-[clamp(5px,2vw,20px)] bg-white text-[#ff5991] text-[clamp(2rem,6vw,4rem)] md:text-[clamp(1.8rem,6vw,3rem)] font-bold px-[clamp(5px,2vw,20px)]">
             Serviços
           </h2>
-          <div className="flex justify-between items-center gap-[clamp(20px,6vw,60px)] md:gap-[clamp(10px,4vw,40px)] min-h-auto flex-grow md:flex-col">
+          <div className="flex justify-between items-center gap-[clamp(20px,6vw,60px)] md:gap-[clamp(10px,4vw,40px)] min-h-auto grow md:flex-col">
             <div className="flex-1 relative flex flex-col items-center justify-center w-full md:w-full max-h-none">
               <img
                 src={servicosImages[servicoIndex]}
                 alt="Serviço"
                 className="w-full max-w-[clamp(220px,50vw,500px)] md:max-w-[90%] md:max-h-auto rounded-[10px] shadow-[0_4px_8px_rgba(0,0,0,0.1)]"/>
-              <div className="flex justify-center items-center gap-3 mt-[18px] max-h-[380px]">
+              <div className="flex justify-center items-center gap-3 mt-4.5 max-h-95">
                 {servicosImages.map((_, idx) => (
                   <button
                     key={idx}
@@ -181,7 +181,7 @@ function Home() {
 
         {/* projetos-home */}
         <motion.div 
-          className="relative w-full max-w-[1500px] min-h-[450px] md:min-h-auto flex flex-col justify-center bg-white border-[5px] border-[#ff5991] rounded-[30px] p-[clamp(10px,6vw,40px)]" 
+          className="relative w-full max-w-375 min-h-112.5 md:min-h-auto flex flex-col justify-center bg-white border-[5px] border-[#ff5991] rounded-[30px] p-[clamp(10px,6vw,40px)]" 
           variants={cardVariant} 
           initial="hidden"
           whileInView="inView"
@@ -189,7 +189,7 @@ function Home() {
           <h2 className="absolute top-[clamp(-98px,-8vw,-110px)] md:top-[-30px] md:left-1/2 md:-translate-x-1/2 left-[clamp(5px,2vw,20px)] bg-white text-[#ff5991] text-[clamp(2rem,6vw,4rem)] md:text-[clamp(1.8rem,6vw,3rem)] font-bold px-[clamp(5px,2vw,20px)]">
             Projetos
           </h2>
-          <div className="flex justify-between items-center gap-[clamp(20px,6vw,60px)] md:gap-[clamp(10px,4vw,40px)] min-h-auto flex-grow md:flex-col">
+          <div className="flex justify-between items-center gap-[clamp(20px,6vw,60px)] md:gap-[clamp(10px,4vw,40px)] min-h-auto grow md:flex-col">
             <div className="max-w-[50%] md:max-w-full flex flex-col justify-center h-full md:items-center md:text-center">
               <p className="flex-1 text-[clamp(1rem,2vw,1.5rem)] font-bold leading-[1.8] text-[#333333] md:text-center">
                 Desenvolvemos projetos incríveis, com soluções criativas e inovadoras para atender às necessidades
@@ -206,7 +206,7 @@ function Home() {
                 src={projetosImages[projetoIndex]}
                 alt="Projeto"
                 className="w-full max-w-[clamp(220px,50vw,500px)] md:max-w-[90%] md:max-h-auto rounded-[10px] shadow-[0_4px_8px_rgba(0,0,0,0.1)]"/>
-              <div className="flex justify-center items-center gap-3 mt-[18px] max-h-[380px]">
+              <div className="flex justify-center items-center gap-3 mt-4.5 max-h-95">
                 {projetosImages.map((_, idx) => (
                   <button
                     key={idx}
@@ -226,7 +226,7 @@ function Home() {
 
         {/* Gostou do nosso trabalho */}
         <motion.div 
-          className="relative w-full max-w-[1500px] min-h-[450px] md:min-h-auto flex flex-col justify-center bg-white border-[5px] border-[#ff5991] rounded-[30px] p-[clamp(10px,6vw,40px)]" 
+          className="relative w-full max-w-375 min-h-112.5 md:min-h-auto flex flex-col justify-center bg-white border-[5px] border-[#ff5991] rounded-[30px] p-[clamp(10px,6vw,40px)]" 
           variants={cardVariant} 
           initial="hidden"
           whileInView="inView"
@@ -234,12 +234,12 @@ function Home() {
           <h2 className="absolute top-[clamp(-98px,-8vw,-110px)] md:top-[-30px] md:left-1/2 md:-translate-x-1/2 left-[clamp(5px,2vw,20px)] bg-white text-[#ff5991] text-[clamp(2rem,6vw,4rem)] md:text-[clamp(1.8rem,6vw,3rem)] font-bold px-[clamp(5px,2vw,20px)]">
             Gostou do nosso trabalho?
           </h2>
-          <div className="flex justify-between items-center gap-[clamp(20px,6vw,60px)] md:gap-[clamp(10px,4vw,40px)] min-h-auto flex-grow md:flex-col">
+          <div className="flex justify-between items-center gap-[clamp(20px,6vw,60px)] md:gap-[clamp(10px,4vw,40px)] min-h-auto grow md:flex-col">
             <div className="flex flex-col w-full md:w-full">
               <img
                 src="/home/PanteraContato.png"
                 alt="Mascote Pantera Cor-de-Rosa"
-                className="max-w-[320px] md:max-w-[250px] mx-auto w-full md:w-full"
+                className="max-w-80 md:max-w-62.5 mx-auto w-full md:w-full"
               />
               <h3 className="text-[#ff5991] font-bold text-[clamp(1rem,4vw,2rem)] md:text-[clamp(0.9rem,3.5vw,1.5rem)] mt-[clamp(10px,4vw,30px)] text-center tracking-[1px] leading-[clamp(1.2rem,4vw,2.4rem)]">
                 VENHA SER ROSA CHOQUE POR RESULTADO!
