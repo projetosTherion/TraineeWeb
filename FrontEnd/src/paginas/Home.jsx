@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
+import { gsap } from "gsap";
 
 const bannerVariants = {
   initial: {opacity: 0, y: 50},
@@ -25,62 +26,70 @@ const cardVariant = {
   },
 }
 
-const cardsData = [
-  {
-    id: 'sobre',
-    titulo: "Sobre nós",
-    descricao: "Somos a Therion, a Empresa Júnior de Engenharia de Computação da UTFPR Apucarana. Alunos com atitude, criatividade e sede por inovação. Sem fins lucrativos, com foco total em resultados — porque acreditamos que aprender fazendo transforma carreiras e impulsiona o mercado.",
-    textoBotao: "Sobre nós",
-    rota: "/sobre",
-    imagens: [
-      "/home/sobreNos/membros.jpg",
-      "/home/sobreNos/utfpr.jpg",
-    ],
-    imagemPrimeira: false, // false = imagem à direita
-  },
-  {
-    id: 'servicos',
-    titulo: "Serviços",
-    descricao: "Criamos sites, aplicativos, modelagens 3D e realizamos impressões 3D sob demanda. Soluções tecnológicas personalizadas, feitas por estudantes que vivem a engenharia na prática — com visão jovem e mente inquieta.",
-    textoBotao: "Conheça mais",
-    rota: "/impressao3d",
-    imagens: [
-      "/home/servicos/IconeModelagem.png",
-      "/home/servicos/IconeDesWeb.png",
-      "/home/servicos/IconeMicrocontrolados.png",
-    ],
-    imagemPrimeira: true, // true = imagem à esquerda
-  },
-  {
-    id: 'projetos',
-    titulo: "Projetos",
-    descricao: "Desenvolvemos projetos incríveis, com soluções criativas e inovadoras para atender às necessidades dos nossos clientes. Desde protótipos funcionais até produtos finais, garantimos qualidade e excelência.",
-    textoBotao: "Veja nossos projetos",
-    rota: "/projetos",
-    imagens: [
-      "/home/projetos/Microcontrolados.png",
-      "/home/projetos/DesWeb.png",
-      "/home/projetos/Modelagem.png",
-    ],
-    imagemPrimeira: false,
-  },
-  {
-    id: 'contato',
-    titulo: "Gostou do nosso trabalho?",
-    descricao: "Entre em contato com a nossa equipe e descubra como podemos contribuir para o sucesso do seu negócio.",
-    textoBotao: "Fale conosco",
-    rota: "/contato",
-    imagens: ["/home/PanteraContato.png"],
-    imagemPrimeira: true,
-    subtitulo: "VENHA SER ROSA CHOQUE POR RESULTADOS!",
-  },
-];
-
 function Home() {
-  const [carouselIndexes, setCarouselIndexes] = useState(
-    cardsData.reduce((acc, card) => ({ ...acc, [card.id]: 0 }), {})
-  );
+  const [carouselIndexes, setCarouselIndexes] = useState({});
+  const [slideDirection, setSlideDirection] = useState({});
   const navigate = useNavigate();
+  const logoRef = useRef(null);
+
+  const cardsData = [
+    {
+      id: 'sobre',
+      titulo: "Sobre nós",
+      descricao: "Somos a Therion, a Empresa Júnior de Engenharia de Computação da UTFPR Apucarana. Alunos com atitude, criatividade e sede por inovação. Sem fins lucrativos, com foco total em resultados — porque acreditamos que aprender fazendo transforma carreiras e impulsiona o mercado.",
+      textoBotao: "Sobre nós",
+      rota: "/sobre",
+      imagens: [
+        { img: "/home/sobreNos/membros.jpg", ref: useRef(null) },
+        { img: "/home/sobreNos/utfpr.jpg", ref: useRef(null) }
+      ],
+      imagemPrimeira: false,
+    },
+    {
+      id: 'servicos',
+      titulo: "Serviços",
+      descricao: "Criamos sites, aplicativos, modelagens 3D e realizamos impressões 3D sob demanda. Soluções tecnológicas personalizadas, feitas por estudantes que vivem a engenharia na prática — com visão jovem e mente inquieta.",
+      textoBotao: "Conheça mais",
+      rota: "/impressao3d",
+      imagens: [
+        { img: "/home/servicos/IconeModelagem.png", ref: useRef(null) },
+        { img: "/home/servicos/IconeDesWeb.png", ref: useRef(null) },
+        { img: "/home/servicos/IconeMicrocontrolados.png", ref: useRef(null) },
+      ],
+      imagemPrimeira: true,
+    },
+    {
+      id: 'projetos',
+      titulo: "Projetos",
+      descricao: "Desenvolvemos projetos incríveis, com soluções criativas e inovadoras para atender às necessidades dos nossos clientes. Desde protótipos funcionais até produtos finais, garantimos qualidade e excelência.",
+      textoBotao: "Veja nossos projetos",
+      rota: "/projetos",
+      imagens: [
+        { img: "/home/projetos/Microcontrolados.png", ref: useRef(null) },
+        { img: "/home/projetos/DesWeb.png", ref: useRef(null) },
+        { img: "/home/projetos/Modelagem.png", ref: useRef(null) },
+      ],
+      imagemPrimeira: false,
+    },
+    {
+      id: 'contato',
+      titulo: "Gostou do nosso trabalho?",
+      descricao: "Entre em contato com a nossa equipe e descubra como podemos contribuir para o sucesso do seu negócio.",
+      textoBotao: "Fale conosco",
+      rota: "/contato",
+      imagens: [
+        { img: "/home/PanteraContato.png", ref: useRef(null) }
+      ],
+      imagemPrimeira: true,
+      subtitulo: "VENHA SER ROSA CHOQUE POR RESULTADOS!",
+    },
+  ];
+
+  useEffect(() => {
+    // Inicializar carouselIndexes e slideDirection após cardsData estar disponível
+    setCarouselIndexes(cardsData.reduce((acc, card) => ({ ...acc, [card.id]: 0 }), {}));
+    setSlideDirection(cardsData.reduce((acc, card) => ({ ...acc, [card.id]: 1 }), {}));
+  }, []);
 
   // Função para navegar e ir ao topo
   const handleNavigate = (path) => {
@@ -89,26 +98,47 @@ function Home() {
   };
 
   // Função para atualizar índice do carrossel
-  const updateCarouselIndex = (cardId, index) => {
-    setCarouselIndexes(prev => ({ ...prev, [cardId]: index }));
+  const updateCarouselIndex = (cardId, newIndex) => {
+    const currentIndex = carouselIndexes[cardId];
+    const direction = newIndex > currentIndex ? 1 : -1;
+    
+    setSlideDirection(prev => ({ ...prev, [cardId]: direction }));
+    setCarouselIndexes(prev => ({ ...prev, [cardId]: newIndex }));
+  };
+
+  // Variantes de animação para o carrossel
+  const slideVariants = {
+    enter: {
+      x: 0,
+      opacity: 1
+    },
+    center: {
+      x: 0,
+      opacity: 1
+    },
+    exit: (direction) => ({
+      x: direction > 0 ? -50 : 50,
+      opacity: 0
+    })
   };
 
   return (
     <main>
       {/* banner-home */}
       <section 
-        className="w-full h-screen bg-top bg-no-repeat bg-cover flex items-center justify-center relative"
+        className="scene w-full h-screen bg-top bg-no-repeat bg-cover flex items-center justify-center relative"
         style={{backgroundImage: `url(/home/TimeTherion.jpg)`}}>
-        <div className="absolute inset-0 bg-[#EFA2BB] opacity-45"></div>
+        <div className="absolute inset-0 bg-[#EFA2BB] opacity-45"/> 
         <motion.div 
           variants={containerBanner}
           initial="initial"
           whileInView="inView"
           viewport={{once: true}}
           className="flex flex-col items-center justify-center absolute inset-0 m-auto w-fit h-fit z-3">
-          <motion.img 
-            src="/images/logoBranca.webp" 
-            alt="Logo T" 
+          <motion.img
+            ref={logoRef} 
+            src="/images/logoBranca.webp"
+            alt="Therion" 
             variants={bannerVariants}
             className="w-[clamp(100px,20vw,250px)] mb-2.5"/>
           <motion.h1 
@@ -136,7 +166,7 @@ function Home() {
             <h2 className="absolute -top-1 -translate-y-1/2 md:left-12 left-[clamp(5px,2vw,20px)] bg-white text-[#ff5991] text-[clamp(2rem,6vw,4rem)] md:text-[clamp(1.8rem,6vw,3rem)] font-bold px-[clamp(5px,2vw,20px)]">
               {card.titulo}
             </h2>
-            <div className={`flex justify-between items-center gap-[clamp(20px,6vw,60px)] md:gap-[clamp(10px,4vw,40px)] ${card.imagemPrimeira ? 'flex-row-reverse md:flex-col' : ''}`}>
+            <div className={`flex justify-between items-center gap-[clamp(20px,6vw,60px)] md:gap-[clamp(10px,4vw,40px)] ${card.imagemPrimeira ? 'flex-row-reverse' : ''}`}>
               {/* Conteúdo de texto */}
               <div className="w-[30%] flex flex-col justify-center h-full py-6 md:items-center">
                 <p className="flex-1 text-lg font-bold leading-[1.8] text-[#333333]">
@@ -154,9 +184,10 @@ function Home() {
                 {card.id === 'contato' ? (
                   <>
                     <img
-                      src={card.imagens[0]}
+                      ref={card.imagens[0].ref}
+                      src={card.imagens[0].img}
                       alt="Mascote Pantera Cor-de-Rosa"
-                      className="max-w-80 md:max-w-62.5 mx-auto w-full md:w-full"
+                      className="object-cover max-w-64 md:max-w-62.5 mx-auto w-[70%]"
                     />
                     {card.subtitulo && (
                       <h3 className="text-[#ff5991] font-bold text-[clamp(1rem,4vw,2rem)] md:text-[clamp(0.9rem,3.5vw,1.5rem)] mt-[clamp(10px,4vw,30px)] text-center tracking-[1px] leading-[clamp(1.2rem,4vw,2.4rem)]">
@@ -165,26 +196,40 @@ function Home() {
                     )}
                   </>
                 ) : (
-                  <div className="relative w-full">
-                    <img
-                      src={card.imagens[carouselIndexes[card.id]]}
-                      alt={`${card.titulo} - Imagem ${carouselIndexes[card.id] + 1}`}
-                      className="w-full object-cover rounded-[10px] shadow-[0_4px_8px_rgba(0,0,0,0.1)]"/>
-                      {card.imagens.length > 1 && (
-                        <div className="absolute flex w-full justify-center items-center gap-5 bottom-6 max-h-95">
-                          {card.imagens.map((_, idx) => (
-                            <div
-                              key={idx}
-                              className={`size-4 bg-[#ff5991] rounded-full border-none transition-all ease-in-out duration-300 cursor-pointer p-0 outline-none ${
-                                carouselIndexes[card.id] === idx 
-                                  && 'scale-150'
-                              }`}
-                              onClick={() => updateCarouselIndex(card.id, idx)}
-                              aria-label={`Selecionar imagem ${idx + 1}`}
-                            />
-                          ))}
-                        </div>
-                      )}
+                  <div className="relative w-full overflow-hidden">
+                    <AnimatePresence initial={false} custom={slideDirection[card.id]} mode="wait">
+                      <motion.img
+                        key={carouselIndexes[card.id]}
+                        ref={card.imagens[carouselIndexes[card.id]]?.ref}
+                        src={card.imagens[carouselIndexes[card.id]]?.img}
+                        alt={`${card.titulo} - Imagem ${carouselIndexes[card.id] + 1}`}
+                        className="w-full h-auto max-h-[400px] object-contain rounded-[10px] shadow-[0_4px_8px_rgba(0,0,0,0.1)]"
+                        custom={slideDirection[card.id]}
+                        variants={slideVariants}
+                        initial="enter"
+                        animate="center"
+                        exit="exit"
+                        transition={{
+                          x: { duration: 0.3, ease: "easeInOut" },
+                          opacity: { duration: 0.4, ease: "easeInOut" }
+                        }}
+                      />
+                    </AnimatePresence>
+                    {card.imagens.length > 1 && (
+                      <div className="absolute flex w-full justify-center items-center gap-5 bottom-6 max-h-95">
+                        {card.imagens.map((_, idx) => (
+                          <div
+                            key={idx}
+                            className={`size-4 bg-[#ff5991] rounded-full border-none transition-all ease-in-out duration-300 cursor-pointer p-0 outline-none ${
+                              carouselIndexes[card.id] === idx 
+                                && 'scale-150'
+                            }`}
+                            onClick={() => updateCarouselIndex(card.id, idx)}
+                            aria-label={`Selecionar imagem ${idx + 1}`}
+                          />
+                        ))}
+                      </div>
+                    )}
                   </div>
                 )}
               </div>

@@ -1,9 +1,17 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=League+Spartan&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=League+Spartan&display=swap'); */
 
 *, *::before, *::after {
   box-sizing: border-box;
 }
+
+.scene {
+}
+
+.card {
+}
+
+.float, .show {}
 
 body {
   margin: 0;
