@@ -1,5 +1,4 @@
 import styles from '../components/componentsProjetos/containerProjetos.module.css'; // Importa o arquivo CSS do containerProjetos
-import CasesSection from '../components/componentsProjetos/CaseSection';
 import ProjetosSection from '../components/componentsProjetos/projetosSection';
 
 
@@ -23,7 +22,6 @@ function Projetos() {
     </section>
 
     <ProjetosSection/>
-    <CasesSection/>  
 
   </main>
     );

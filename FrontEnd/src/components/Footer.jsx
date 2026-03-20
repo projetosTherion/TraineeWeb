@@ -39,7 +39,6 @@ function Footer() {
                     <ul className="footer-links">
                         <li><a href="/sobre" target="_blank" rel="noopener noreferrer">Sobre nós</a></li>
                         <li><a href="/projetos" target="_blank" rel="noopener noreferrer">Serviços</a></li>
-                        {/*<li><a href="/politica-de-privacidade" target="_blank" rel="noopener noreferrer">Política de Privacidade</a></li>*/}
                     </ul>
                 </div>
             </div>
